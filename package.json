@@ -1,0 +1,11 @@
+{
+  "name": "garmin-export",
+  "version": "1.0.0",
+  "description": "Extrae entrenamientos de Garmin Connect a CSV",
+  "main": "garmin.js",
+  "scripts": { "start": "node garmin.js" },
+  "dependencies": {
+    "garmin-connect": "^1.6.2",
+    "json2csv": "^6.0.0-alpha.2"
+  }
+}

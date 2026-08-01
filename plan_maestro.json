@@ -1,0 +1,1822 @@
+{
+ "dias": [
+  {
+   "fecha": "2026-07-25",
+   "dia": "Sábado",
+   "semana": "Arranque",
+   "fase": "Fase 2: Base y Umbral",
+   "sesion": "FONDO + final progresivo",
+   "volumen": "15 km",
+   "ritmo": "12 km @4:50-5:00 + 3 km bajando a 4:20",
+   "zona": "Z2 → Z3",
+   "cal_cod": "C3",
+   "cal": [
+    "Movilidad dinámica 5 min con énfasis en cadera y tobillo",
+    "Los primeros 2 km del fondo a 5:30-5:40",
+    "⚑ Esos 2 km CUENTAN dentro del volumen. Nunca salgas a ritmo objetivo desde el km 1."
+   ],
+   "vc_cod": "VC3",
+   "vc": [
+    "Último km trotando suave después del tramo progresivo",
+    "Caminar 5 min + hidratar con electrolitos",
+    "Estiramiento 6 min",
+    "Piernas en alto contra la pared 5 min",
+    "Comida completa dentro de los 30-45 min"
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Primer fondo del bloque. No lo negocies.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-07-26",
+   "dia": "Domingo",
+   "semana": "Arranque",
+   "fase": "Fase 2: Base y Umbral",
+   "sesion": "CUESTAS A — Neuromuscular",
+   "volumen": "8 km total",
+   "ritmo": "10 x 12 s cuesta a MÁXIMO",
+   "zona": "Z1 + picos",
+   "cal_cod": "C4",
+   "cal": [
+    "Movilidad dinámica 5 min",
+    "Trote 15 min en Z1 — llega a la cuesta caliente de verdad",
+    "Drills 4 min + 3 rectas progresivas en llano",
+    "2 subidas de aproximación: una al 70% y otra al 85%",
+    "⚑ CRÍTICO: nunca arranques a MÁXIMO en frío. El riesgo de isquios es real."
+   ],
+   "vc_cod": "VC4",
+   "vc": [
+    "Trote suave 8 min",
+    "Estiramiento con énfasis en isquios y gemelos",
+    "⚑ Los sprints máximos cargan mucho el tendón. No te lo saltes."
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Bajar CAMINANDO 2-3 min. Recuperación completa.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-07-27",
+   "dia": "Lunes",
+   "semana": "Semana 1 · Base",
+   "fase": "Fase 2: Base y Umbral",
+   "sesion": "Recuperación",
+   "volumen": "8 km",
+   "ritmo": "5:20-5:30",
+   "zona": "Z1 (<158)",
+   "cal_cod": "C1",
+   "cal": [
+    "Movilidad dinámica 5 min: círculos de cadera · balanceo de pierna frontal 10/lado · balanceo lateral 10/lado · círculos de tobillo · rotación de tronco",
+    "Caminar rápido 3 min",
+    "Arrancar el trote 30-40 s/km más lento que el objetivo y subir progresivo",
+    "⚑ En día fácil NO hacen falta drills ni rectas. El trote es el calentamiento."
+   ],
+   "vc_cod": "VC1",
+   "vc": [
+    "Bajar el ritmo naturalmente los últimos 5 min del rodaje",
+    "Caminar 3 min",
+    "Estiramiento suave 30 s c/u: isquios · cuádriceps · gemelo · sóleo · flexor de cadera · glúteo"
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Soltar piernas del fin de semana.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-07-28",
+   "dia": "Martes",
+   "semana": "Semana 1 · Base",
+   "fase": "Fase 2: Base y Umbral",
+   "sesion": "Intervalos de Umbral",
+   "volumen": "4 x 2 km",
+   "ritmo": "3:40-3:45",
+   "zona": "Z4 (177-186)",
+   "cal_cod": "C2",
+   "cal": [
+    "Movilidad dinámica 5 min",
+    "Trote progresivo 15 min (de 5:40 a 5:00). FC no debe pasar 160",
+    "Drills 5 min: skipping A 2x20 m · skipping B 2x20 m · talón-glúteo 2x20 m · carioca 2x20 m · taloneo rápido 2x20 m",
+    "4 rectas progresivas de 80 m — la última al 95% del ritmo de la sesión. Vuelta caminando",
+    "Pausa 2-3 min: hidratar y respirar",
+    "⚑ Si la primera serie es la más rápida del día, calentaste mal."
+   ],
+   "vc_cod": "VC2",
+   "vc": [
+    "Trote MUY suave 10-12 min a 5:45-6:00 — FC por debajo de 140",
+    "Caminar 3 min",
+    "Estiramiento estático 6 min (30-45 s por músculo)",
+    "Foam roller 5 min: cuádriceps · banda iliotibial · gemelos · glúteos",
+    "Proteína + carbohidrato dentro de los 45 min",
+    "⚑ Saltarte esto es la razón #1 de que un martes duro arruine el miércoles."
+   ],
+   "pm_titulo": "FUERZA A — Máxima (45 min)",
+   "pm": [
+    "Sentadilla trasera 4 x 5 @ 80-85% 1RM",
+    "Peso muerto rumano 3 x 6 @ 75-80%",
+    "Zancada con mancuernas 3 x 8 por pierna",
+    "Elevación de gemelo a 1 pierna 3 x 12",
+    "Plancha frontal 3 x 45 s",
+    "Dead bug 3 x 10 por lado",
+    "→ VC5: bici o caminar 5 min + estiramiento 5 min + proteína en 30 min"
+   ],
+   "nota": "Fuerza DESPUÉS de correr, mínimo 4 h de separación.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-07-29",
+   "dia": "Miércoles",
+   "semana": "Semana 1 · Base",
+   "fase": "Fase 2: Base y Umbral",
+   "sesion": "Rodaje medio",
+   "volumen": "10 km",
+   "ritmo": "5:00",
+   "zona": "Z2 (158-166)",
+   "cal_cod": "C1",
+   "cal": [
+    "Movilidad dinámica 5 min: círculos de cadera · balanceo de pierna frontal 10/lado · balanceo lateral 10/lado · círculos de tobillo · rotación de tronco",
+    "Caminar rápido 3 min",
+    "Arrancar el trote 30-40 s/km más lento que el objetivo y subir progresivo",
+    "⚑ En día fácil NO hacen falta drills ni rectas. El trote es el calentamiento."
+   ],
+   "vc_cod": "VC1",
+   "vc": [
+    "Bajar el ritmo naturalmente los últimos 5 min del rodaje",
+    "Caminar 3 min",
+    "Estiramiento suave 30 s c/u: isquios · cuádriceps · gemelo · sóleo · flexor de cadera · glúteo"
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Frenar de verdad. FC techo 166.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-07-30",
+   "dia": "Jueves",
+   "semana": "Semana 1 · Base",
+   "fase": "Fase 2: Base y Umbral",
+   "sesion": "Tempo continuo",
+   "volumen": "2 cal + 5 tempo + 2 enf",
+   "ritmo": "3:50-3:55",
+   "zona": "Z3-Z4",
+   "cal_cod": "C2",
+   "cal": [
+    "Movilidad dinámica 5 min",
+    "Trote progresivo 15 min (de 5:40 a 5:00). FC no debe pasar 160",
+    "Drills 5 min: skipping A 2x20 m · skipping B 2x20 m · talón-glúteo 2x20 m · carioca 2x20 m · taloneo rápido 2x20 m",
+    "4 rectas progresivas de 80 m — la última al 95% del ritmo de la sesión. Vuelta caminando",
+    "Pausa 2-3 min: hidratar y respirar",
+    "⚑ Si la primera serie es la más rápida del día, calentaste mal."
+   ],
+   "vc_cod": "VC2",
+   "vc": [
+    "Trote MUY suave 10-12 min a 5:45-6:00 — FC por debajo de 140",
+    "Caminar 3 min",
+    "Estiramiento estático 6 min (30-45 s por músculo)",
+    "Foam roller 5 min: cuádriceps · banda iliotibial · gemelos · glúteos",
+    "Proteína + carbohidrato dentro de los 45 min",
+    "⚑ Saltarte esto es la razón #1 de que un martes duro arruine el miércoles."
+   ],
+   "pm_titulo": "FUERZA B — Pliometría + Core (35 min)",
+   "pm": [
+    "Salto al cajón 4 x 5 (40-50 cm)",
+    "Salto con contramovimiento 3 x 6",
+    "Bounding / multisaltos 4 x 20 m",
+    "Peso muerto a 1 pierna 3 x 8 por pierna",
+    "Puente de glúteo a 1 pierna 3 x 12",
+    "Pallof press 3 x 10 por lado",
+    "Plancha lateral 3 x 30 s por lado",
+    "→ VC5: bici o caminar 5 min + estiramiento 5 min + proteína en 30 min"
+   ],
+   "nota": "Completar los 5 km enteros. Sal conservador.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-07-31",
+   "dia": "Viernes",
+   "semana": "Semana 1 · Base",
+   "fase": "Fase 2: Base y Umbral",
+   "sesion": "Recuperación",
+   "volumen": "6 km",
+   "ritmo": "5:30",
+   "zona": "Z1",
+   "cal_cod": "C1",
+   "cal": [
+    "Movilidad dinámica 5 min: círculos de cadera · balanceo de pierna frontal 10/lado · balanceo lateral 10/lado · círculos de tobillo · rotación de tronco",
+    "Caminar rápido 3 min",
+    "Arrancar el trote 30-40 s/km más lento que el objetivo y subir progresivo",
+    "⚑ En día fácil NO hacen falta drills ni rectas. El trote es el calentamiento."
+   ],
+   "vc_cod": "VC1",
+   "vc": [
+    "Bajar el ritmo naturalmente los últimos 5 min del rodaje",
+    "Caminar 3 min",
+    "Estiramiento suave 30 s c/u: isquios · cuádriceps · gemelo · sóleo · flexor de cadera · glúteo"
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Regenerativo estricto. Nada de fuerza hoy.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-01",
+   "dia": "Sábado",
+   "semana": "Semana 1 · Base",
+   "fase": "Fase 2: Base y Umbral",
+   "sesion": "FONDO + final progresivo",
+   "volumen": "16 km",
+   "ritmo": "13 km @4:50 + 3 km bajando a 4:15",
+   "zona": "Z2 → Z3",
+   "cal_cod": "C3",
+   "cal": [
+    "Movilidad dinámica 5 min con énfasis en cadera y tobillo",
+    "Los primeros 2 km del fondo a 5:30-5:40",
+    "⚑ Esos 2 km CUENTAN dentro del volumen. Nunca salgas a ritmo objetivo desde el km 1."
+   ],
+   "vc_cod": "VC3",
+   "vc": [
+    "Último km trotando suave después del tramo progresivo",
+    "Caminar 5 min + hidratar con electrolitos",
+    "Estiramiento 6 min",
+    "Piernas en alto contra la pared 5 min",
+    "Comida completa dentro de los 30-45 min"
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Semana 1 de 8. Construyendo.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-02",
+   "dia": "Domingo",
+   "semana": "Semana 1 · Base",
+   "fase": "Fase 2: Base y Umbral",
+   "sesion": "CUESTAS B — Fuerza-Resistencia",
+   "volumen": "8-10 km total",
+   "ritmo": "8 x 45 s cuesta fuerte",
+   "zona": "Z5 en la rep",
+   "cal_cod": "C5",
+   "cal": [
+    "Movilidad dinámica 5 min",
+    "Trote 12-15 min en Z1",
+    "Drills 4 min",
+    "1 repetición de cuesta al 80% como ensayo — ajusta arranque y llegada"
+   ],
+   "vc_cod": "VC2",
+   "vc": [
+    "Trote MUY suave 10-12 min a 5:45-6:00 — FC por debajo de 140",
+    "Caminar 3 min",
+    "Estiramiento estático 6 min (30-45 s por músculo)",
+    "Foam roller 5 min: cuádriceps · banda iliotibial · gemelos · glúteos",
+    "Proteína + carbohidrato dentro de los 45 min",
+    "⚑ Saltarte esto es la razón #1 de que un martes duro arruine el miércoles."
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Bajada TROTANDO = recuperación. Cadencia >180.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-03",
+   "dia": "Lunes",
+   "semana": "Semana 2 · Base",
+   "fase": "Fase 2: Base y Umbral",
+   "sesion": "Recuperación",
+   "volumen": "8 km",
+   "ritmo": "5:20-5:30",
+   "zona": "Z1 (<158)",
+   "cal_cod": "C1",
+   "cal": [
+    "Movilidad dinámica 5 min: círculos de cadera · balanceo de pierna frontal 10/lado · balanceo lateral 10/lado · círculos de tobillo · rotación de tronco",
+    "Caminar rápido 3 min",
+    "Arrancar el trote 30-40 s/km más lento que el objetivo y subir progresivo",
+    "⚑ En día fácil NO hacen falta drills ni rectas. El trote es el calentamiento."
+   ],
+   "vc_cod": "VC1",
+   "vc": [
+    "Bajar el ritmo naturalmente los últimos 5 min del rodaje",
+    "Caminar 3 min",
+    "Estiramiento suave 30 s c/u: isquios · cuádriceps · gemelo · sóleo · flexor de cadera · glúteo"
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Soltar piernas del fin de semana.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-04",
+   "dia": "Martes",
+   "semana": "Semana 2 · Base",
+   "fase": "Fase 2: Base y Umbral",
+   "sesion": "Intervalos de Umbral",
+   "volumen": "5 x 2 km",
+   "ritmo": "3:38-3:42",
+   "zona": "Z4",
+   "cal_cod": "C2",
+   "cal": [
+    "Movilidad dinámica 5 min",
+    "Trote progresivo 15 min (de 5:40 a 5:00). FC no debe pasar 160",
+    "Drills 5 min: skipping A 2x20 m · skipping B 2x20 m · talón-glúteo 2x20 m · carioca 2x20 m · taloneo rápido 2x20 m",
+    "4 rectas progresivas de 80 m — la última al 95% del ritmo de la sesión. Vuelta caminando",
+    "Pausa 2-3 min: hidratar y respirar",
+    "⚑ Si la primera serie es la más rápida del día, calentaste mal."
+   ],
+   "vc_cod": "VC2",
+   "vc": [
+    "Trote MUY suave 10-12 min a 5:45-6:00 — FC por debajo de 140",
+    "Caminar 3 min",
+    "Estiramiento estático 6 min (30-45 s por músculo)",
+    "Foam roller 5 min: cuádriceps · banda iliotibial · gemelos · glúteos",
+    "Proteína + carbohidrato dentro de los 45 min",
+    "⚑ Saltarte esto es la razón #1 de que un martes duro arruine el miércoles."
+   ],
+   "pm_titulo": "FUERZA A — Máxima (45 min)",
+   "pm": [
+    "Sentadilla trasera 4 x 5 @ 80-85% 1RM",
+    "Peso muerto rumano 3 x 6 @ 75-80%",
+    "Zancada con mancuernas 3 x 8 por pierna",
+    "Elevación de gemelo a 1 pierna 3 x 12",
+    "Plancha frontal 3 x 45 s",
+    "Dead bug 3 x 10 por lado",
+    "→ VC5: bici o caminar 5 min + estiramiento 5 min + proteína en 30 min"
+   ],
+   "nota": "Fuerza DESPUÉS de correr, mínimo 4 h de separación.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-05",
+   "dia": "Miércoles",
+   "semana": "Semana 2 · Base",
+   "fase": "Fase 2: Base y Umbral",
+   "sesion": "Rodaje medio",
+   "volumen": "10 km",
+   "ritmo": "5:00",
+   "zona": "Z2 (158-166)",
+   "cal_cod": "C1",
+   "cal": [
+    "Movilidad dinámica 5 min: círculos de cadera · balanceo de pierna frontal 10/lado · balanceo lateral 10/lado · círculos de tobillo · rotación de tronco",
+    "Caminar rápido 3 min",
+    "Arrancar el trote 30-40 s/km más lento que el objetivo y subir progresivo",
+    "⚑ En día fácil NO hacen falta drills ni rectas. El trote es el calentamiento."
+   ],
+   "vc_cod": "VC1",
+   "vc": [
+    "Bajar el ritmo naturalmente los últimos 5 min del rodaje",
+    "Caminar 3 min",
+    "Estiramiento suave 30 s c/u: isquios · cuádriceps · gemelo · sóleo · flexor de cadera · glúteo"
+   ],
+   "pm_titulo": "DOBLE — Trote suave 6 km Z1",
+   "pm": [
+    "Ritmo 5:30-5:45/km, FC por debajo de 150",
+    "Es trote regenerativo puro. Si te cuesta, sáltalo sin culpa."
+   ],
+   "nota": "Frenar de verdad. FC techo 166.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-06",
+   "dia": "Jueves",
+   "semana": "Semana 2 · Base",
+   "fase": "Fase 2: Base y Umbral",
+   "sesion": "Tempo continuo",
+   "volumen": "2 cal + 6 tempo + 2 enf",
+   "ritmo": "3:48-3:52",
+   "zona": "Z4",
+   "cal_cod": "C2",
+   "cal": [
+    "Movilidad dinámica 5 min",
+    "Trote progresivo 15 min (de 5:40 a 5:00). FC no debe pasar 160",
+    "Drills 5 min: skipping A 2x20 m · skipping B 2x20 m · talón-glúteo 2x20 m · carioca 2x20 m · taloneo rápido 2x20 m",
+    "4 rectas progresivas de 80 m — la última al 95% del ritmo de la sesión. Vuelta caminando",
+    "Pausa 2-3 min: hidratar y respirar",
+    "⚑ Si la primera serie es la más rápida del día, calentaste mal."
+   ],
+   "vc_cod": "VC2",
+   "vc": [
+    "Trote MUY suave 10-12 min a 5:45-6:00 — FC por debajo de 140",
+    "Caminar 3 min",
+    "Estiramiento estático 6 min (30-45 s por músculo)",
+    "Foam roller 5 min: cuádriceps · banda iliotibial · gemelos · glúteos",
+    "Proteína + carbohidrato dentro de los 45 min",
+    "⚑ Saltarte esto es la razón #1 de que un martes duro arruine el miércoles."
+   ],
+   "pm_titulo": "FUERZA B — Pliometría + Core (35 min)",
+   "pm": [
+    "Salto al cajón 4 x 5 (40-50 cm)",
+    "Salto con contramovimiento 3 x 6",
+    "Bounding / multisaltos 4 x 20 m",
+    "Peso muerto a 1 pierna 3 x 8 por pierna",
+    "Puente de glúteo a 1 pierna 3 x 12",
+    "Pallof press 3 x 10 por lado",
+    "Plancha lateral 3 x 30 s por lado",
+    "→ VC5: bici o caminar 5 min + estiramiento 5 min + proteína en 30 min"
+   ],
+   "nota": "Pliometría en piernas ya calientes.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-07",
+   "dia": "Viernes",
+   "semana": "Semana 2 · Base",
+   "fase": "Fase 2: Base y Umbral",
+   "sesion": "Recuperación",
+   "volumen": "6 km",
+   "ritmo": "5:30",
+   "zona": "Z1",
+   "cal_cod": "C1",
+   "cal": [
+    "Movilidad dinámica 5 min: círculos de cadera · balanceo de pierna frontal 10/lado · balanceo lateral 10/lado · círculos de tobillo · rotación de tronco",
+    "Caminar rápido 3 min",
+    "Arrancar el trote 30-40 s/km más lento que el objetivo y subir progresivo",
+    "⚑ En día fácil NO hacen falta drills ni rectas. El trote es el calentamiento."
+   ],
+   "vc_cod": "VC1",
+   "vc": [
+    "Bajar el ritmo naturalmente los últimos 5 min del rodaje",
+    "Caminar 3 min",
+    "Estiramiento suave 30 s c/u: isquios · cuádriceps · gemelo · sóleo · flexor de cadera · glúteo"
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Regenerativo estricto. Nada de fuerza hoy.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-08",
+   "dia": "Sábado",
+   "semana": "Semana 2 · Base",
+   "fase": "Fase 2: Base y Umbral",
+   "sesion": "FONDO + final progresivo",
+   "volumen": "17 km",
+   "ritmo": "14 km @4:45 + 3 km bajando a 4:10",
+   "zona": "Z2 → Z3",
+   "cal_cod": "C3",
+   "cal": [
+    "Movilidad dinámica 5 min con énfasis en cadera y tobillo",
+    "Los primeros 2 km del fondo a 5:30-5:40",
+    "⚑ Esos 2 km CUENTAN dentro del volumen. Nunca salgas a ritmo objetivo desde el km 1."
+   ],
+   "vc_cod": "VC3",
+   "vc": [
+    "Último km trotando suave después del tramo progresivo",
+    "Caminar 5 min + hidratar con electrolitos",
+    "Estiramiento 6 min",
+    "Piernas en alto contra la pared 5 min",
+    "Comida completa dentro de los 30-45 min"
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-09",
+   "dia": "Domingo",
+   "semana": "Semana 2 · Base",
+   "fase": "Fase 2: Base y Umbral",
+   "sesion": "CUESTAS A — Neuromuscular",
+   "volumen": "8-10 km total",
+   "ritmo": "12 x 12 s cuesta a MÁXIMO",
+   "zona": "Z1 + picos",
+   "cal_cod": "C4",
+   "cal": [
+    "Movilidad dinámica 5 min",
+    "Trote 15 min en Z1 — llega a la cuesta caliente de verdad",
+    "Drills 4 min + 3 rectas progresivas en llano",
+    "2 subidas de aproximación: una al 70% y otra al 85%",
+    "⚑ CRÍTICO: nunca arranques a MÁXIMO en frío. El riesgo de isquios es real."
+   ],
+   "vc_cod": "VC4",
+   "vc": [
+    "Trote suave 8 min",
+    "Estiramiento con énfasis en isquios y gemelos",
+    "⚑ Los sprints máximos cargan mucho el tendón. No te lo saltes."
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Día ligero tras el fondo. No lo conviertas en aeróbico.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-10",
+   "dia": "Lunes",
+   "semana": "Semana 3 · PICO VOLUMEN",
+   "fase": "Fase 3: VO2 Específico",
+   "sesion": "Recuperación",
+   "volumen": "8 km",
+   "ritmo": "5:20-5:30",
+   "zona": "Z1 (<158)",
+   "cal_cod": "C1",
+   "cal": [
+    "Movilidad dinámica 5 min: círculos de cadera · balanceo de pierna frontal 10/lado · balanceo lateral 10/lado · círculos de tobillo · rotación de tronco",
+    "Caminar rápido 3 min",
+    "Arrancar el trote 30-40 s/km más lento que el objetivo y subir progresivo",
+    "⚑ En día fácil NO hacen falta drills ni rectas. El trote es el calentamiento."
+   ],
+   "vc_cod": "VC1",
+   "vc": [
+    "Bajar el ritmo naturalmente los últimos 5 min del rodaje",
+    "Caminar 3 min",
+    "Estiramiento suave 30 s c/u: isquios · cuádriceps · gemelo · sóleo · flexor de cadera · glúteo"
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Soltar piernas del fin de semana.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-11",
+   "dia": "Martes",
+   "semana": "Semana 3 · PICO VOLUMEN",
+   "fase": "Fase 3: VO2 Específico",
+   "sesion": "Series específicas 5K",
+   "volumen": "5 x 1000 m",
+   "ritmo": "3:10-3:12",
+   "zona": "Z5 (>186)",
+   "cal_cod": "C2",
+   "cal": [
+    "Movilidad dinámica 5 min",
+    "Trote progresivo 15 min (de 5:40 a 5:00). FC no debe pasar 160",
+    "Drills 5 min: skipping A 2x20 m · skipping B 2x20 m · talón-glúteo 2x20 m · carioca 2x20 m · taloneo rápido 2x20 m",
+    "4 rectas progresivas de 80 m — la última al 95% del ritmo de la sesión. Vuelta caminando",
+    "Pausa 2-3 min: hidratar y respirar",
+    "⚑ Si la primera serie es la más rápida del día, calentaste mal."
+   ],
+   "vc_cod": "VC2",
+   "vc": [
+    "Trote MUY suave 10-12 min a 5:45-6:00 — FC por debajo de 140",
+    "Caminar 3 min",
+    "Estiramiento estático 6 min (30-45 s por músculo)",
+    "Foam roller 5 min: cuádriceps · banda iliotibial · gemelos · glúteos",
+    "Proteína + carbohidrato dentro de los 45 min",
+    "⚑ Saltarte esto es la razón #1 de que un martes duro arruine el miércoles."
+   ],
+   "pm_titulo": "FUERZA A — Máxima (45 min)",
+   "pm": [
+    "Sentadilla trasera 4 x 5 @ 80-85% 1RM",
+    "Peso muerto rumano 3 x 6 @ 75-80%",
+    "Zancada con mancuernas 3 x 8 por pierna",
+    "Elevación de gemelo a 1 pierna 3 x 12",
+    "Plancha frontal 3 x 45 s",
+    "Dead bug 3 x 10 por lado",
+    "→ VC5: bici o caminar 5 min + estiramiento 5 min + proteína en 30 min"
+   ],
+   "nota": "LA sesión clave del bloque. Rec 2 min activos. + Fuerza A PM.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-12",
+   "dia": "Miércoles",
+   "semana": "Semana 3 · PICO VOLUMEN",
+   "fase": "Fase 3: VO2 Específico",
+   "sesion": "Rodaje medio",
+   "volumen": "10 km",
+   "ritmo": "5:00",
+   "zona": "Z2 (158-166)",
+   "cal_cod": "C1",
+   "cal": [
+    "Movilidad dinámica 5 min: círculos de cadera · balanceo de pierna frontal 10/lado · balanceo lateral 10/lado · círculos de tobillo · rotación de tronco",
+    "Caminar rápido 3 min",
+    "Arrancar el trote 30-40 s/km más lento que el objetivo y subir progresivo",
+    "⚑ En día fácil NO hacen falta drills ni rectas. El trote es el calentamiento."
+   ],
+   "vc_cod": "VC1",
+   "vc": [
+    "Bajar el ritmo naturalmente los últimos 5 min del rodaje",
+    "Caminar 3 min",
+    "Estiramiento suave 30 s c/u: isquios · cuádriceps · gemelo · sóleo · flexor de cadera · glúteo"
+   ],
+   "pm_titulo": "DOBLE — Trote suave 6 km Z1",
+   "pm": [
+    "Ritmo 5:30-5:45/km, FC por debajo de 150",
+    "Es trote regenerativo puro. Si te cuesta, sáltalo sin culpa."
+   ],
+   "nota": "Frenar de verdad. FC techo 166.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-13",
+   "dia": "Jueves",
+   "semana": "Semana 3 · PICO VOLUMEN",
+   "fase": "Fase 3: VO2 Específico",
+   "sesion": "Series cortas (velocidad)",
+   "volumen": "10 x 400 m",
+   "ritmo": "1:15 vuelta (~3:07/km)",
+   "zona": "Z5 (>187)",
+   "cal_cod": "C2",
+   "cal": [
+    "Movilidad dinámica 5 min",
+    "Trote progresivo 15 min (de 5:40 a 5:00). FC no debe pasar 160",
+    "Drills 5 min: skipping A 2x20 m · skipping B 2x20 m · talón-glúteo 2x20 m · carioca 2x20 m · taloneo rápido 2x20 m",
+    "4 rectas progresivas de 80 m — la última al 95% del ritmo de la sesión. Vuelta caminando",
+    "Pausa 2-3 min: hidratar y respirar",
+    "⚑ Si la primera serie es la más rápida del día, calentaste mal."
+   ],
+   "vc_cod": "VC2",
+   "vc": [
+    "Trote MUY suave 10-12 min a 5:45-6:00 — FC por debajo de 140",
+    "Caminar 3 min",
+    "Estiramiento estático 6 min (30-45 s por músculo)",
+    "Foam roller 5 min: cuádriceps · banda iliotibial · gemelos · glúteos",
+    "Proteína + carbohidrato dentro de los 45 min",
+    "⚑ Saltarte esto es la razón #1 de que un martes duro arruine el miércoles."
+   ],
+   "pm_titulo": "FUERZA B — Pliometría + Core (35 min)",
+   "pm": [
+    "Salto al cajón 4 x 5 (40-50 cm)",
+    "Salto con contramovimiento 3 x 6",
+    "Bounding / multisaltos 4 x 20 m",
+    "Peso muerto a 1 pierna 3 x 8 por pierna",
+    "Puente de glúteo a 1 pierna 3 x 12",
+    "Pallof press 3 x 10 por lado",
+    "Plancha lateral 3 x 30 s por lado",
+    "→ VC5: bici o caminar 5 min + estiramiento 5 min + proteína en 30 min"
+   ],
+   "nota": "Rec 60 s. Mecánica de 5K. + Fuerza B PM.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-14",
+   "dia": "Viernes",
+   "semana": "Semana 3 · PICO VOLUMEN",
+   "fase": "Fase 3: VO2 Específico",
+   "sesion": "Recuperación",
+   "volumen": "6 km",
+   "ritmo": "5:30",
+   "zona": "Z1",
+   "cal_cod": "C1",
+   "cal": [
+    "Movilidad dinámica 5 min: círculos de cadera · balanceo de pierna frontal 10/lado · balanceo lateral 10/lado · círculos de tobillo · rotación de tronco",
+    "Caminar rápido 3 min",
+    "Arrancar el trote 30-40 s/km más lento que el objetivo y subir progresivo",
+    "⚑ En día fácil NO hacen falta drills ni rectas. El trote es el calentamiento."
+   ],
+   "vc_cod": "VC1",
+   "vc": [
+    "Bajar el ritmo naturalmente los últimos 5 min del rodaje",
+    "Caminar 3 min",
+    "Estiramiento suave 30 s c/u: isquios · cuádriceps · gemelo · sóleo · flexor de cadera · glúteo"
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Regenerativo estricto. Nada de fuerza hoy.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-15",
+   "dia": "Sábado",
+   "semana": "Semana 3 · PICO VOLUMEN",
+   "fase": "Fase 3: VO2 Específico",
+   "sesion": "FONDO + final progresivo",
+   "volumen": "18 km",
+   "ritmo": "15 km @4:45 + 3 km bajando a 4:10",
+   "zona": "Z2 → Z3",
+   "cal_cod": "C3",
+   "cal": [
+    "Movilidad dinámica 5 min con énfasis en cadera y tobillo",
+    "Los primeros 2 km del fondo a 5:30-5:40",
+    "⚑ Esos 2 km CUENTAN dentro del volumen. Nunca salgas a ritmo objetivo desde el km 1."
+   ],
+   "vc_cod": "VC3",
+   "vc": [
+    "Último km trotando suave después del tramo progresivo",
+    "Caminar 5 min + hidratar con electrolitos",
+    "Estiramiento 6 min",
+    "Piernas en alto contra la pared 5 min",
+    "Comida completa dentro de los 30-45 min"
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "PICO DE VOLUMEN — fondo más largo de todo el plan.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-16",
+   "dia": "Domingo",
+   "semana": "Semana 3 · PICO VOLUMEN",
+   "fase": "Fase 3: VO2 Específico",
+   "sesion": "CUESTAS B — Fuerza-Resistencia",
+   "volumen": "8-10 km total",
+   "ritmo": "10 x 45 s cuesta fuerte",
+   "zona": "Z5 en la rep",
+   "cal_cod": "C5",
+   "cal": [
+    "Movilidad dinámica 5 min",
+    "Trote 12-15 min en Z1",
+    "Drills 4 min",
+    "1 repetición de cuesta al 80% como ensayo — ajusta arranque y llegada"
+   ],
+   "vc_cod": "VC2",
+   "vc": [
+    "Trote MUY suave 10-12 min a 5:45-6:00 — FC por debajo de 140",
+    "Caminar 3 min",
+    "Estiramiento estático 6 min (30-45 s por músculo)",
+    "Foam roller 5 min: cuádriceps · banda iliotibial · gemelos · glúteos",
+    "Proteína + carbohidrato dentro de los 45 min",
+    "⚑ Saltarte esto es la razón #1 de que un martes duro arruine el miércoles."
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Pico de carga en cuestas.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-17",
+   "dia": "Lunes",
+   "semana": "Semana 4 · DESCARGA",
+   "fase": "Fase 3: VO2 Específico",
+   "sesion": "Recuperación",
+   "volumen": "6 km",
+   "ritmo": "5:20-5:30",
+   "zona": "Z1 (<158)",
+   "cal_cod": "C1",
+   "cal": [
+    "Movilidad dinámica 5 min: círculos de cadera · balanceo de pierna frontal 10/lado · balanceo lateral 10/lado · círculos de tobillo · rotación de tronco",
+    "Caminar rápido 3 min",
+    "Arrancar el trote 30-40 s/km más lento que el objetivo y subir progresivo",
+    "⚑ En día fácil NO hacen falta drills ni rectas. El trote es el calentamiento."
+   ],
+   "vc_cod": "VC1",
+   "vc": [
+    "Bajar el ritmo naturalmente los últimos 5 min del rodaje",
+    "Caminar 3 min",
+    "Estiramiento suave 30 s c/u: isquios · cuádriceps · gemelo · sóleo · flexor de cadera · glúteo"
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "SEMANA DE DESCARGA. Volumen -25%. Aquí es donde absorbes todo.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-18",
+   "dia": "Martes",
+   "semana": "Semana 4 · DESCARGA",
+   "fase": "Fase 3: VO2 Específico",
+   "sesion": "Series específicas 5K",
+   "volumen": "4 x 1000 m",
+   "ritmo": "3:10",
+   "zona": "Z5",
+   "cal_cod": "C2",
+   "cal": [
+    "Movilidad dinámica 5 min",
+    "Trote progresivo 15 min (de 5:40 a 5:00). FC no debe pasar 160",
+    "Drills 5 min: skipping A 2x20 m · skipping B 2x20 m · talón-glúteo 2x20 m · carioca 2x20 m · taloneo rápido 2x20 m",
+    "4 rectas progresivas de 80 m — la última al 95% del ritmo de la sesión. Vuelta caminando",
+    "Pausa 2-3 min: hidratar y respirar",
+    "⚑ Si la primera serie es la más rápida del día, calentaste mal."
+   ],
+   "vc_cod": "VC2",
+   "vc": [
+    "Trote MUY suave 10-12 min a 5:45-6:00 — FC por debajo de 140",
+    "Caminar 3 min",
+    "Estiramiento estático 6 min (30-45 s por músculo)",
+    "Foam roller 5 min: cuádriceps · banda iliotibial · gemelos · glúteos",
+    "Proteína + carbohidrato dentro de los 45 min",
+    "⚑ Saltarte esto es la razón #1 de que un martes duro arruine el miércoles."
+   ],
+   "pm_titulo": "FUERZA A — Máxima (45 min)",
+   "pm": [
+    "Sentadilla trasera 4 x 5 @ 80-85% 1RM",
+    "Peso muerto rumano 3 x 6 @ 75-80%",
+    "Zancada con mancuernas 3 x 8 por pierna",
+    "Elevación de gemelo a 1 pierna 3 x 12",
+    "Plancha frontal 3 x 45 s",
+    "Dead bug 3 x 10 por lado",
+    "→ VC5: bici o caminar 5 min + estiramiento 5 min + proteína en 30 min"
+   ],
+   "nota": "Solo 4 series. Calidad, no cantidad.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-19",
+   "dia": "Miércoles",
+   "semana": "Semana 4 · DESCARGA",
+   "fase": "Fase 3: VO2 Específico",
+   "sesion": "Rodaje medio",
+   "volumen": "8 km",
+   "ritmo": "5:00",
+   "zona": "Z2 (158-166)",
+   "cal_cod": "C1",
+   "cal": [
+    "Movilidad dinámica 5 min: círculos de cadera · balanceo de pierna frontal 10/lado · balanceo lateral 10/lado · círculos de tobillo · rotación de tronco",
+    "Caminar rápido 3 min",
+    "Arrancar el trote 30-40 s/km más lento que el objetivo y subir progresivo",
+    "⚑ En día fácil NO hacen falta drills ni rectas. El trote es el calentamiento."
+   ],
+   "vc_cod": "VC1",
+   "vc": [
+    "Bajar el ritmo naturalmente los últimos 5 min del rodaje",
+    "Caminar 3 min",
+    "Estiramiento suave 30 s c/u: isquios · cuádriceps · gemelo · sóleo · flexor de cadera · glúteo"
+   ],
+   "pm_titulo": "DOBLE — Trote suave 6 km Z1",
+   "pm": [
+    "Ritmo 5:30-5:45/km, FC por debajo de 150",
+    "Es trote regenerativo puro. Si te cuesta, sáltalo sin culpa."
+   ],
+   "nota": "Frenar de verdad. FC techo 166.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-20",
+   "dia": "Jueves",
+   "semana": "Semana 4 · DESCARGA",
+   "fase": "Fase 3: VO2 Específico",
+   "sesion": "Rodaje con rectas",
+   "volumen": "8 km + 6 x 100 m",
+   "ritmo": "Suave + explosivo",
+   "zona": "Z2",
+   "cal_cod": "C2",
+   "cal": [
+    "Movilidad dinámica 5 min",
+    "Trote progresivo 15 min (de 5:40 a 5:00). FC no debe pasar 160",
+    "Drills 5 min: skipping A 2x20 m · skipping B 2x20 m · talón-glúteo 2x20 m · carioca 2x20 m · taloneo rápido 2x20 m",
+    "4 rectas progresivas de 80 m — la última al 95% del ritmo de la sesión. Vuelta caminando",
+    "Pausa 2-3 min: hidratar y respirar",
+    "⚑ Si la primera serie es la más rápida del día, calentaste mal."
+   ],
+   "vc_cod": "VC1",
+   "vc": [
+    "Bajar el ritmo naturalmente los últimos 5 min del rodaje",
+    "Caminar 3 min",
+    "Estiramiento suave 30 s c/u: isquios · cuádriceps · gemelo · sóleo · flexor de cadera · glúteo"
+   ],
+   "pm_titulo": "FUERZA B — Pliometría + Core (35 min)",
+   "pm": [
+    "Salto al cajón 4 x 5 (40-50 cm)",
+    "Salto con contramovimiento 3 x 6",
+    "Bounding / multisaltos 4 x 20 m",
+    "Peso muerto a 1 pierna 3 x 8 por pierna",
+    "Puente de glúteo a 1 pierna 3 x 12",
+    "Pallof press 3 x 10 por lado",
+    "Plancha lateral 3 x 30 s por lado",
+    "→ VC5: bici o caminar 5 min + estiramiento 5 min + proteína en 30 min"
+   ],
+   "nota": "Sin fuerza pesada esta semana — solo Fuerza B ligera.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-21",
+   "dia": "Viernes",
+   "semana": "Semana 4 · DESCARGA",
+   "fase": "Fase 3: VO2 Específico",
+   "sesion": "Recuperación",
+   "volumen": "6 km",
+   "ritmo": "5:30",
+   "zona": "Z1",
+   "cal_cod": "C1",
+   "cal": [
+    "Movilidad dinámica 5 min: círculos de cadera · balanceo de pierna frontal 10/lado · balanceo lateral 10/lado · círculos de tobillo · rotación de tronco",
+    "Caminar rápido 3 min",
+    "Arrancar el trote 30-40 s/km más lento que el objetivo y subir progresivo",
+    "⚑ En día fácil NO hacen falta drills ni rectas. El trote es el calentamiento."
+   ],
+   "vc_cod": "VC1",
+   "vc": [
+    "Bajar el ritmo naturalmente los últimos 5 min del rodaje",
+    "Caminar 3 min",
+    "Estiramiento suave 30 s c/u: isquios · cuádriceps · gemelo · sóleo · flexor de cadera · glúteo"
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Regenerativo estricto. Nada de fuerza hoy.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-22",
+   "dia": "Sábado",
+   "semana": "Semana 4 · DESCARGA",
+   "fase": "Fase 3: VO2 Específico",
+   "sesion": "FONDO + final progresivo",
+   "volumen": "13 km",
+   "ritmo": "11 km @4:45 + 2 km a 4:15",
+   "zona": "Z2 → Z3",
+   "cal_cod": "C3",
+   "cal": [
+    "Movilidad dinámica 5 min con énfasis en cadera y tobillo",
+    "Los primeros 2 km del fondo a 5:30-5:40",
+    "⚑ Esos 2 km CUENTAN dentro del volumen. Nunca salgas a ritmo objetivo desde el km 1."
+   ],
+   "vc_cod": "VC3",
+   "vc": [
+    "Último km trotando suave después del tramo progresivo",
+    "Caminar 5 min + hidratar con electrolitos",
+    "Estiramiento 6 min",
+    "Piernas en alto contra la pared 5 min",
+    "Comida completa dentro de los 30-45 min"
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Fondo corto. Confía en la descarga.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-23",
+   "dia": "Domingo",
+   "semana": "Semana 4 · DESCARGA",
+   "fase": "Fase 3: VO2 Específico",
+   "sesion": "CUESTAS A — corto",
+   "volumen": "8-10 km total",
+   "ritmo": "8 x 10 s cuesta a MÁXIMO",
+   "zona": "Z1 + picos",
+   "cal_cod": "C4",
+   "cal": [
+    "Movilidad dinámica 5 min",
+    "Trote 15 min en Z1 — llega a la cuesta caliente de verdad",
+    "Drills 4 min + 3 rectas progresivas en llano",
+    "2 subidas de aproximación: una al 70% y otra al 85%",
+    "⚑ CRÍTICO: nunca arranques a MÁXIMO en frío. El riesgo de isquios es real."
+   ],
+   "vc_cod": "VC4",
+   "vc": [
+    "Trote suave 8 min",
+    "Estiramiento con énfasis en isquios y gemelos",
+    "⚑ Los sprints máximos cargan mucho el tendón. No te lo saltes."
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Cuestas breves. Recuperar es entrenar.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-24",
+   "dia": "Lunes",
+   "semana": "Semana 5 · Pico forma",
+   "fase": "Fase 4: Pico de Forma",
+   "sesion": "Recuperación",
+   "volumen": "8 km",
+   "ritmo": "5:20-5:30",
+   "zona": "Z1 (<158)",
+   "cal_cod": "C1",
+   "cal": [
+    "Movilidad dinámica 5 min: círculos de cadera · balanceo de pierna frontal 10/lado · balanceo lateral 10/lado · círculos de tobillo · rotación de tronco",
+    "Caminar rápido 3 min",
+    "Arrancar el trote 30-40 s/km más lento que el objetivo y subir progresivo",
+    "⚑ En día fácil NO hacen falta drills ni rectas. El trote es el calentamiento."
+   ],
+   "vc_cod": "VC1",
+   "vc": [
+    "Bajar el ritmo naturalmente los últimos 5 min del rodaje",
+    "Caminar 3 min",
+    "Estiramiento suave 30 s c/u: isquios · cuádriceps · gemelo · sóleo · flexor de cadera · glúteo"
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Vuelve la carga. Debes sentirte fresco tras la descarga.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-25",
+   "dia": "Martes",
+   "semana": "Semana 5 · Pico forma",
+   "fase": "Fase 4: Pico de Forma",
+   "sesion": "Series específicas 5K",
+   "volumen": "6 x 1000 m",
+   "ritmo": "3:08-3:10",
+   "zona": "Z5",
+   "cal_cod": "C2",
+   "cal": [
+    "Movilidad dinámica 5 min",
+    "Trote progresivo 15 min (de 5:40 a 5:00). FC no debe pasar 160",
+    "Drills 5 min: skipping A 2x20 m · skipping B 2x20 m · talón-glúteo 2x20 m · carioca 2x20 m · taloneo rápido 2x20 m",
+    "4 rectas progresivas de 80 m — la última al 95% del ritmo de la sesión. Vuelta caminando",
+    "Pausa 2-3 min: hidratar y respirar",
+    "⚑ Si la primera serie es la más rápida del día, calentaste mal."
+   ],
+   "vc_cod": "VC2",
+   "vc": [
+    "Trote MUY suave 10-12 min a 5:45-6:00 — FC por debajo de 140",
+    "Caminar 3 min",
+    "Estiramiento estático 6 min (30-45 s por músculo)",
+    "Foam roller 5 min: cuádriceps · banda iliotibial · gemelos · glúteos",
+    "Proteína + carbohidrato dentro de los 45 min",
+    "⚑ Saltarte esto es la razón #1 de que un martes duro arruine el miércoles."
+   ],
+   "pm_titulo": "FUERZA A — Máxima (45 min)",
+   "pm": [
+    "Sentadilla trasera 4 x 5 @ 80-85% 1RM",
+    "Peso muerto rumano 3 x 6 @ 75-80%",
+    "Zancada con mancuernas 3 x 8 por pierna",
+    "Elevación de gemelo a 1 pierna 3 x 12",
+    "Plancha frontal 3 x 45 s",
+    "Dead bug 3 x 10 por lado",
+    "→ VC5: bici o caminar 5 min + estiramiento 5 min + proteína en 30 min"
+   ],
+   "nota": "Sesión más dura del bloque hasta ahora.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-26",
+   "dia": "Miércoles",
+   "semana": "Semana 5 · Pico forma",
+   "fase": "Fase 4: Pico de Forma",
+   "sesion": "Rodaje medio",
+   "volumen": "10 km",
+   "ritmo": "5:00",
+   "zona": "Z2 (158-166)",
+   "cal_cod": "C1",
+   "cal": [
+    "Movilidad dinámica 5 min: círculos de cadera · balanceo de pierna frontal 10/lado · balanceo lateral 10/lado · círculos de tobillo · rotación de tronco",
+    "Caminar rápido 3 min",
+    "Arrancar el trote 30-40 s/km más lento que el objetivo y subir progresivo",
+    "⚑ En día fácil NO hacen falta drills ni rectas. El trote es el calentamiento."
+   ],
+   "vc_cod": "VC1",
+   "vc": [
+    "Bajar el ritmo naturalmente los últimos 5 min del rodaje",
+    "Caminar 3 min",
+    "Estiramiento suave 30 s c/u: isquios · cuádriceps · gemelo · sóleo · flexor de cadera · glúteo"
+   ],
+   "pm_titulo": "DOBLE — Trote suave 6 km Z1",
+   "pm": [
+    "Ritmo 5:30-5:45/km, FC por debajo de 150",
+    "Es trote regenerativo puro. Si te cuesta, sáltalo sin culpa."
+   ],
+   "nota": "Frenar de verdad. FC techo 166.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-27",
+   "dia": "Jueves",
+   "semana": "Semana 5 · Pico forma",
+   "fase": "Fase 4: Pico de Forma",
+   "sesion": "Pista / Ritmo carrera",
+   "volumen": "3 x 1500 m",
+   "ritmo": "3:10-3:12",
+   "zona": "Z4-Z5",
+   "cal_cod": "C2",
+   "cal": [
+    "Movilidad dinámica 5 min",
+    "Trote progresivo 15 min (de 5:40 a 5:00). FC no debe pasar 160",
+    "Drills 5 min: skipping A 2x20 m · skipping B 2x20 m · talón-glúteo 2x20 m · carioca 2x20 m · taloneo rápido 2x20 m",
+    "4 rectas progresivas de 80 m — la última al 95% del ritmo de la sesión. Vuelta caminando",
+    "Pausa 2-3 min: hidratar y respirar",
+    "⚑ Si la primera serie es la más rápida del día, calentaste mal."
+   ],
+   "vc_cod": "VC2",
+   "vc": [
+    "Trote MUY suave 10-12 min a 5:45-6:00 — FC por debajo de 140",
+    "Caminar 3 min",
+    "Estiramiento estático 6 min (30-45 s por músculo)",
+    "Foam roller 5 min: cuádriceps · banda iliotibial · gemelos · glúteos",
+    "Proteína + carbohidrato dentro de los 45 min",
+    "⚑ Saltarte esto es la razón #1 de que un martes duro arruine el miércoles."
+   ],
+   "pm_titulo": "FUERZA B — Pliometría + Core (35 min)",
+   "pm": [
+    "Salto al cajón 4 x 5 (40-50 cm)",
+    "Salto con contramovimiento 3 x 6",
+    "Bounding / multisaltos 4 x 20 m",
+    "Peso muerto a 1 pierna 3 x 8 por pierna",
+    "Puente de glúteo a 1 pierna 3 x 12",
+    "Pallof press 3 x 10 por lado",
+    "Plancha lateral 3 x 30 s por lado",
+    "→ VC5: bici o caminar 5 min + estiramiento 5 min + proteína en 30 min"
+   ],
+   "nota": "Rec 3 min. Simulación parcial de carrera.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-28",
+   "dia": "Viernes",
+   "semana": "Semana 5 · Pico forma",
+   "fase": "Fase 4: Pico de Forma",
+   "sesion": "Recuperación",
+   "volumen": "6 km",
+   "ritmo": "5:30",
+   "zona": "Z1",
+   "cal_cod": "C1",
+   "cal": [
+    "Movilidad dinámica 5 min: círculos de cadera · balanceo de pierna frontal 10/lado · balanceo lateral 10/lado · círculos de tobillo · rotación de tronco",
+    "Caminar rápido 3 min",
+    "Arrancar el trote 30-40 s/km más lento que el objetivo y subir progresivo",
+    "⚑ En día fácil NO hacen falta drills ni rectas. El trote es el calentamiento."
+   ],
+   "vc_cod": "VC1",
+   "vc": [
+    "Bajar el ritmo naturalmente los últimos 5 min del rodaje",
+    "Caminar 3 min",
+    "Estiramiento suave 30 s c/u: isquios · cuádriceps · gemelo · sóleo · flexor de cadera · glúteo"
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Regenerativo estricto. Nada de fuerza hoy.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-29",
+   "dia": "Sábado",
+   "semana": "Semana 5 · Pico forma",
+   "fase": "Fase 4: Pico de Forma",
+   "sesion": "FONDO + final progresivo",
+   "volumen": "16 km",
+   "ritmo": "13 km @4:40 + 3 km a 4:05",
+   "zona": "Z2 → Z3",
+   "cal_cod": "C3",
+   "cal": [
+    "Movilidad dinámica 5 min con énfasis en cadera y tobillo",
+    "Los primeros 2 km del fondo a 5:30-5:40",
+    "⚑ Esos 2 km CUENTAN dentro del volumen. Nunca salgas a ritmo objetivo desde el km 1."
+   ],
+   "vc_cod": "VC3",
+   "vc": [
+    "Último km trotando suave después del tramo progresivo",
+    "Caminar 5 min + hidratar con electrolitos",
+    "Estiramiento 6 min",
+    "Piernas en alto contra la pared 5 min",
+    "Comida completa dentro de los 30-45 min"
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-30",
+   "dia": "Domingo",
+   "semana": "Semana 5 · Pico forma",
+   "fase": "Fase 4: Pico de Forma",
+   "sesion": "CUESTAS B — Fuerza-Resistencia",
+   "volumen": "8-10 km total",
+   "ritmo": "10 x 45 s cuesta fuerte",
+   "zona": "Z5 en la rep",
+   "cal_cod": "C5",
+   "cal": [
+    "Movilidad dinámica 5 min",
+    "Trote 12-15 min en Z1",
+    "Drills 4 min",
+    "1 repetición de cuesta al 80% como ensayo — ajusta arranque y llegada"
+   ],
+   "vc_cod": "VC2",
+   "vc": [
+    "Trote MUY suave 10-12 min a 5:45-6:00 — FC por debajo de 140",
+    "Caminar 3 min",
+    "Estiramiento estático 6 min (30-45 s por músculo)",
+    "Foam roller 5 min: cuádriceps · banda iliotibial · gemelos · glúteos",
+    "Proteína + carbohidrato dentro de los 45 min",
+    "⚑ Saltarte esto es la razón #1 de que un martes duro arruine el miércoles."
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-08-31",
+   "dia": "Lunes",
+   "semana": "Semana 6 · TEST",
+   "fase": "Fase 4: Pico de Forma",
+   "sesion": "Recuperación",
+   "volumen": "8 km",
+   "ritmo": "5:20-5:30",
+   "zona": "Z1 (<158)",
+   "cal_cod": "C1",
+   "cal": [
+    "Movilidad dinámica 5 min: círculos de cadera · balanceo de pierna frontal 10/lado · balanceo lateral 10/lado · círculos de tobillo · rotación de tronco",
+    "Caminar rápido 3 min",
+    "Arrancar el trote 30-40 s/km más lento que el objetivo y subir progresivo",
+    "⚑ En día fácil NO hacen falta drills ni rectas. El trote es el calentamiento."
+   ],
+   "vc_cod": "VC1",
+   "vc": [
+    "Bajar el ritmo naturalmente los últimos 5 min del rodaje",
+    "Caminar 3 min",
+    "Estiramiento suave 30 s c/u: isquios · cuádriceps · gemelo · sóleo · flexor de cadera · glúteo"
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Soltar piernas del fin de semana.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-09-01",
+   "dia": "Martes",
+   "semana": "Semana 6 · TEST",
+   "fase": "Fase 4: Pico de Forma",
+   "sesion": "TEST DE LACTATO",
+   "volumen": "2 x 2000 m",
+   "ritmo": "3:08-3:10",
+   "zona": "Z5",
+   "cal_cod": "C2",
+   "cal": [
+    "Movilidad dinámica 5 min",
+    "Trote progresivo 15 min (de 5:40 a 5:00). FC no debe pasar 160",
+    "Drills 5 min: skipping A 2x20 m · skipping B 2x20 m · talón-glúteo 2x20 m · carioca 2x20 m · taloneo rápido 2x20 m",
+    "4 rectas progresivas de 80 m — la última al 95% del ritmo de la sesión. Vuelta caminando",
+    "Pausa 2-3 min: hidratar y respirar",
+    "⚑ Si la primera serie es la más rápida del día, calentaste mal."
+   ],
+   "vc_cod": "VC2",
+   "vc": [
+    "Trote MUY suave 10-12 min a 5:45-6:00 — FC por debajo de 140",
+    "Caminar 3 min",
+    "Estiramiento estático 6 min (30-45 s por músculo)",
+    "Foam roller 5 min: cuádriceps · banda iliotibial · gemelos · glúteos",
+    "Proteína + carbohidrato dentro de los 45 min",
+    "⚑ Saltarte esto es la razón #1 de que un martes duro arruine el miércoles."
+   ],
+   "pm_titulo": "FUERZA A — Máxima (45 min)",
+   "pm": [
+    "Sentadilla trasera 4 x 5 @ 80-85% 1RM",
+    "Peso muerto rumano 3 x 6 @ 75-80%",
+    "Zancada con mancuernas 3 x 8 por pierna",
+    "Elevación de gemelo a 1 pierna 3 x 12",
+    "Plancha frontal 3 x 45 s",
+    "Dead bug 3 x 10 por lado",
+    "→ VC5: bici o caminar 5 min + estiramiento 5 min + proteína en 30 min"
+   ],
+   "nota": "EL TEST. Rec 3 min. Aquí sabemos tu tiempo real de carrera.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-09-02",
+   "dia": "Miércoles",
+   "semana": "Semana 6 · TEST",
+   "fase": "Fase 4: Pico de Forma",
+   "sesion": "Rodaje medio",
+   "volumen": "10 km",
+   "ritmo": "5:00",
+   "zona": "Z2 (158-166)",
+   "cal_cod": "C1",
+   "cal": [
+    "Movilidad dinámica 5 min: círculos de cadera · balanceo de pierna frontal 10/lado · balanceo lateral 10/lado · círculos de tobillo · rotación de tronco",
+    "Caminar rápido 3 min",
+    "Arrancar el trote 30-40 s/km más lento que el objetivo y subir progresivo",
+    "⚑ En día fácil NO hacen falta drills ni rectas. El trote es el calentamiento."
+   ],
+   "vc_cod": "VC1",
+   "vc": [
+    "Bajar el ritmo naturalmente los últimos 5 min del rodaje",
+    "Caminar 3 min",
+    "Estiramiento suave 30 s c/u: isquios · cuádriceps · gemelo · sóleo · flexor de cadera · glúteo"
+   ],
+   "pm_titulo": "DOBLE — Trote suave 6 km Z1",
+   "pm": [
+    "Ritmo 5:30-5:45/km, FC por debajo de 150",
+    "Es trote regenerativo puro. Si te cuesta, sáltalo sin culpa."
+   ],
+   "nota": "Frenar de verdad. FC techo 166.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-09-03",
+   "dia": "Jueves",
+   "semana": "Semana 6 · TEST",
+   "fase": "Fase 4: Pico de Forma",
+   "sesion": "Series cortas (velocidad)",
+   "volumen": "10 x 400 m",
+   "ritmo": "1:14 vuelta",
+   "zona": "Z5",
+   "cal_cod": "C2",
+   "cal": [
+    "Movilidad dinámica 5 min",
+    "Trote progresivo 15 min (de 5:40 a 5:00). FC no debe pasar 160",
+    "Drills 5 min: skipping A 2x20 m · skipping B 2x20 m · talón-glúteo 2x20 m · carioca 2x20 m · taloneo rápido 2x20 m",
+    "4 rectas progresivas de 80 m — la última al 95% del ritmo de la sesión. Vuelta caminando",
+    "Pausa 2-3 min: hidratar y respirar",
+    "⚑ Si la primera serie es la más rápida del día, calentaste mal."
+   ],
+   "vc_cod": "VC2",
+   "vc": [
+    "Trote MUY suave 10-12 min a 5:45-6:00 — FC por debajo de 140",
+    "Caminar 3 min",
+    "Estiramiento estático 6 min (30-45 s por músculo)",
+    "Foam roller 5 min: cuádriceps · banda iliotibial · gemelos · glúteos",
+    "Proteína + carbohidrato dentro de los 45 min",
+    "⚑ Saltarte esto es la razón #1 de que un martes duro arruine el miércoles."
+   ],
+   "pm_titulo": "FUERZA B — Pliometría + Core (35 min)",
+   "pm": [
+    "Salto al cajón 4 x 5 (40-50 cm)",
+    "Salto con contramovimiento 3 x 6",
+    "Bounding / multisaltos 4 x 20 m",
+    "Peso muerto a 1 pierna 3 x 8 por pierna",
+    "Puente de glúteo a 1 pierna 3 x 12",
+    "Pallof press 3 x 10 por lado",
+    "Plancha lateral 3 x 30 s por lado",
+    "→ VC5: bici o caminar 5 min + estiramiento 5 min + proteína en 30 min"
+   ],
+   "nota": "Última sesión de fuerza pesada del bloque.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-09-04",
+   "dia": "Viernes",
+   "semana": "Semana 6 · TEST",
+   "fase": "Fase 4: Pico de Forma",
+   "sesion": "Recuperación",
+   "volumen": "6 km",
+   "ritmo": "5:30",
+   "zona": "Z1",
+   "cal_cod": "C1",
+   "cal": [
+    "Movilidad dinámica 5 min: círculos de cadera · balanceo de pierna frontal 10/lado · balanceo lateral 10/lado · círculos de tobillo · rotación de tronco",
+    "Caminar rápido 3 min",
+    "Arrancar el trote 30-40 s/km más lento que el objetivo y subir progresivo",
+    "⚑ En día fácil NO hacen falta drills ni rectas. El trote es el calentamiento."
+   ],
+   "vc_cod": "VC1",
+   "vc": [
+    "Bajar el ritmo naturalmente los últimos 5 min del rodaje",
+    "Caminar 3 min",
+    "Estiramiento suave 30 s c/u: isquios · cuádriceps · gemelo · sóleo · flexor de cadera · glúteo"
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Regenerativo estricto. Nada de fuerza hoy.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-09-05",
+   "dia": "Sábado",
+   "semana": "Semana 6 · TEST",
+   "fase": "Fase 4: Pico de Forma",
+   "sesion": "FONDO + final progresivo",
+   "volumen": "15 km",
+   "ritmo": "12 km @4:40 + 3 km a 4:05",
+   "zona": "Z2 → Z3",
+   "cal_cod": "C3",
+   "cal": [
+    "Movilidad dinámica 5 min con énfasis en cadera y tobillo",
+    "Los primeros 2 km del fondo a 5:30-5:40",
+    "⚑ Esos 2 km CUENTAN dentro del volumen. Nunca salgas a ritmo objetivo desde el km 1."
+   ],
+   "vc_cod": "VC3",
+   "vc": [
+    "Último km trotando suave después del tramo progresivo",
+    "Caminar 5 min + hidratar con electrolitos",
+    "Estiramiento 6 min",
+    "Piernas en alto contra la pared 5 min",
+    "Comida completa dentro de los 30-45 min"
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-09-06",
+   "dia": "Domingo",
+   "semana": "Semana 6 · TEST",
+   "fase": "Fase 4: Pico de Forma",
+   "sesion": "CUESTAS A — Afilado",
+   "volumen": "8-10 km total",
+   "ritmo": "10 x 10 s cuesta a MÁXIMO",
+   "zona": "Z1 + picos",
+   "cal_cod": "C4",
+   "cal": [
+    "Movilidad dinámica 5 min",
+    "Trote 15 min en Z1 — llega a la cuesta caliente de verdad",
+    "Drills 4 min + 3 rectas progresivas en llano",
+    "2 subidas de aproximación: una al 70% y otra al 85%",
+    "⚑ CRÍTICO: nunca arranques a MÁXIMO en frío. El riesgo de isquios es real."
+   ],
+   "vc_cod": "VC4",
+   "vc": [
+    "Trote suave 8 min",
+    "Estiramiento con énfasis en isquios y gemelos",
+    "⚑ Los sprints máximos cargan mucho el tendón. No te lo saltes."
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Explosividad pura. Cero fatiga residual.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-09-07",
+   "dia": "Lunes",
+   "semana": "Semana 7 · Pre-taper",
+   "fase": "Fase 4: Pico de Forma",
+   "sesion": "Recuperación",
+   "volumen": "6 km",
+   "ritmo": "5:20-5:30",
+   "zona": "Z1 (<158)",
+   "cal_cod": "C1",
+   "cal": [
+    "Movilidad dinámica 5 min: círculos de cadera · balanceo de pierna frontal 10/lado · balanceo lateral 10/lado · círculos de tobillo · rotación de tronco",
+    "Caminar rápido 3 min",
+    "Arrancar el trote 30-40 s/km más lento que el objetivo y subir progresivo",
+    "⚑ En día fácil NO hacen falta drills ni rectas. El trote es el calentamiento."
+   ],
+   "vc_cod": "VC1",
+   "vc": [
+    "Bajar el ritmo naturalmente los últimos 5 min del rodaje",
+    "Caminar 3 min",
+    "Estiramiento suave 30 s c/u: isquios · cuádriceps · gemelo · sóleo · flexor de cadera · glúteo"
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Última semana completa. Empieza a bajar volumen.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-09-08",
+   "dia": "Martes",
+   "semana": "Semana 7 · Pre-taper",
+   "fase": "Fase 4: Pico de Forma",
+   "sesion": "Pista / Ritmo carrera",
+   "volumen": "4 x 1500 m",
+   "ritmo": "3:08-3:10",
+   "zona": "Z4-Z5",
+   "cal_cod": "C2",
+   "cal": [
+    "Movilidad dinámica 5 min",
+    "Trote progresivo 15 min (de 5:40 a 5:00). FC no debe pasar 160",
+    "Drills 5 min: skipping A 2x20 m · skipping B 2x20 m · talón-glúteo 2x20 m · carioca 2x20 m · taloneo rápido 2x20 m",
+    "4 rectas progresivas de 80 m — la última al 95% del ritmo de la sesión. Vuelta caminando",
+    "Pausa 2-3 min: hidratar y respirar",
+    "⚑ Si la primera serie es la más rápida del día, calentaste mal."
+   ],
+   "vc_cod": "VC2",
+   "vc": [
+    "Trote MUY suave 10-12 min a 5:45-6:00 — FC por debajo de 140",
+    "Caminar 3 min",
+    "Estiramiento estático 6 min (30-45 s por músculo)",
+    "Foam roller 5 min: cuádriceps · banda iliotibial · gemelos · glúteos",
+    "Proteína + carbohidrato dentro de los 45 min",
+    "⚑ Saltarte esto es la razón #1 de que un martes duro arruine el miércoles."
+   ],
+   "pm_titulo": "FUERZA A — Máxima (45 min)",
+   "pm": [
+    "Sentadilla trasera 4 x 5 @ 80-85% 1RM",
+    "Peso muerto rumano 3 x 6 @ 75-80%",
+    "Zancada con mancuernas 3 x 8 por pierna",
+    "Elevación de gemelo a 1 pierna 3 x 12",
+    "Plancha frontal 3 x 45 s",
+    "Dead bug 3 x 10 por lado",
+    "→ VC5: bici o caminar 5 min + estiramiento 5 min + proteína en 30 min"
+   ],
+   "nota": "Ritmo de carrera con recuperación amplia (3 min).",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-09-09",
+   "dia": "Miércoles",
+   "semana": "Semana 7 · Pre-taper",
+   "fase": "Fase 4: Pico de Forma",
+   "sesion": "Rodaje medio",
+   "volumen": "8 km",
+   "ritmo": "5:00",
+   "zona": "Z2 (158-166)",
+   "cal_cod": "C1",
+   "cal": [
+    "Movilidad dinámica 5 min: círculos de cadera · balanceo de pierna frontal 10/lado · balanceo lateral 10/lado · círculos de tobillo · rotación de tronco",
+    "Caminar rápido 3 min",
+    "Arrancar el trote 30-40 s/km más lento que el objetivo y subir progresivo",
+    "⚑ En día fácil NO hacen falta drills ni rectas. El trote es el calentamiento."
+   ],
+   "vc_cod": "VC1",
+   "vc": [
+    "Bajar el ritmo naturalmente los últimos 5 min del rodaje",
+    "Caminar 3 min",
+    "Estiramiento suave 30 s c/u: isquios · cuádriceps · gemelo · sóleo · flexor de cadera · glúteo"
+   ],
+   "pm_titulo": "DOBLE — Trote suave 6 km Z1",
+   "pm": [
+    "Ritmo 5:30-5:45/km, FC por debajo de 150",
+    "Es trote regenerativo puro. Si te cuesta, sáltalo sin culpa."
+   ],
+   "nota": "Frenar de verdad. FC techo 166.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-09-10",
+   "dia": "Jueves",
+   "semana": "Semana 7 · Pre-taper",
+   "fase": "Fase 4: Pico de Forma",
+   "sesion": "Series cortas",
+   "volumen": "8 x 400 m",
+   "ritmo": "1:14 vuelta",
+   "zona": "Z5",
+   "cal_cod": "C2",
+   "cal": [
+    "Movilidad dinámica 5 min",
+    "Trote progresivo 15 min (de 5:40 a 5:00). FC no debe pasar 160",
+    "Drills 5 min: skipping A 2x20 m · skipping B 2x20 m · talón-glúteo 2x20 m · carioca 2x20 m · taloneo rápido 2x20 m",
+    "4 rectas progresivas de 80 m — la última al 95% del ritmo de la sesión. Vuelta caminando",
+    "Pausa 2-3 min: hidratar y respirar",
+    "⚑ Si la primera serie es la más rápida del día, calentaste mal."
+   ],
+   "vc_cod": "VC2",
+   "vc": [
+    "Trote MUY suave 10-12 min a 5:45-6:00 — FC por debajo de 140",
+    "Caminar 3 min",
+    "Estiramiento estático 6 min (30-45 s por músculo)",
+    "Foam roller 5 min: cuádriceps · banda iliotibial · gemelos · glúteos",
+    "Proteína + carbohidrato dentro de los 45 min",
+    "⚑ Saltarte esto es la razón #1 de que un martes duro arruine el miércoles."
+   ],
+   "pm_titulo": "FUERZA B — Pliometría + Core (35 min)",
+   "pm": [
+    "Salto al cajón 4 x 5 (40-50 cm)",
+    "Salto con contramovimiento 3 x 6",
+    "Bounding / multisaltos 4 x 20 m",
+    "Peso muerto a 1 pierna 3 x 8 por pierna",
+    "Puente de glúteo a 1 pierna 3 x 12",
+    "Pallof press 3 x 10 por lado",
+    "Plancha lateral 3 x 30 s por lado",
+    "→ VC5: bici o caminar 5 min + estiramiento 5 min + proteína en 30 min"
+   ],
+   "nota": "Solo Fuerza B LIGERA — nada pesado ya.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-09-11",
+   "dia": "Viernes",
+   "semana": "Semana 7 · Pre-taper",
+   "fase": "Fase 4: Pico de Forma",
+   "sesion": "Recuperación",
+   "volumen": "6 km",
+   "ritmo": "5:30",
+   "zona": "Z1",
+   "cal_cod": "C1",
+   "cal": [
+    "Movilidad dinámica 5 min: círculos de cadera · balanceo de pierna frontal 10/lado · balanceo lateral 10/lado · círculos de tobillo · rotación de tronco",
+    "Caminar rápido 3 min",
+    "Arrancar el trote 30-40 s/km más lento que el objetivo y subir progresivo",
+    "⚑ En día fácil NO hacen falta drills ni rectas. El trote es el calentamiento."
+   ],
+   "vc_cod": "VC1",
+   "vc": [
+    "Bajar el ritmo naturalmente los últimos 5 min del rodaje",
+    "Caminar 3 min",
+    "Estiramiento suave 30 s c/u: isquios · cuádriceps · gemelo · sóleo · flexor de cadera · glúteo"
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Regenerativo estricto. Nada de fuerza hoy.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-09-12",
+   "dia": "Sábado",
+   "semana": "Semana 7 · Pre-taper",
+   "fase": "Fase 4: Pico de Forma",
+   "sesion": "FONDO + final progresivo",
+   "volumen": "12 km",
+   "ritmo": "10 km @4:40 + 2 km a 4:05",
+   "zona": "Z2 → Z3",
+   "cal_cod": "C3",
+   "cal": [
+    "Movilidad dinámica 5 min con énfasis en cadera y tobillo",
+    "Los primeros 2 km del fondo a 5:30-5:40",
+    "⚑ Esos 2 km CUENTAN dentro del volumen. Nunca salgas a ritmo objetivo desde el km 1."
+   ],
+   "vc_cod": "VC3",
+   "vc": [
+    "Último km trotando suave después del tramo progresivo",
+    "Caminar 5 min + hidratar con electrolitos",
+    "Estiramiento 6 min",
+    "Piernas en alto contra la pared 5 min",
+    "Comida completa dentro de los 30-45 min"
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Último fondo. Corto y alegre.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-09-13",
+   "dia": "Domingo",
+   "semana": "Semana 7 · Pre-taper",
+   "fase": "Fase 4: Pico de Forma",
+   "sesion": "CUESTAS A — corto",
+   "volumen": "8-10 km total",
+   "ritmo": "6 x 10 s cuesta",
+   "zona": "Z1 + picos",
+   "cal_cod": "C4",
+   "cal": [
+    "Movilidad dinámica 5 min",
+    "Trote 15 min en Z1 — llega a la cuesta caliente de verdad",
+    "Drills 4 min + 3 rectas progresivas en llano",
+    "2 subidas de aproximación: una al 70% y otra al 85%",
+    "⚑ CRÍTICO: nunca arranques a MÁXIMO en frío. El riesgo de isquios es real."
+   ],
+   "vc_cod": "VC4",
+   "vc": [
+    "Trote suave 8 min",
+    "Estiramiento con énfasis en isquios y gemelos",
+    "⚑ Los sprints máximos cargan mucho el tendón. No te lo saltes."
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Mantener chispa, nada más.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-09-14",
+   "dia": "Lunes",
+   "semana": "Semana 8 · TAPER + CARRERA",
+   "fase": "Fase 5: Taper y Carrera",
+   "sesion": "Recuperación",
+   "volumen": "6 km",
+   "ritmo": "5:20",
+   "zona": "Z1",
+   "cal_cod": "C1",
+   "cal": [
+    "Movilidad dinámica 5 min: círculos de cadera · balanceo de pierna frontal 10/lado · balanceo lateral 10/lado · círculos de tobillo · rotación de tronco",
+    "Caminar rápido 3 min",
+    "Arrancar el trote 30-40 s/km más lento que el objetivo y subir progresivo",
+    "⚑ En día fácil NO hacen falta drills ni rectas. El trote es el calentamiento."
+   ],
+   "vc_cod": "VC1",
+   "vc": [
+    "Bajar el ritmo naturalmente los últimos 5 min del rodaje",
+    "Caminar 3 min",
+    "Estiramiento suave 30 s c/u: isquios · cuádriceps · gemelo · sóleo · flexor de cadera · glúteo"
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Empieza el taper. Volumen -50%, intensidad se mantiene.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-09-15",
+   "dia": "Martes",
+   "semana": "Semana 8 · TAPER + CARRERA",
+   "fase": "Fase 5: Taper y Carrera",
+   "sesion": "Series de afilado",
+   "volumen": "6 x 400 m",
+   "ritmo": "3:08",
+   "zona": "Z4-Z5",
+   "cal_cod": "C2",
+   "cal": [
+    "Movilidad dinámica 5 min",
+    "Trote progresivo 15 min (de 5:40 a 5:00). FC no debe pasar 160",
+    "Drills 5 min: skipping A 2x20 m · skipping B 2x20 m · talón-glúteo 2x20 m · carioca 2x20 m · taloneo rápido 2x20 m",
+    "4 rectas progresivas de 80 m — la última al 95% del ritmo de la sesión. Vuelta caminando",
+    "Pausa 2-3 min: hidratar y respirar",
+    "⚑ Si la primera serie es la más rápida del día, calentaste mal."
+   ],
+   "vc_cod": "VC2",
+   "vc": [
+    "Trote MUY suave 10-12 min a 5:45-6:00 — FC por debajo de 140",
+    "Caminar 3 min",
+    "Estiramiento estático 6 min (30-45 s por músculo)",
+    "Foam roller 5 min: cuádriceps · banda iliotibial · gemelos · glúteos",
+    "Proteína + carbohidrato dentro de los 45 min",
+    "⚑ Saltarte esto es la razón #1 de que un martes duro arruine el miércoles."
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Recordar el ritmo, NO fatigar. Rec 2 min completos.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-09-16",
+   "dia": "Miércoles",
+   "semana": "Semana 8 · TAPER + CARRERA",
+   "fase": "Fase 5: Taper y Carrera",
+   "sesion": "Rodaje suave",
+   "volumen": "6 km",
+   "ritmo": "5:20",
+   "zona": "Z1-Z2",
+   "cal_cod": "C1",
+   "cal": [
+    "Movilidad dinámica 5 min: círculos de cadera · balanceo de pierna frontal 10/lado · balanceo lateral 10/lado · círculos de tobillo · rotación de tronco",
+    "Caminar rápido 3 min",
+    "Arrancar el trote 30-40 s/km más lento que el objetivo y subir progresivo",
+    "⚑ En día fácil NO hacen falta drills ni rectas. El trote es el calentamiento."
+   ],
+   "vc_cod": "VC1",
+   "vc": [
+    "Bajar el ritmo naturalmente los últimos 5 min del rodaje",
+    "Caminar 3 min",
+    "Estiramiento suave 30 s c/u: isquios · cuádriceps · gemelo · sóleo · flexor de cadera · glúteo"
+   ],
+   "pm_titulo": "Movilidad 15 min",
+   "pm": [
+    "Solo movilidad y estiramiento. Cero carga."
+   ],
+   "nota": "Nada de fuerza. Solo movilidad y estiramiento.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-09-17",
+   "dia": "Jueves",
+   "semana": "Semana 8 · TAPER + CARRERA",
+   "fase": "Fase 5: Taper y Carrera",
+   "sesion": "Activación 5K",
+   "volumen": "6 km total",
+   "ritmo": "2 x 800 m a 3:10",
+   "zona": "Z2-Z5",
+   "cal_cod": "C2",
+   "cal": [
+    "Movilidad dinámica 5 min",
+    "Trote progresivo 15 min (de 5:40 a 5:00). FC no debe pasar 160",
+    "Drills 5 min: skipping A 2x20 m · skipping B 2x20 m · talón-glúteo 2x20 m · carioca 2x20 m · taloneo rápido 2x20 m",
+    "4 rectas progresivas de 80 m — la última al 95% del ritmo de la sesión. Vuelta caminando",
+    "Pausa 2-3 min: hidratar y respirar",
+    "⚑ Si la primera serie es la más rápida del día, calentaste mal."
+   ],
+   "vc_cod": "VC2",
+   "vc": [
+    "Trote MUY suave 10-12 min a 5:45-6:00 — FC por debajo de 140",
+    "Caminar 3 min",
+    "Estiramiento estático 6 min (30-45 s por músculo)",
+    "Foam roller 5 min: cuádriceps · banda iliotibial · gemelos · glúteos",
+    "Proteína + carbohidrato dentro de los 45 min",
+    "⚑ Saltarte esto es la razón #1 de que un martes duro arruine el miércoles."
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Última sesión con ritmo. Debe sentirse fácil.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-09-18",
+   "dia": "Viernes",
+   "semana": "Semana 8 · TAPER + CARRERA",
+   "fase": "Fase 5: Taper y Carrera",
+   "sesion": "Trote muy suave",
+   "volumen": "4 km",
+   "ritmo": "5:40",
+   "zona": "Z1",
+   "cal_cod": "C1",
+   "cal": [
+    "Movilidad dinámica 5 min: círculos de cadera · balanceo de pierna frontal 10/lado · balanceo lateral 10/lado · círculos de tobillo · rotación de tronco",
+    "Caminar rápido 3 min",
+    "Arrancar el trote 30-40 s/km más lento que el objetivo y subir progresivo",
+    "⚑ En día fácil NO hacen falta drills ni rectas. El trote es el calentamiento."
+   ],
+   "vc_cod": "VC1",
+   "vc": [
+    "Bajar el ritmo naturalmente los últimos 5 min del rodaje",
+    "Caminar 3 min",
+    "Estiramiento suave 30 s c/u: isquios · cuádriceps · gemelo · sóleo · flexor de cadera · glúteo"
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Piernas sueltas. Dormir 8 h y empezar a hidratar.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-09-19",
+   "dia": "Sábado",
+   "semana": "Semana 8 · TAPER + CARRERA",
+   "fase": "Fase 5: Taper y Carrera",
+   "sesion": "Trote pre-carrera + rectas",
+   "volumen": "4 km + 4 x 80 m",
+   "ritmo": "Muy suave",
+   "zona": "Z1",
+   "cal_cod": "C2",
+   "cal": [
+    "Movilidad dinámica 5 min",
+    "Trote progresivo 15 min (de 5:40 a 5:00). FC no debe pasar 160",
+    "Drills 5 min: skipping A 2x20 m · skipping B 2x20 m · talón-glúteo 2x20 m · carioca 2x20 m · taloneo rápido 2x20 m",
+    "4 rectas progresivas de 80 m — la última al 95% del ritmo de la sesión. Vuelta caminando",
+    "Pausa 2-3 min: hidratar y respirar",
+    "⚑ Si la primera serie es la más rápida del día, calentaste mal."
+   ],
+   "vc_cod": "VC1",
+   "vc": [
+    "Bajar el ritmo naturalmente los últimos 5 min del rodaje",
+    "Caminar 3 min",
+    "Estiramiento suave 30 s c/u: isquios · cuádriceps · gemelo · sóleo · flexor de cadera · glúteo"
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Soltar nervios. Prepara ropa y dorsal hoy.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  },
+  {
+   "fecha": "2026-09-20",
+   "dia": "Domingo",
+   "semana": "Semana 8 · TAPER + CARRERA",
+   "fase": "Fase 5: Taper y Carrera",
+   "sesion": "🏁 CARRERA 5K",
+   "volumen": "5 km",
+   "ritmo": "OBJETIVO 3:19-3:23/km",
+   "zona": "Z5 (>188)",
+   "cal_cod": "C6",
+   "cal": [
+    "T-40 min · Movilidad dinámica 6 min",
+    "T-33 min · Trote progresivo 12 min",
+    "T-20 min · Drills técnicos 4 min",
+    "T-15 min · 4 rectas de 80 m — la última EXACTAMENTE a ritmo de carrera",
+    "T-8 min · Caminar, respirar, últimos sorbos de agua, quitar ropa extra",
+    "T-3 min · A la línea + 2 aceleraciones cortas",
+    "⚑ NADA nuevo el día de la carrera. Ensáyalo el 15 y el 17 de septiembre."
+   ],
+   "vc_cod": "VC6",
+   "vc": [
+    "Caminar 5 min INMEDIATAMENTE al cruzar la meta — no te sientes",
+    "Trote muy suave 10 min",
+    "Estiramiento + hidratación con electrolitos"
+   ],
+   "pm_titulo": "",
+   "pm": [],
+   "nota": "Salir en 3:22 los primeros 1000 m. Apretar del km 3.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+  }
+ ],
+ "reglas": [
+  "Correr SIEMPRE primero. La pesa nunca antes de una sesión de calidad.",
+  "Mínimo 4-6 h entre la sesión de la mañana y la pesa de la tarde.",
+  "Fuerza solo en día duro (martes/jueves). NUNCA en día de recuperación.",
+  "Si falta tiempo: recorta el volumen de la sesión, nunca el calentamiento ni la vuelta a la calma.",
+  "El doble del miércoles jamás debe comprometer la calidad del jueves.",
+  "Si las piernas siguen pesadas 48 h después de la pesa, baja la carga 10%.",
+  "Si aparecen molestias: recorta el fondo antes que la calidad."
+ ]
+}

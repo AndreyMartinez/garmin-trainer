@@ -1,0 +1,9 @@
+# Dependencias y credenciales (NUNCA subir)
+node_modules/
+.env
+
+# Config local de herramientas
+.claude/
+__t
+
+# Nota: los CSV de entrenamiento SÍ se incluyen a propósito (uso personal).
