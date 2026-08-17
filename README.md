@@ -13,6 +13,8 @@ Herramientas personales para entrenar hacia un **5K sub-16** desde CDMX (2,240 m
 | `com.raphael.garmin.plist` | Agente launchd (macOS) para correr la extracción automáticamente. |
 | `*.csv`, `plan_maestro.json` | Datos del plan y de entrenamientos. |
 
+`entrenamientos_performance.csv` incluye `Descanso_Entre_Reps`: el descanso **promedio** entre repeticiones cuando la sesión tuvo series (Garmin agrupa las repeticiones por tipo y solo entrega el total + cuántas se sumaron, no cada una por separado, así que no hay descanso rep-por-rep exacto).
+
 ## Uso
 
 ### 1. Extraer datos de Garmin
