@@ -31,6 +31,27 @@ if (!USERNAME || !PASSWORD || PASSWORD.includes('PEGA_AQUI')) {
 const DAYS_BACK = parseInt(process.env.DAYS_BACK || '9', 10);
 const OUT = path.join(__dirname, 'entrenamientos_performance.csv');
 
+function formatMMSS(totalSeconds) {
+    const s = Math.round(totalSeconds);
+    const m = Math.floor(s / 60);
+    const r = s % 60;
+    return `${m}:${String(r).padStart(2, '0')}`;
+}
+
+// Garmin agrupa las repeticiones por tipo (INTERVAL_ACTIVE, INTERVAL_RECOVERY, ...)
+// y entrega el total + noOfSplits (cuántas repeticiones se sumaron), no cada una por separado.
+// Con eso calculamos el descanso PROMEDIO entre repeticiones cuando hubo más de una.
+function descansoEntreReps(splitSummaries) {
+    if (!splitSummaries) return '';
+    const recoveries = splitSummaries.filter(
+        (s) => /RECOVERY/i.test(s.splitType) && s.noOfSplits > 1
+    );
+    if (recoveries.length === 0) return '';
+    return recoveries
+        .map((r) => `≈${formatMMSS(r.duration / r.noOfSplits)} x${r.noOfSplits} (${r.splitType})`)
+        .join(' | ');
+}
+
 async function main() {
     try {
         const GCClient = new GarminConnect({ username: USERNAME, password: PASSWORD });
@@ -55,6 +76,7 @@ async function main() {
                 const splitSummaryData = details.splitSummaries
                     ? details.splitSummaries.map((split) => ({
                           Tipo_Fase: split.splitType,
+                          Numero_Reps: split.noOfSplits,
                           Distancia_m: split.distance,
                           Duracion_s: split.duration,
                           Ritmo_Medio_ms: split.averageSpeed,
@@ -77,6 +99,7 @@ async function main() {
 
                 detailedData.push({
                     splitSummaryData,
+                    Descanso_Entre_Reps: descansoEntreReps(details.splitSummaries),
                     Fecha: activity.startTimeLocal,
                     Nombre: activity.activityName,
                     Tipo: activity.activityType.typeKey,
