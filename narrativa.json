@@ -1,0 +1,59 @@
+{
+  "_comment": "Lo único escrito a mano cada semana. analiza.py produce los números; esto los interpreta.",
+  "pronostico": "Ninguna sesión a ritmo de carrera se completó en todo el bloque. El esfuerzo sostenido más largo que existe son 1592 m (5:23) a 3:23/km, con descanso completo. El objetivo no está respaldado por ningún dato.",
+  "banda_objetivo": ["3:19", "3:23"],
+  "nota_ritmo": "Ordenado por longitud de la repetición, no por fecha. Es la lectura que importa: el ritmo aguanta en reps cortas y se cae al alargarlas. La carrera son 5000 m continuos, casi el triple de la repetición más larga jamás completada. Las cuestas se omiten aquí porque su ritmo ajustado no es comparable.",
+  "ritmos": [
+    { "etiqueta": "10×280 m · 10 sep", "detalle": "54.0 s · tras 3 días sin correr", "ritmo": "3:13" },
+    { "etiqueta": "10×400 m · 3 sep", "detalle": "74.2 s por vuelta", "ritmo": "3:05", "destaca": true },
+    { "etiqueta": "4×736 m · 18 ago", "detalle": "2:28 por rep · FC 164", "ritmo": "3:21" },
+    { "etiqueta": "6×944 m · 25 ago", "detalle": "3:14 por rep · FC 165", "ritmo": "3:26" },
+    { "etiqueta": "2×1592 m · 1 sep", "detalle": "5:23 por rep · el test", "ritmo": "3:23", "referencia": true }
+  ],
+  "veredictos": {
+    "2026-09-11": { "marca": "se pasó", "tipo": "supera", "texto": "7 km a 5:16 contra 6 km a 5:30 prescritos. Sigue en Z1, así que el coste es bajo, pero es el mismo patrón del día 4." },
+    "2026-09-10": { "marca": "reps cortas", "tipo": "corto", "texto": "10 reps de 280 m donde el plan pedía 8×400. Ocho segundos por km más lento que el 3 de septiembre, con descansos más cortos: consistente con tres días sin correr antes." },
+    "2026-09-06": { "marca": "degradada", "tipo": "corto", "texto": "Cadencia 155 contra 197 y 191 de las cuestas del 16 y 23 de agosto; ritmo ajustado 3:57 contra 3:17 y 3:19. No es la misma sesión que venías haciendo." },
+    "2026-09-05": { "marca": "la mejor", "tipo": "cumple", "texto": "15 km a 4:40 con FC 150 y cadencia 179. Mejor que los fondos del 15 y 22 de agosto (4:44 y 4:48) con la misma FC. El final progresivo no se puede confirmar: Garmin agrupa las dos vueltas activas." },
+    "2026-09-04": { "marca": "se pasó", "tipo": "supera", "texto": "Ritmo clavado a 5:30 y FC 130, muy holgada. Pero 8 km en un día regenerativo de 6." },
+    "2026-09-03": { "marca": "idéntica a agosto", "tipo": "cumple", "texto": "74.2 s por vuelta. El 13 de agosto fueron 74.3 s: tres semanas después, una décima de diferencia, con la FC media tres pulsaciones más alta. La velocidad pura no se movió." },
+    "2026-09-02": { "marca": "cumple", "tipo": "cumple", "texto": "Rodaje medio de 10 km, el volumen prescrito." },
+    "2026-09-01": { "marca": "reps cortas", "tipo": "corto", "texto": "El test se corrió en reps de 1592 m, no de 2000 m: 3:23/km sostenido 5:23, no los ~6:46 que habrían sido 2000 m. FC media 175, máxima 188. Es el ancla de toda la predicción, y es más corta de lo que el plan pidió." }
+  },
+  "hallazgos": [
+    {
+      "marcador": "El agujero",
+      "titulo": "Las dos sesiones a ritmo de carrera se omitieron",
+      "cuerpo": "El <b>3×1500 m del 27 de agosto</b> y el <b>4×1500 m del 8 de septiembre</b> no tienen actividad, con el histórico cubriendo ambas fechas. Eran las dos únicas sesiones del bloque que ensayaban el ritmo objetivo durante cinco o seis minutos seguidos. El bloque termina sin haber probado nunca el ritmo de carrera."
+    },
+    {
+      "marcador": "Estancamiento",
+      "titulo": "La velocidad en 400 m no se movió en cuatro semanas",
+      "cuerpo": "13 de agosto: 74.3 s por vuelta, FC media 171. 3 de septiembre: 74.2 s, FC media 174. Una décima de segundo de diferencia, con tres pulsaciones más de coste. Las series cortas ya no están produciendo adaptación."
+    },
+    {
+      "marcador": "Carga",
+      "titulo": "De 65 km a 15 km en una semana",
+      "cuerpo": "La semana 36 fue la más alta del bloque con 65.5 km en 7 días. La 37 lleva 14.6 km en 2 días. Parte es el pre-taper previsto, pero el plan pedía cerca de 40 km: la caída es mucho más profunda que la programada, y arrastra los tres días omitidos."
+    },
+    {
+      "marcador": "Lo que sí funciona",
+      "titulo": "El motor aeróbico sigue mejorando",
+      "cuerpo": "Los fondos van 4:44 → 4:48 → <b>4:40</b>/km con la FC clavada en 149–151 y la cadencia subiendo a 179. A 2,240 m de altitud, eso es progreso real y es la parte del plan que se ejecutó con disciplina."
+    }
+  ],
+  "veredicto_titulo": "El objetivo no está sostenido por los datos, y el bloque ya no tiene margen para probarlo",
+  "veredicto_cuerpo": "El esfuerzo sostenido más largo de todo el bloque son <b>1592 m en 5:23</b> a 3:23/km, con 2:28 de descanso y repetido solo dos veces. La carrera son 5000 m continuos: más del triple de esa distancia, sin descanso. Ese salto nunca se ensayó, porque las dos sesiones que lo hacían se omitieron. A esto se suma que la velocidad en 400 m lleva cuatro semanas plana. Con ocho días restantes, el <b>jueves 17 (2×800 m a ritmo objetivo)</b> es la última oportunidad de generar un dato real: si esos 800 m salen a 3:19–3:23 sintiéndose sostenibles, el objetivo es defendible; si cuestan como el test, conviene ajustar la expectativa antes de la salida y no durante el kilómetro 3.",
+  "a_favor": [
+    "Fondos mejorando a 4:40/km con FC estable en 150, en altitud",
+    "400 m a 1:14 y mecánica de velocidad intacta: zancada 166 cm, contacto 185 ms",
+    "El test sostuvo 3:23/km con FC media 175, por debajo del LTHR"
+  ],
+  "en_contra": [
+    "Ninguna sesión a ritmo de carrera completada en todo el bloque",
+    "La repetición más larga jamás corrida son 1592 m, y la carrera son 5000 m",
+    "Velocidad en 400 m plana durante cuatro semanas, con más FC",
+    "Seis sesiones omitidas en 30 días, tres de ellas consecutivas",
+    "Volumen de la semana 37 a una quinta parte de la 36"
+  ]
+}
