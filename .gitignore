@@ -7,3 +7,16 @@ node_modules/
 __t
 
 # Nota: los CSV de entrenamiento SÍ se incluyen a propósito (uso personal).
+
+# Basura de macOS
+.DS_Store
+
+# Salidas regeneradas cada lunes por la tarea `informe-5k-semanal`.
+# Se reconstruyen con `python3 analiza.py && python3 informe.py`; versionarlas
+# ensuciaría el árbol cada semana sin aportar nada que no esté en las entradas.
+analisis.json
+informe_5k.html
+
+# Logs de la extracción
+garmin_cron.log
+garmin_launchd.log

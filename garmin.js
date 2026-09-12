@@ -28,8 +28,34 @@ if (!USERNAME || !PASSWORD || PASSWORD.includes('PEGA_AQUI')) {
     process.exit(1);
 }
 
-const DAYS_BACK = parseInt(process.env.DAYS_BACK || '9', 10);
+const DAYS_BACK = parseInt(process.env.DAYS_BACK || '30', 10);
 const OUT = path.join(__dirname, 'entrenamientos_performance.csv');
+// Almacén histórico: Garmin solo entrega los últimos DAYS_BACK días, así que el CSV
+// se reconstruye desde aquí para no perder las semanas anteriores en cada corrida.
+const HIST = path.join(__dirname, 'historial_entrenamientos.json');
+
+const CAMPOS = [
+    'splitSummaryData', 'Descanso_Entre_Reps', 'Activity_ID', 'Fecha', 'Nombre', 'Tipo',
+    'Distancia_Km', 'Duracion_Min', 'Calorias', 'FC_Media', 'FC_Maxima', 'Cadencia_Media',
+    'Oscilacion_Vertical', 'Tiempo_Contacto_Suelo', 'Longitud_Zancada',
+    'Training_Effect_Aerobico', 'Training_Effect_Anaerobico', 'Tiempo_Recuperacion_Horas',
+    'Varianza_FC',
+];
+
+function cargarHistorial() {
+    try {
+        if (!fs.existsSync(HIST)) return {};
+        return JSON.parse(fs.readFileSync(HIST, 'utf8'));
+    } catch (e) {
+        console.error('No se pudo leer el historial, se empieza vacío:', e.message);
+        return {};
+    }
+}
+
+// Clave de deduplicación: el id de Garmin si existe, si no la fecha-hora local (única por actividad).
+function claveActividad(registro) {
+    return String(registro.Activity_ID || registro.Fecha);
+}
 
 function formatMMSS(totalSeconds) {
     const s = Math.round(totalSeconds);
@@ -97,9 +123,14 @@ async function main() {
                       }))
                     : [];
 
+                // recoveryTime y hrvStatus no vienen en el listado de actividades;
+                // hay que sacarlos del detalle (summaryDTO según versión de la API).
+                const resumen = details.summaryDTO || {};
+
                 detailedData.push({
                     splitSummaryData,
                     Descanso_Entre_Reps: descansoEntreReps(details.splitSummaries),
+                    Activity_ID: activity.activityId,
                     Fecha: activity.startTimeLocal,
                     Nombre: activity.activityName,
                     Tipo: activity.activityType.typeKey,
@@ -114,8 +145,10 @@ async function main() {
                     Longitud_Zancada: activity.avgStrideLength,
                     Training_Effect_Aerobico: activity.aerobicTrainingEffect,
                     Training_Effect_Anaerobico: activity.anaerobicTrainingEffect,
-                    Tiempo_Recuperacion_Horas: activity.recoveryTime,
-                    Varianza_FC: activity.hrvStatus,
+                    Tiempo_Recuperacion_Horas:
+                        activity.recoveryTime ?? resumen.recoveryTime ?? details.recoveryTime ?? '',
+                    Varianza_FC:
+                        activity.hrvStatus ?? resumen.hrvStatus ?? details.hrvStatus ?? '',
                 });
             } catch (error) {
                 console.error(`Error procesando la actividad ${activity.activityId}:`, error.message);
@@ -127,8 +160,35 @@ async function main() {
             return;
         }
 
-        fs.writeFileSync(OUT, new Parser().parse(detailedData));
-        console.log(`CSV generado con éxito (${detailedData.length} actividades) -> ${OUT}`);
+        // Fusionar con el histórico: lo recién extraído pisa a lo viejo (puede traer correcciones),
+        // pero nada de lo anterior se borra aunque caiga fuera de la ventana de DAYS_BACK.
+        const historial = cargarHistorial();
+        const previas = Object.keys(historial).length;
+        let nuevas = 0;
+        for (const registro of detailedData) {
+            const clave = claveActividad(registro);
+            // Se considera nueva solo si no estaba ni por clave ni por fecha-hora.
+            const yaEstaba =
+                clave in historial ||
+                Object.values(historial).some((v) => v.Fecha === registro.Fecha);
+            if (!yaEstaba) nuevas++;
+            // Migración: los registros anteriores a Activity_ID quedaron indexados por fecha.
+            // Si esta actividad ya estaba guardada así, se retira para no duplicarla.
+            for (const [k, v] of Object.entries(historial)) {
+                if (k !== clave && v.Fecha === registro.Fecha) delete historial[k];
+            }
+            historial[clave] = registro;
+        }
+
+        // Más recientes primero, igual que antes.
+        const todas = Object.values(historial).sort((a, b) => String(b.Fecha).localeCompare(String(a.Fecha)));
+
+        fs.writeFileSync(HIST, JSON.stringify(historial, null, 1));
+        fs.writeFileSync(OUT, new Parser({ fields: CAMPOS }).parse(todas));
+        console.log(
+            `Extraídas ${detailedData.length} actividades de los últimos ${DAYS_BACK} días ` +
+            `(${nuevas} nuevas). Historial: ${previas} -> ${todas.length}. CSV -> ${OUT}`
+        );
     } catch (error) {
         console.error('Error en la extracción:', error.message);
     }

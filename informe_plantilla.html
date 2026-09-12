@@ -1,0 +1,511 @@
+<title>Bitácora Sub-16</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  /* Neutros fríos, sesgo azul: instrumento, no papel */
+  --ground:#F4F6F9; --surface:#FFFFFF; --surface-2:#EBEFF4; --surface-3:#E1E7EE;
+  --ink:#11151C; --ink-2:#454F5F; --ink-3:#79838F;
+  --line:#DCE2EA; --line-strong:#BFC8D4;
+  /* Acento único: rojo-óxido de pista de tartán. Se gasta solo en la alarma. */
+  --accent:#C1502E; --accent-ink:#A33F20; --accent-soft:#F7E6DF;
+  --ok:#3D6B57;
+  /* Zonas FC: rampa secuencial de un tono, monotónica Z1->Z5 (recesiva, es fondo) */
+  --z1:#F6E7DF; --z2:#EFD3C5; --z3:#E5B9A3; --z4:#D99A7C; --z5:#CB7853;
+  --shadow:0 1px 2px rgba(17,21,28,.05), 0 8px 24px -16px rgba(17,21,28,.25);
+
+  --f-display:"IBM Plex Sans Condensed",ui-sans-serif,system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",ui-sans-serif,system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0E1116; --surface:#161B22; --surface-2:#1D242E; --surface-3:#252E3A;
+    --ink:#E8ECF2; --ink-2:#A9B4C2; --ink-3:#78828F;
+    --line:#262E39; --line-strong:#3A4552;
+    --accent:#E2734C; --accent-ink:#F08D69; --accent-soft:#31201A;
+    --ok:#5FA183;
+    --z1:#2A1D17; --z2:#37241B; --z3:#462B1E; --z4:#573221; --z5:#6A3A23;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0E1116; --surface:#161B22; --surface-2:#1D242E; --surface-3:#252E3A;
+  --ink:#E8ECF2; --ink-2:#A9B4C2; --ink-3:#78828F;
+  --line:#262E39; --line-strong:#3A4552;
+  --accent:#E2734C; --accent-ink:#F08D69; --accent-soft:#31201A;
+  --ok:#5FA183;
+  --z1:#2A1D17; --z2:#37241B; --z3:#462B1E; --z4:#573221; --z5:#6A3A23;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:var(--f-body); font-size:15px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.envoltura{max-width:1080px; margin:0 auto; padding:40px 24px 72px; display:flex; flex-direction:column; gap:40px}
+h1,h2,h3{font-family:var(--f-display); margin:0; text-wrap:balance; letter-spacing:-.01em}
+.mono{font-family:var(--f-mono); font-variant-numeric:tabular-nums}
+
+/* ---------- Encabezado ---------- */
+.cabecera{display:flex; flex-direction:column; gap:14px; border-bottom:2px solid var(--ink); padding-bottom:22px}
+.encabezado-eyebrow{
+  font-family:var(--f-mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--accent-ink); font-weight:600;
+}
+.cabecera h1{font-size:clamp(34px,6vw,52px); font-weight:700; line-height:1.02}
+.cabecera-meta{
+  display:flex; flex-wrap:wrap; gap:8px 22px; font-family:var(--f-mono);
+  font-size:12px; color:var(--ink-3);
+}
+.cabecera-meta b{color:var(--ink-2); font-weight:500}
+
+/* ---------- Cuenta regresiva ---------- */
+.regresiva{
+  display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:center;
+  background:var(--surface); border:1px solid var(--line); border-left:4px solid var(--accent);
+  border-radius:3px; padding:24px 28px; box-shadow:var(--shadow);
+}
+.regresiva-num{display:flex; align-items:baseline; gap:10px}
+.regresiva-num strong{
+  font-family:var(--f-display); font-size:72px; font-weight:700; line-height:.85;
+  letter-spacing:-.04em; color:var(--accent);
+}
+.regresiva-num span{font-family:var(--f-mono); font-size:12px; color:var(--ink-3); text-transform:uppercase; letter-spacing:.1em}
+.regresiva-detalle{display:flex; flex-direction:column; gap:6px}
+.regresiva-detalle .titulo{font-family:var(--f-display); font-size:22px; font-weight:600}
+.regresiva-detalle .sub{font-size:14px; color:var(--ink-2); max-width:54ch}
+.regresiva-detalle .obj{font-family:var(--f-mono); font-size:13px; color:var(--ink); font-weight:500}
+@media (max-width:640px){ .regresiva{grid-template-columns:1fr; gap:16px} }
+
+/* ---------- Secciones ---------- */
+section{display:flex; flex-direction:column; gap:16px}
+.sec-cab{display:flex; flex-direction:column; gap:4px; border-bottom:1px solid var(--line-strong); padding-bottom:10px}
+.sec-cab h2{font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.13em; font-family:var(--f-mono)}
+.sec-cab p{margin:0; font-size:14px; color:var(--ink-2); max-width:68ch}
+
+/* ---------- Tira de adherencia ---------- */
+.tira{display:grid; grid-template-columns:repeat(auto-fit,minmax(96px,1fr)); gap:5px}
+.dia{
+  background:var(--surface); border:1px solid var(--line); border-radius:2px;
+  padding:9px 9px 11px; display:flex; flex-direction:column; gap:5px; min-height:112px;
+  border-top:3px solid var(--line-strong);
+}
+.dia.cumplido{border-top-color:var(--ok)}
+.dia.omitido{border-top-color:var(--accent); background:var(--accent-soft)}
+.dia.sindatos{
+  border-top-color:var(--line-strong); color:var(--ink-3);
+  background:repeating-linear-gradient(135deg,transparent,transparent 5px,var(--surface-2) 5px,var(--surface-2) 10px);
+}
+.dia.futuro{border-style:dashed; background:transparent}
+.dia-fecha{font-family:var(--f-mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3)}
+.dia-fecha b{color:var(--ink-2); font-weight:600}
+.dia-plan{font-size:11.5px; line-height:1.3; color:var(--ink-2); font-weight:500}
+.dia-real{font-family:var(--f-mono); font-size:12px; font-weight:600; margin-top:auto}
+.dia-estado{
+  font-family:var(--f-mono); font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; font-weight:600;
+}
+.dia.cumplido .dia-estado{color:var(--ok)}
+.dia.omitido .dia-estado{color:var(--accent-ink)}
+.dia.sindatos .dia-estado, .dia.futuro .dia-estado{color:var(--ink-3)}
+
+.leyenda{display:flex; flex-wrap:wrap; gap:6px 18px; font-family:var(--f-mono); font-size:11px; color:var(--ink-3)}
+.leyenda i{display:inline-block; width:22px; height:3px; margin-right:6px; vertical-align:middle; border-radius:2px}
+
+/* ---------- Fichas semanales ---------- */
+.fichas{display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr)); gap:5px}
+.ficha{background:var(--surface); border:1px solid var(--line); border-radius:2px; padding:16px 18px; display:flex; flex-direction:column; gap:3px}
+.ficha .et{font-family:var(--f-mono); font-size:10px; letter-spacing:.11em; text-transform:uppercase; color:var(--ink-3)}
+.ficha .val{font-family:var(--f-display); font-size:32px; font-weight:700; line-height:1.05; letter-spacing:-.02em}
+.ficha .pie{font-size:12px; color:var(--ink-2)}
+.ficha.alarma .val{color:var(--accent)}
+
+/* ---------- Tabla ---------- */
+.tabla-env{overflow-x:auto; border:1px solid var(--line); border-radius:2px; background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:760px; font-size:13.5px}
+th{
+  font-family:var(--f-mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-3); text-align:left; font-weight:600;
+  padding:11px 14px; border-bottom:1px solid var(--line-strong); white-space:nowrap;
+}
+td{padding:12px 14px; border-bottom:1px solid var(--line); vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+td.num{font-family:var(--f-mono); font-variant-numeric:tabular-nums; white-space:nowrap}
+.dia-col{font-family:var(--f-mono); font-size:11.5px; color:var(--ink-3); line-height:1.35}
+.dia-col b{display:block; color:var(--ink); font-size:13px; font-weight:600}
+.plan-col{color:var(--ink-2); font-size:12.5px; line-height:1.4}
+.veredicto{font-size:12.5px; line-height:1.45}
+.marca{
+  display:inline-block; font-family:var(--f-mono); font-size:10px; font-weight:600;
+  letter-spacing:.07em; text-transform:uppercase; padding:2px 7px; border-radius:2px; white-space:nowrap;
+}
+.marca.supera{background:var(--accent-soft); color:var(--accent-ink); border:1px solid var(--accent)}
+.marca.cumple{background:var(--surface-2); color:var(--ok); border:1px solid var(--line-strong)}
+.marca.corto{background:var(--surface-2); color:var(--ink-2); border:1px solid var(--line-strong)}
+
+/* ---------- Gráfico de ritmo ---------- */
+.gr{background:var(--surface); border:1px solid var(--line); border-radius:2px; padding:22px 24px 16px}
+.gr-fila{display:grid; grid-template-columns:132px 1fr; gap:14px; align-items:center; margin-bottom:13px}
+.gr-et{font-family:var(--f-mono); font-size:11.5px; color:var(--ink-2); line-height:1.3; text-align:right}
+.gr-et b{display:block; color:var(--ink); font-weight:600}
+.gr-pista{position:relative; height:26px; background:var(--surface-2); border-radius:2px}
+.gr-banda{position:absolute; top:0; bottom:0; background:var(--accent-soft); border-left:1px dashed var(--accent); border-right:1px dashed var(--accent)}
+/* El ritmo no tiene cero: se marca la posición en la escala, no una longitud. */
+.gr-marca{
+  position:absolute; top:50%; width:13px; height:13px; border-radius:50%;
+  background:var(--ink); border:2px solid var(--surface); transform:translate(-50%,-50%);
+}
+.gr-marca.destaca{background:var(--accent)}
+.gr-marca.referencia{background:var(--surface); border:2px solid var(--ink-2)}
+.gr-valor{
+  position:absolute; top:50%; transform:translateY(-50%); font-family:var(--f-mono);
+  font-size:11.5px; font-weight:600; padding-left:12px; color:var(--ink); white-space:nowrap;
+}
+.gr-eje{display:grid; grid-template-columns:132px 1fr; gap:14px; margin-top:2px}
+.gr-eje-marcas{position:relative; height:20px; border-top:1px solid var(--line-strong)}
+.gr-eje-marcas span{
+  position:absolute; top:4px; transform:translateX(-50%); font-family:var(--f-mono);
+  font-size:10.5px; color:var(--ink-3);
+}
+.gr-nota{font-size:12px; color:var(--ink-3); margin:10px 0 0; max-width:70ch}
+
+/* ---------- Zonas FC ---------- */
+.zonas{background:var(--surface); border:1px solid var(--line); border-radius:2px; padding:22px 24px 16px}
+.z-fila{display:grid; grid-template-columns:132px 1fr; gap:14px; align-items:center; margin-bottom:11px}
+.z-pista{position:relative; height:28px; border-radius:2px; overflow:hidden; display:flex}
+.z-banda{height:100%}
+.z-halt{
+  position:absolute; top:50%; height:3px; background:var(--ink); transform:translateY(-50%);
+  border-radius:2px; opacity:.55;
+}
+.z-punto{
+  position:absolute; top:50%; width:13px; height:13px; border-radius:50%;
+  transform:translate(-50%,-50%); border:2px solid var(--surface);
+}
+.z-punto.media{background:var(--ink)}
+.z-punto.maxima{background:var(--accent)}
+.z-escala{display:grid; grid-template-columns:132px 1fr; gap:14px}
+.z-escala-marcas{position:relative; height:34px; border-top:1px solid var(--line-strong)}
+.z-escala-marcas .tick{position:absolute; top:4px; transform:translateX(-50%); font-family:var(--f-mono); font-size:10.5px; color:var(--ink-3)}
+.z-escala-marcas .zlab{position:absolute; top:18px; transform:translateX(-50%); font-family:var(--f-mono); font-size:10px; letter-spacing:.08em; color:var(--ink-3); font-weight:600}
+
+/* ---------- Lectura ---------- */
+.lectura{display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:5px}
+.hallazgo{background:var(--surface); border:1px solid var(--line); border-radius:2px; padding:20px 22px; display:flex; flex-direction:column; gap:8px}
+.hallazgo h3{font-size:16px; font-weight:600; line-height:1.25}
+.hallazgo p{margin:0; font-size:13.5px; color:var(--ink-2); line-height:1.58}
+.hallazgo .marcador{font-family:var(--f-mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--accent-ink); font-weight:600}
+.hallazgo.principal{border-left:3px solid var(--accent)}
+
+.veredicto-final{background:var(--surface); border:1px solid var(--line-strong); border-radius:2px; padding:26px 28px; display:flex; flex-direction:column; gap:14px}
+.veredicto-final h3{font-size:20px; font-weight:700}
+.veredicto-final p{margin:0; font-size:14.5px; color:var(--ink-2); line-height:1.62; max-width:72ch}
+.balanza{display:grid; grid-template-columns:1fr 1fr; gap:5px; margin-top:4px}
+.platillo{padding:14px 16px; border-radius:2px; background:var(--surface-2); display:flex; flex-direction:column; gap:6px}
+.platillo .et{font-family:var(--f-mono); font-size:10px; letter-spacing:.11em; text-transform:uppercase; color:var(--ink-3); font-weight:600}
+.platillo ul{margin:0; padding-left:17px; font-size:13px; color:var(--ink-2); line-height:1.55}
+.platillo.contra{background:var(--accent-soft)}
+@media (max-width:640px){ .balanza{grid-template-columns:1fr} }
+
+/* ---------- Pie ---------- */
+.pie-datos{border-top:1px solid var(--line); padding-top:20px; display:flex; flex-direction:column; gap:10px}
+.pie-datos h3{font-family:var(--f-mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3); font-weight:600}
+.pie-datos ul{margin:0; padding-left:18px; font-size:13px; color:var(--ink-2); line-height:1.6; max-width:76ch}
+.pie-datos code{font-family:var(--f-mono); font-size:12px; background:var(--surface-2); padding:1px 5px; border-radius:2px}
+
+@media (prefers-reduced-motion:reduce){ *{animation:none!important; transition:none!important} }
+</style>
+
+<div class="envoltura">
+
+  <header class="cabecera">
+    <div class="encabezado-eyebrow" id="eyebrow">Bloque 5K · CDMX 2,240 m</div>
+    <h1>Bitácora Sub-16</h1>
+    <div class="cabecera-meta">
+      <span>Actualizado <b id="meta-generado">—</b></span>
+      <span>Ventana <b id="meta-ventana">—</b></span>
+      <span>Datos desde <b id="meta-cobertura">—</b></span>
+      <span>LTHR <b id="meta-lthr">—</b></span>
+    </div>
+  </header>
+
+  <div class="regresiva">
+    <div class="regresiva-num"><strong id="reg-dias">—</strong><span>días</span></div>
+    <div class="regresiva-detalle">
+      <div class="titulo" id="reg-titulo">—</div>
+      <div class="obj" id="reg-objetivo">—</div>
+      <div class="sub" id="reg-sub">—</div>
+    </div>
+  </div>
+
+  <section>
+    <div class="sec-cab">
+      <h2>Adherencia al plan</h2>
+      <p>Un día por celda. <b>Omitido</b> significa que el histórico cubre esa fecha y no hay actividad; <b>sin datos</b> es anterior a la cobertura de Garmin y no permite concluir nada.</p>
+    </div>
+    <div class="tira" id="tira"></div>
+    <div class="leyenda">
+      <span><i style="background:var(--ok)"></i>Cumplido</span>
+      <span><i style="background:var(--accent)"></i>Omitido</span>
+      <span><i style="background:var(--line-strong)"></i>Sin datos</span>
+      <span><i style="background:transparent;border:1px dashed var(--line-strong);height:0"></i>Por venir</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-cab"><h2>Volumen</h2></div>
+    <div class="fichas" id="fichas"></div>
+  </section>
+
+  <section>
+    <div class="sec-cab">
+      <h2>Sesiones · prescrito contra ejecutado</h2>
+    </div>
+    <div class="tabla-env">
+      <table>
+        <thead><tr>
+          <th>Día</th><th>Plan</th><th>Distancia</th><th>Ritmo</th><th>FC med/máx</th><th>Cad.</th><th>Veredicto</th>
+        </tr></thead>
+        <tbody id="tbody-sesiones"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-cab">
+      <h2>Ritmo de las series contra el objetivo de carrera</h2>
+      <p>Ritmo medio de los tramos activos. La banda marca el objetivo de carrera; más a la izquierda es más rápido.</p>
+    </div>
+    <div class="gr" id="grafico-ritmo"></div>
+  </section>
+
+  <section>
+    <div class="sec-cab">
+      <h2>Dónde cayó la frecuencia cardiaca</h2>
+      <p>Cada barra va de la FC media (punto oscuro) a la máxima (punto de acento) de la sesión, sobre las zonas Friel para LTHR 186.</p>
+    </div>
+    <div class="zonas" id="grafico-zonas"></div>
+  </section>
+
+  <section>
+    <div class="sec-cab"><h2>Lectura de la semana</h2></div>
+    <div class="lectura" id="lectura"></div>
+  </section>
+
+  <section id="sec-veredicto"></section>
+
+  <div class="pie-datos" id="pie-datos"></div>
+</div>
+
+<script>
+/* ============================================================================
+   DATOS — bloque generado por `analiza.py`. La actualización semanal
+   reemplaza únicamente esta constante; el resto de la página se redibuja sola.
+   ========================================================================= */
+const DATOS = __DATOS__;
+
+/* NARRATIVA — lo único escrito a mano cada semana. */
+const NARRATIVA = __NARRATIVA__;
+
+/* ---------- utilidades ---------- */
+const seg = (mmss) => { if(!mmss) return null; const [m,s]=mmss.split(':').map(Number); return m*60+s; };
+const fmtFecha = (iso) => { const [a,m,d]=iso.split('-'); return `${d}/${m}`; };
+const esc = (t) => String(t??'').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---------- cabecera ---------- */
+document.getElementById('meta-generado').textContent = DATOS.generado.replace('T',' ').slice(0,16);
+document.getElementById('meta-ventana').textContent  = `${DATOS.desde} → ${DATOS.hasta}`;
+document.getElementById('meta-cobertura').textContent= DATOS.cobertura_desde;
+document.getElementById('meta-lthr').textContent     = `${DATOS.lthr} lpm`;
+
+if (DATOS.carrera){
+  document.getElementById('reg-dias').textContent = DATOS.carrera.dias_restantes;
+  document.getElementById('reg-titulo').textContent = `${DATOS.carrera.sesion} · ${DATOS.carrera.fecha}`;
+  document.getElementById('reg-objetivo').textContent = DATOS.carrera.objetivo;
+  document.getElementById('reg-sub').textContent = NARRATIVA.pronostico;
+}
+
+/* ---------- tira de adherencia ---------- */
+const hoy = DATOS.hasta;
+document.getElementById('tira').innerHTML = DATOS.calendario.map(c => {
+  let clase, estado;
+  if (c.fecha > hoy)            { clase='futuro';   estado='por venir'; }
+  else if (c.cumplido)          { clase='cumplido'; estado='cumplido'; }
+  else if (c.fecha >= DATOS.cobertura_desde) { clase='omitido'; estado='omitido'; }
+  else                          { clase='sindatos'; estado='sin datos'; }
+  const plan = c.planeado ? c.planeado.sesion : '—';
+  const real = c.cumplido ? `${c.km_dia} km` : '';
+  return `<div class="dia ${clase}">
+    <div class="dia-fecha"><b>${esc(c.dia.slice(0,3))}</b> ${fmtFecha(c.fecha)}</div>
+    <div class="dia-plan">${esc(plan)}</div>
+    <div class="dia-real">${esc(real)}</div>
+    <div class="dia-estado">${estado}</div>
+  </div>`;
+}).join('');
+
+/* ---------- fichas de volumen ---------- */
+const semanas = Object.entries(DATOS.semanas).sort();
+const fichas = semanas.map(([k,w],i) => {
+  const previa = i>0 ? semanas[i-1][1] : null;
+  const delta = previa ? w.km - previa.km : null;
+  const pie = delta!==null
+    ? `${delta>=0?'+':''}${delta.toFixed(1)} km contra la semana anterior`
+    : `${w.sesiones} sesiones · ${w.dias_entrenados} días`;
+  const alarma = delta!==null && delta < -10 ? ' alarma' : '';
+  return `<div class="ficha${alarma}">
+    <div class="et">${esc(k.replace('-W',' · semana '))}</div>
+    <div class="val mono">${w.km}<span style="font-size:15px;font-weight:500"> km</span></div>
+    <div class="pie">${esc(pie)}</div>
+  </div>`;
+});
+fichas.push(`<div class="ficha${DATOS.omitidos.length?' alarma':''}">
+  <div class="et">Sesiones omitidas</div>
+  <div class="val mono">${DATOS.omitidos.length}</div>
+  <div class="pie">${DATOS.omitidos.length ? esc(DATOS.omitidos.map(o=>o.dia.slice(0,3)).join(' · ')) : 'Ninguna en la ventana'}</div>
+</div>`);
+document.getElementById('fichas').innerHTML = fichas.join('');
+
+/* ---------- tabla de sesiones ---------- */
+const VEREDICTOS = NARRATIVA.veredictos || {};
+document.getElementById('tbody-sesiones').innerHTML = DATOS.calendario
+  .filter(c => c.cumplido)
+  .sort((a,b) => b.fecha.localeCompare(a.fecha))
+  .flatMap(c => c.ejecutado.map(s => {
+    const v = VEREDICTOS[s.fecha] || {};
+    const plan = c.planeado
+      ? `<b>${esc(c.planeado.sesion)}</b><br>${esc(c.planeado.volumen)} · ${esc(c.planeado.ritmo_objetivo||'')}`
+      : '<span style="color:var(--ink-3)">fuera del plan</span>';
+    const act = s.fases.activas.find(a => a.reps > 1);
+    const ritmo = act
+      ? `${s.ritmo_global}<br><span style="color:var(--ink-3);font-size:11.5px">activo ${act.ritmo_real}</span>`
+      : s.ritmo_global;
+    return `<tr>
+      <td class="dia-col"><b>${esc(s.dia.slice(0,3))} ${fmtFecha(s.fecha)}</b>${esc(s.nombre||'')}</td>
+      <td class="plan-col">${plan}</td>
+      <td class="num">${s.km} km<br><span style="color:var(--ink-3);font-size:11.5px">${s.minutos} min</span></td>
+      <td class="num">${ritmo}</td>
+      <td class="num">${s.fc_media ?? '—'} / ${s.fc_maxima ?? '—'}<br><span style="color:var(--ink-3);font-size:11.5px">${s.zona_fc_global||''}</span></td>
+      <td class="num">${s.cadencia ?? '—'}</td>
+      <td class="veredicto">${v.marca ? `<span class="marca ${v.tipo||'cumple'}">${esc(v.marca)}</span><br>` : ''}${esc(v.texto||'')}</td>
+    </tr>`;
+  })).join('');
+
+/* ---------- gráfico de ritmo ---------- */
+(function(){
+  const filas = NARRATIVA.ritmos || [];
+  if(!filas.length){ document.getElementById('grafico-ritmo').innerHTML=''; return; }
+  const MIN=180, MAX=250;                       // 3:00 a 4:10 por km, en segundos
+  const pos = (s) => ((s-MIN)/(MAX-MIN))*100;
+  const banda = NARRATIVA.banda_objetivo;
+  const bIni=pos(seg(banda[0])), bFin=pos(seg(banda[1]));
+
+  const cuerpo = filas.map(f => {
+    const x = Math.min(Math.max(pos(seg(f.ritmo)), 0), 100);
+    const clase = f.referencia ? ' referencia' : (f.destaca ? ' destaca' : '');
+    // La etiqueta salta al lado izquierdo cuando el punto se acerca al borde derecho.
+    const etiqueta = x > 78
+      ? `<div class="gr-valor" style="right:${100-x}%; padding:0 12px 0 0; text-align:right">${esc(f.ritmo)}/km</div>`
+      : `<div class="gr-valor" style="left:${x}%">${esc(f.ritmo)}/km</div>`;
+    return `<div class="gr-fila">
+      <div class="gr-et"><b>${esc(f.etiqueta)}</b>${esc(f.detalle||'')}</div>
+      <div class="gr-pista">
+        <div class="gr-banda" style="left:${bIni}%; width:${bFin-bIni}%"></div>
+        <div class="gr-marca${clase}" style="left:${x}%" title="${esc(f.ritmo)}/km"></div>
+        ${etiqueta}
+      </div>
+    </div>`;
+  }).join('');
+
+  const ticks = [180,195,210,225,240].map(t =>
+    `<span style="left:${pos(t)}%">${Math.floor(t/60)}:${String(t%60).padStart(2,'0')}</span>`).join('');
+
+  document.getElementById('grafico-ritmo').innerHTML = cuerpo +
+    `<div class="gr-eje"><div></div><div class="gr-eje-marcas">${ticks}</div></div>
+     <p class="gr-nota">${esc(NARRATIVA.nota_ritmo||'')}</p>`;
+})();
+
+/* ---------- zonas FC ---------- */
+(function(){
+  const MIN=110, MAX=200;
+  const pos = (v) => ((v-MIN)/(MAX-MIN))*100;
+  const BANDAS = [
+    {z:'Z1', hasta:157, color:'var(--z1)'}, {z:'Z2', hasta:165, color:'var(--z2)'},
+    {z:'Z3', hasta:175, color:'var(--z3)'}, {z:'Z4', hasta:185, color:'var(--z4)'},
+    {z:'Z5', hasta:MAX, color:'var(--z5)'},
+  ];
+  let prev = MIN;
+  const fondo = BANDAS.map(b => {
+    const w = ((b.hasta-prev)/(MAX-MIN))*100; prev = b.hasta;
+    return `<div class="z-banda" style="width:${w}%; background:${b.color}"></div>`;
+  }).join('');
+
+  const filas = DATOS.calendario.filter(c=>c.cumplido).sort((a,b)=>b.fecha.localeCompare(a.fecha))
+    .flatMap(c => c.ejecutado).filter(s => s.fc_media && s.fc_maxima)
+    .map(s => {
+      const a=pos(s.fc_media), b=pos(s.fc_maxima);
+      return `<div class="z-fila">
+        <div class="gr-et"><b>${esc(s.dia.slice(0,3))} ${fmtFecha(s.fecha)}</b>${s.km} km</div>
+        <div class="z-pista">${fondo}
+          <div class="z-halt" style="left:${a}%; width:${b-a}%"></div>
+          <div class="z-punto media" style="left:${a}%" title="FC media ${s.fc_media}"></div>
+          <div class="z-punto maxima" style="left:${b}%" title="FC máxima ${s.fc_maxima}"></div>
+        </div>
+      </div>`;
+    }).join('');
+
+  prev = MIN;
+  const zlabs = BANDAS.map(b => {
+    const centro = pos((prev + Math.min(b.hasta,MAX))/2); prev = b.hasta;
+    return `<span class="zlab" style="left:${centro}%">${b.z}</span>`;
+  }).join('');
+  const ticks = [120,140,158,166,176,186,200].map(t =>
+    `<span class="tick" style="left:${pos(t)}%">${t}</span>`).join('');
+
+  document.getElementById('grafico-zonas').innerHTML = filas +
+    `<div class="z-escala"><div></div><div class="z-escala-marcas">${ticks}${zlabs}</div></div>`;
+})();
+
+/* ---------- lectura ---------- */
+document.getElementById('lectura').innerHTML = (NARRATIVA.hallazgos||[]).map((h,i) =>
+  `<div class="hallazgo${i===0?' principal':''}">
+     <div class="marcador">${esc(h.marcador)}</div>
+     <h3>${esc(h.titulo)}</h3>
+     <p>${h.cuerpo}</p>
+   </div>`).join('');
+
+/* ---------- veredicto ---------- */
+document.getElementById('sec-veredicto').innerHTML = `
+  <div class="sec-cab"><h2>El pronóstico</h2></div>
+  <div class="veredicto-final">
+    <h3>${esc(NARRATIVA.veredicto_titulo)}</h3>
+    <p>${NARRATIVA.veredicto_cuerpo}</p>
+    <div class="balanza">
+      <div class="platillo">
+        <div class="et">A favor</div>
+        <ul>${(NARRATIVA.a_favor||[]).map(x=>`<li>${x}</li>`).join('')}</ul>
+      </div>
+      <div class="platillo contra">
+        <div class="et">En contra</div>
+        <ul>${(NARRATIVA.en_contra||[]).map(x=>`<li>${x}</li>`).join('')}</ul>
+      </div>
+    </div>
+  </div>`;
+
+/* ---------- calidad de datos ---------- */
+(function(){
+  const items = [];
+  for (const [campo, q] of Object.entries(DATOS.calidad_datos||{})){
+    if (q.vacios) items.push(`<code>${esc(campo)}</code> vacío en ${q.vacios} de ${q.total} actividades — <code>garmin.js</code> no lo está poblando.`);
+  }
+  for (const f of DATOS.fragmentos||[])
+    items.push(`Fragmento de ${f.km} km el ${f.fecha} a las ${f.hora}: arranque falso, excluido de los promedios.`);
+  if (DATOS.sin_datos?.length)
+    items.push(`${DATOS.sin_datos.length} días del plan quedan antes de <code>${esc(DATOS.cobertura_desde)}</code>: sin extracción, no se puede afirmar que se hayan omitido.`);
+  document.getElementById('pie-datos').innerHTML =
+    `<h3>Calidad de los datos</h3><ul>${items.map(i=>`<li>${i}</li>`).join('')}</ul>`;
+})();
+</script>

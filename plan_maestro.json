@@ -26,7 +26,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "Primer fondo del bloque. No lo negocies.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-07-26",
@@ -54,7 +55,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "Bajar CAMINANDO 2-3 min. Recuperación completa.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": "Bajar caminando 2-3 min: recuperación completa antes de la siguiente repetición."
   },
   {
    "fecha": "2026-07-27",
@@ -81,7 +83,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "Soltar piernas del fin de semana.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-07-28",
@@ -121,7 +124,8 @@
     "→ VC5: bici o caminar 5 min + estiramiento 5 min + proteína en 30 min"
    ],
    "nota": "Fuerza DESPUÉS de correr, mínimo 4 h de separación.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": "60-90 s trote suave (no caminar, mantener el pulso arriba)."
   },
   {
    "fecha": "2026-07-29",
@@ -148,7 +152,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "Frenar de verdad. FC techo 166.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-07-30",
@@ -189,7 +194,8 @@
     "→ VC5: bici o caminar 5 min + estiramiento 5 min + proteína en 30 min"
    ],
    "nota": "Completar los 5 km enteros. Sal conservador.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-07-31",
@@ -216,7 +222,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "Regenerativo estricto. Nada de fuerza hoy.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-08-01",
@@ -244,7 +251,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "Semana 1 de 8. Construyendo.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-08-02",
@@ -274,7 +282,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "Bajada TROTANDO = recuperación. Cadencia >180.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": "Trote de bajada como recuperación activa (~90 s), cadencia >180."
   },
   {
    "fecha": "2026-08-03",
@@ -301,7 +310,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "Soltar piernas del fin de semana.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-08-04",
@@ -341,7 +351,8 @@
     "→ VC5: bici o caminar 5 min + estiramiento 5 min + proteína en 30 min"
    ],
    "nota": "Fuerza DESPUÉS de correr, mínimo 4 h de separación.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": "60-90 s trote suave (no caminar, mantener el pulso arriba)."
   },
   {
    "fecha": "2026-08-05",
@@ -371,7 +382,8 @@
     "Es trote regenerativo puro. Si te cuesta, sáltalo sin culpa."
    ],
    "nota": "Frenar de verdad. FC techo 166.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-08-06",
@@ -412,7 +424,8 @@
     "→ VC5: bici o caminar 5 min + estiramiento 5 min + proteína en 30 min"
    ],
    "nota": "Pliometría en piernas ya calientes.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-08-07",
@@ -439,7 +452,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "Regenerativo estricto. Nada de fuerza hoy.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-08-08",
@@ -467,7 +481,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-08-09",
@@ -495,7 +510,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "Día ligero tras el fondo. No lo conviertas en aeróbico.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": "Bajar caminando 2-3 min: recuperación completa antes de la siguiente repetición."
   },
   {
    "fecha": "2026-08-10",
@@ -522,7 +538,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "Soltar piernas del fin de semana.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-08-11",
@@ -562,7 +579,8 @@
     "→ VC5: bici o caminar 5 min + estiramiento 5 min + proteína en 30 min"
    ],
    "nota": "LA sesión clave del bloque. Rec 2 min activos. + Fuerza A PM.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": "2 min trote suave activo."
   },
   {
    "fecha": "2026-08-12",
@@ -592,7 +610,8 @@
     "Es trote regenerativo puro. Si te cuesta, sáltalo sin culpa."
    ],
    "nota": "Frenar de verdad. FC techo 166.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-08-13",
@@ -633,7 +652,8 @@
     "→ VC5: bici o caminar 5 min + estiramiento 5 min + proteína en 30 min"
    ],
    "nota": "Rec 60 s. Mecánica de 5K. + Fuerza B PM.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": "60 s caminando o trote muy suave."
   },
   {
    "fecha": "2026-08-14",
@@ -660,7 +680,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "Regenerativo estricto. Nada de fuerza hoy.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-08-15",
@@ -688,7 +709,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "PICO DE VOLUMEN — fondo más largo de todo el plan.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-08-16",
@@ -718,7 +740,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "Pico de carga en cuestas.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": "Trote de bajada como recuperación activa (~90 s), cadencia >180."
   },
   {
    "fecha": "2026-08-17",
@@ -745,7 +768,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "SEMANA DE DESCARGA. Volumen -25%. Aquí es donde absorbes todo.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-08-18",
@@ -785,7 +809,8 @@
     "→ VC5: bici o caminar 5 min + estiramiento 5 min + proteína en 30 min"
    ],
    "nota": "Solo 4 series. Calidad, no cantidad.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": "2 min trote suave activo."
   },
   {
    "fecha": "2026-08-19",
@@ -815,7 +840,8 @@
     "Es trote regenerativo puro. Si te cuesta, sáltalo sin culpa."
    ],
    "nota": "Frenar de verdad. FC techo 166.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-08-20",
@@ -853,7 +879,8 @@
     "→ VC5: bici o caminar 5 min + estiramiento 5 min + proteína en 30 min"
    ],
    "nota": "Sin fuerza pesada esta semana — solo Fuerza B ligera.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": "Caminar de regreso, ~45-60 s entre rectas."
   },
   {
    "fecha": "2026-08-21",
@@ -880,7 +907,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "Regenerativo estricto. Nada de fuerza hoy.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-08-22",
@@ -908,7 +936,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "Fondo corto. Confía en la descarga.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-08-23",
@@ -936,7 +965,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "Cuestas breves. Recuperar es entrenar.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": "Bajar caminando 2-3 min: recuperación completa antes de la siguiente repetición."
   },
   {
    "fecha": "2026-08-24",
@@ -963,7 +993,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "Vuelve la carga. Debes sentirte fresco tras la descarga.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-08-25",
@@ -1003,7 +1034,8 @@
     "→ VC5: bici o caminar 5 min + estiramiento 5 min + proteína en 30 min"
    ],
    "nota": "Sesión más dura del bloque hasta ahora.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": "2 min trote suave activo."
   },
   {
    "fecha": "2026-08-26",
@@ -1033,7 +1065,8 @@
     "Es trote regenerativo puro. Si te cuesta, sáltalo sin culpa."
    ],
    "nota": "Frenar de verdad. FC techo 166.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-08-27",
@@ -1074,7 +1107,8 @@
     "→ VC5: bici o caminar 5 min + estiramiento 5 min + proteína en 30 min"
    ],
    "nota": "Rec 3 min. Simulación parcial de carrera.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": "3 min completos (caminar o trotar muy suave)."
   },
   {
    "fecha": "2026-08-28",
@@ -1101,7 +1135,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "Regenerativo estricto. Nada de fuerza hoy.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-08-29",
@@ -1128,8 +1163,9 @@
    ],
    "pm_titulo": "",
    "pm": [],
-   "nota": "",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "nota": "Semana con el jueves saltado y el martes muy por debajo del ritmo objetivo. Corre el tramo progresivo por sensación: si el cuerpo no da 4:05 en el cierre, ciérralo en 4:10-4:15. Completar los 16 km relajado importa más que el número final.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-08-30",
@@ -1158,8 +1194,9 @@
    ],
    "pm_titulo": "",
    "pm": [],
-   "nota": "",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "nota": "Estímulo neuromuscular corto, no depende de la fatiga de umbral del martes/jueves. Si sientes las piernas pesadas en las primeras 2-3 repeticiones, extiende la recuperación a 90 s antes de seguir.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": "Trote de bajada como recuperación activa (~90 s), cadencia >180."
   },
   {
    "fecha": "2026-08-31",
@@ -1186,7 +1223,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "Soltar piernas del fin de semana.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-09-01",
@@ -1195,7 +1233,7 @@
    "fase": "Fase 4: Pico de Forma",
    "sesion": "TEST DE LACTATO",
    "volumen": "2 x 2000 m",
-   "ritmo": "3:08-3:10",
+   "ritmo": "3:23/km real (objetivo previo 3:08-3:10; FC media 175, máx 188 — nunca promedió Z4)",
    "zona": "Z5",
    "cal_cod": "C2",
    "cal": [
@@ -1225,8 +1263,9 @@
     "Dead bug 3 x 10 por lado",
     "→ VC5: bici o caminar 5 min + estiramiento 5 min + proteína en 30 min"
    ],
-   "nota": "EL TEST. Rec 3 min. Aquí sabemos tu tiempo real de carrera.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "nota": "EL TEST. Rec 3 min. El martes 25/8 no llegaste a 3:08-3:10 en las 1000 m (saliste a ~3:25, FC media 165, nunca tocó Z5). Hoy no persigas ese número: sal a la primera serie al ritmo más rápido que puedas sostener LIMPIO los 2000 m completos. El tiempo real de hoy recalibra el ritmo de las series del 3, 8 y 10 de sept — no el 3:08-3:10 original. → Resultado: 3:23/km, FC media 175 (máx 188, sin promediar Z4). Series de 400 m recalibradas a ≈1:19-1:20/vuelta y las de 1500 m a ≈3:22-3:24/km.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": "3 min completos."
   },
   {
    "fecha": "2026-09-02",
@@ -1256,7 +1295,8 @@
     "Es trote regenerativo puro. Si te cuesta, sáltalo sin culpa."
    ],
    "nota": "Frenar de verdad. FC techo 166.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-09-03",
@@ -1265,7 +1305,7 @@
    "fase": "Fase 4: Pico de Forma",
    "sesion": "Series cortas (velocidad)",
    "volumen": "10 x 400 m",
-   "ritmo": "1:14 vuelta",
+   "ritmo": "≈1:19-1:20 vuelta (recalibrado desde 1:14 con el test del 1/9: saliste a 3:23/km en el 2x2000 m, ~7% más lento que el objetivo original)",
    "zona": "Z5",
    "cal_cod": "C2",
    "cal": [
@@ -1297,7 +1337,8 @@
     "→ VC5: bici o caminar 5 min + estiramiento 5 min + proteína en 30 min"
    ],
    "nota": "Última sesión de fuerza pesada del bloque.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": "60 s caminando o trote muy suave."
   },
   {
    "fecha": "2026-09-04",
@@ -1324,7 +1365,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "Regenerativo estricto. Nada de fuerza hoy.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-09-05",
@@ -1333,7 +1375,7 @@
    "fase": "Fase 4: Pico de Forma",
    "sesion": "FONDO + final progresivo",
    "volumen": "15 km",
-   "ritmo": "12 km @4:40 + 3 km a 4:05",
+   "ritmo": "12 km @4:40 + 3 km a ≈4:23 (recalibrado desde 4:05 con el test del 1/9)",
    "zona": "Z2 → Z3",
    "cal_cod": "C3",
    "cal": [
@@ -1352,7 +1394,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-09-06",
@@ -1380,7 +1423,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "Explosividad pura. Cero fatiga residual.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": "Bajar caminando 2-3 min: recuperación completa antes de la siguiente repetición."
   },
   {
    "fecha": "2026-09-07",
@@ -1407,7 +1451,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "Última semana completa. Empieza a bajar volumen.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-09-08",
@@ -1416,7 +1461,7 @@
    "fase": "Fase 4: Pico de Forma",
    "sesion": "Pista / Ritmo carrera",
    "volumen": "4 x 1500 m",
-   "ritmo": "3:08-3:10",
+   "ritmo": "≈3:22-3:24/km — 5:03-5:06 por serie de 1500 m (recalibrado desde 3:08-3:10 con el resultado real del test del 1/9)",
    "zona": "Z4-Z5",
    "cal_cod": "C2",
    "cal": [
@@ -1446,8 +1491,9 @@
     "Dead bug 3 x 10 por lado",
     "→ VC5: bici o caminar 5 min + estiramiento 5 min + proteína en 30 min"
    ],
-   "nota": "Ritmo de carrera con recuperación amplia (3 min).",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "nota": "Ritmo de carrera con recuperación amplia (3 min). Recalibrado al resultado real del test de lactato del 1/9 (3:23/km) — no al 3:08-3:10 original, que ya vimos que no era realista.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": "3 min completos (caminar o trotar muy suave)."
   },
   {
    "fecha": "2026-09-09",
@@ -1477,7 +1523,8 @@
     "Es trote regenerativo puro. Si te cuesta, sáltalo sin culpa."
    ],
    "nota": "Frenar de verdad. FC techo 166.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-09-10",
@@ -1486,7 +1533,7 @@
    "fase": "Fase 4: Pico de Forma",
    "sesion": "Series cortas",
    "volumen": "8 x 400 m",
-   "ritmo": "1:14 vuelta",
+   "ritmo": "≈1:19-1:20 vuelta (recalibrado desde 1:14 con el resultado real del test del 1/9)",
    "zona": "Z5",
    "cal_cod": "C2",
    "cal": [
@@ -1518,7 +1565,8 @@
     "→ VC5: bici o caminar 5 min + estiramiento 5 min + proteína en 30 min"
    ],
    "nota": "Solo Fuerza B LIGERA — nada pesado ya.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": "60 s caminando o trote muy suave."
   },
   {
    "fecha": "2026-09-11",
@@ -1545,7 +1593,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "Regenerativo estricto. Nada de fuerza hoy.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-09-12",
@@ -1554,7 +1603,7 @@
    "fase": "Fase 4: Pico de Forma",
    "sesion": "FONDO + final progresivo",
    "volumen": "12 km",
-   "ritmo": "10 km @4:40 + 2 km a 4:05",
+   "ritmo": "10 km @4:40 + 2 km a ≈4:23 (recalibrado desde 4:05 con el test del 1/9)",
    "zona": "Z2 → Z3",
    "cal_cod": "C3",
    "cal": [
@@ -1573,7 +1622,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "Último fondo. Corto y alegre.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-09-13",
@@ -1601,7 +1651,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "Mantener chispa, nada más.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": "Bajar caminando 2-3 min: recuperación completa antes de la siguiente repetición."
   },
   {
    "fecha": "2026-09-14",
@@ -1628,7 +1679,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "Empieza el taper. Volumen -50%, intensidad se mantiene.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-09-15",
@@ -1637,7 +1689,7 @@
    "fase": "Fase 5: Taper y Carrera",
    "sesion": "Series de afilado",
    "volumen": "6 x 400 m",
-   "ritmo": "3:08",
+   "ritmo": "≈3:19-3:23/km (~1:20-1:21 por 400 m) — alineado al objetivo de carrera ya recalibrado, no al 3:08 original",
    "zona": "Z4-Z5",
    "cal_cod": "C2",
    "cal": [
@@ -1659,8 +1711,9 @@
    ],
    "pm_titulo": "",
    "pm": [],
-   "nota": "Recordar el ritmo, NO fatigar. Rec 2 min completos.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "nota": "Recordar el ritmo, NO fatigar. Rec 2 min completos. Alineado al objetivo de carrera recalibrado (3:19-3:23/km), no al 3:08 original.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": "2 min completos (caminar). Prioridad: llegar fresco, no fatigar."
   },
   {
    "fecha": "2026-09-16",
@@ -1689,7 +1742,8 @@
     "Solo movilidad y estiramiento. Cero carga."
    ],
    "nota": "Nada de fuerza. Solo movilidad y estiramiento.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-09-17",
@@ -1698,7 +1752,7 @@
    "fase": "Fase 5: Taper y Carrera",
    "sesion": "Activación 5K",
    "volumen": "6 km total",
-   "ritmo": "2 x 800 m a 3:10",
+   "ritmo": "2 x 800 m a ≈3:19-3:23/km (~2:39-2:42 por 800 m) — mismo objetivo de carrera recalibrado, no al 3:10 original",
    "zona": "Z2-Z5",
    "cal_cod": "C2",
    "cal": [
@@ -1720,8 +1774,9 @@
    ],
    "pm_titulo": "",
    "pm": [],
-   "nota": "Última sesión con ritmo. Debe sentirse fácil.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "nota": "Última sesión con ritmo. Debe sentirse fácil. Mismo objetivo de carrera recalibrado, no el 3:10 original.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": "3-4 min completos, sin prisa. El objetivo es sentirse ágil, no fatigar."
   },
   {
    "fecha": "2026-09-18",
@@ -1748,7 +1803,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "Piernas sueltas. Dormir 8 h y empezar a hidratar.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   },
   {
    "fecha": "2026-09-19",
@@ -1777,7 +1833,8 @@
    "pm_titulo": "",
    "pm": [],
    "nota": "Soltar nervios. Prepara ropa y dorsal hoy.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": "Caminar de regreso, recuperación completa, sin prisa."
   },
   {
    "fecha": "2026-09-20",
@@ -1806,8 +1863,9 @@
    ],
    "pm_titulo": "",
    "pm": [],
-   "nota": "Salir en 3:22 los primeros 1000 m. Apretar del km 3.",
-   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'"
+   "nota": "Salir en 3:22 los primeros 1000 m. Apretar del km 3. El test del 1/9 confirma que 3:19-3:23/km es realista: saliste a 3:23/km en el 2x2000 m.",
+   "rutina": "Rutina diaria (8 min): movilidad de tobillo 2' · 90/90 de cadera 2' · puente de glúteo x15 · plancha 45\" · respiración diafragmática 2'",
+   "descanso": ""
   }
  ],
  "reglas": [
