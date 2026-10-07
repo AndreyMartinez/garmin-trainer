@@ -1,21 +1,33 @@
 # Dependencias y credenciales (NUNCA subir)
 node_modules/
-.env
+# Con patron, no solo '.env': las copias que deja el Finder ('.env 2', '.env copia')
+# no las tapaba la regla exacta y un 'git add -A' se las habria llevado con las
+# credenciales de Garmin dentro.
+.env*
+!.env.example
 
 # Config local de herramientas
 .claude/
 __t
+__pycache__/
 
 # Nota: los CSV de entrenamiento SÍ se incluyen a propósito (uso personal).
 
 # Basura de macOS
 .DS_Store
+# El Desktop esta sincronizado con iCloud y resuelve los conflictos dejando copias
+# "nombre 2.ext". Ya aparecieron dos ('.env 2' con credenciales dentro y una copia de
+# entrenamientos_performance.csv con datos de salud): fuera del repo por defecto.
+* [0-9].*
 
 # Salidas regeneradas cada lunes por la tarea `informe-5k-semanal`.
 # Se reconstruyen con `python3 analiza.py && python3 informe.py`; versionarlas
 # ensuciaría el árbol cada semana sin aportar nada que no esté en las entradas.
 analisis.json
 informe_5k.html
+# plan_web.html sale de gen_web_plan.py + plan_web_plantilla.html; versionarlo duplicaria
+# 130 KB derivados en cada regeneracion del plan.
+plan_web.html
 
 # Logs de la extracción
 garmin_cron.log

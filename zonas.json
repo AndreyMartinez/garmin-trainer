@@ -1,0 +1,309 @@
+{
+  "_comment": "Unica fuente de verdad de las zonas. analiza.py y gen_plan_v4.py leen de aqui. Se actualiza SOLO con un test de campo: python3 zonas.py --lt2 173 --fecha 2026-10-01 --metodo 'CR 30 min'",
+  "atleta": {
+    "altitud_entrenamiento_m": 2240,
+    "ciudad": "Ciudad de Mexico",
+    "metodo_zonas": "umbrales estimados con tests de campo y banda de frecuencia cardiaca (sin medicion de lactato), expresados en FC",
+    "nota_altitud": "Todo umbral se mide y se aplica a 2,240 m. A nivel del mar la misma FC da un ritmo 5-6% mas rapido: se trasladan las FC, no los ritmos.",
+    "sin_lactato": "No hay lactometro. El sustituto objetivo del lactato es la DERIVA DE FC: dentro de una sesion de umbral la FC debe estabilizarse en los primeros 90 s de cada repeticion y no subir mas de 3 lpm entre la rep 2 y la ultima. Si sube mas, la intensidad esta por encima de LT2 aunque la FC media parezca correcta. Es la misma senal que daria el lactato acumulandose, leida en pulsaciones."
+  },
+  "anclas": {
+    "lt1": 153,
+    "lt2": 183,
+    "fcmax": 194,
+    "fcreposo": null,
+    "fecha": "2026-10-01",
+    "metodo": "CR 30 min (Test A, banda de pecho)",
+    "provisional": false,
+    "derivacion": [
+      "LT2 = 183 lpm MEDIDO: Test A del 1-oct, contrarreloj de 30 min con banda de pecho. 7805 m totales; los ultimos 20 min fueron 5291 m a 3:47.0/km con FC media 183.2 (max 193). LTHR = FC media de esos 20 min, que es la definicion del protocolo.",
+      "Ritmo de umbral = 3:47/km, medido en la misma sesion. Es el ancla que importa: lo que rompio el bloque anterior no fue el numero de FC, fue el ritmo que se derivaba de el.",
+      "Validacion externa independiente: para un 5K de 17:49 (su carrera del 20-sep) las tablas de Daniels dan ritmo de umbral ~3:48/km. Medido 3:47/km. Un segundo por km de diferencia: el test no es un numero raro, es exactamente el que le toca.",
+      "LT1 = 153 lpm SIGUE SIENDO ESTIMACION. Consistente con 18 km a 4:43/km con FC 149 y 15 km a 4:40/km con FC 150, ambos sin deriva, lo que ocurre POR DEBAJO de LT1. Pero con LT2 ya en 183 la distancia LT1-LT2 es de 30 lpm y Z3 queda de 22 lpm de ancho: demasiado para prescribir fino. Lo arregla el Test B (deriva aerobica) del 17-oct.",
+      "FCmax 194 es la MAXIMA OBSERVADA, no medida. Y ahora chirria: LT2/FCmax = 94.3%, cuando el rango normal es 85-90%. O el umbral es excepcional o la FCmax real esta 10-15 lpm mas arriba (183/0.88 = 208). El 1-oct toco 193 en los ultimos 30 s de un esfuerzo de 30 min, que NO es un protocolo de FCmax: casi seguro hay mas. Hasta el Test C, Z6 sale degenerada (190-190) y se prescribe por ritmo, como dice su propia regla.",
+      "El LTHR=186 del bloque anterior estaba a 3 lpm del valor real (183). El error de 25 s/km no estuvo en el ancla de FC: estuvo en la regresion FC<->ritmo, que mapeaba 186 lpm a 3:13/km. Y la regresion estaba mal porque su punto de validacion era la FC OPTICA de la carrera del 20-sep (174 lpm a 3:33/km), que es falsa: en esa grafica la FC cae de 186 a 168 mientras el ritmo sube los ultimos 8 min. Un punto con mucho ritmo y poca FC le acuesta la pendiente a la recta y toda la tabla de ritmos sale rapida. Descartado en zonas.py (FC_DESCARTADA)."
+    ],
+    "ritmo_lt2_s": 227.0
+  },
+  "regresion_fc_ritmo": {
+    "_comment": "FC = a * v + b, con v en m/s. Se re-ajusta con 'python3 zonas.py --refit'.",
+    "a": 36.36,
+    "b": 22.8,
+    "n": 21,
+    "ajustada": "2026-10-04",
+    "validacion": "Anclada en el punto del Test A: pasa por 3:47.0/km @ 183 lpm por construccion. Control en el extremo aerobico, que no esta anclado: 18 km a 4:43/km predice 150 lpm y la FC real fue 149; 15 km a 4:40/km predice 152 y fue 150. Error de 1-2 lpm en los dos extremos. La validacion anterior (carrera del 20-sep, error 1 lpm) estaba hecha contra FC de muneca corrupta: no valia.",
+    "limite": "Valida de ~FC 130 a ~FC 183 (el punto medido). Por encima de 183 la FC se aplana contra FCmax y el ritmo sigue subiendo: Z6 y N se prescriben por RITMO/TIEMPO, nunca por FC. Por debajo de 130 se abre hasta 15 lpm, pero ahi la regla es 'si dudas, mas suave' y no importa."
+  },
+  "zonas": [
+    {
+      "z": "Z1",
+      "nombre": "Regenerativo",
+      "lo_off": [
+        "fcmax",
+        -999
+      ],
+      "hi_off": [
+        "lt1",
+        -13
+      ],
+      "uso": "Dobles, dia despues de calidad, primeros y ultimos km de todo.",
+      "regla": "Si dudas si vas demasiado suave, vas bien.",
+      "habla": "conversacion completa sin esfuerzo",
+      "respiracion": "4:4",
+      "rpe": "2-3"
+    },
+    {
+      "z": "Z2",
+      "nombre": "Base aerobica",
+      "lo_off": [
+        "lt1",
+        -12
+      ],
+      "hi_off": [
+        "lt1",
+        -1
+      ],
+      "uso": "El grueso del volumen y los fondos. Aqui viven 60-70% de los km.",
+      "regla": "Debes poder hablar en frases completas toda la sesion.",
+      "habla": "frases largas comodas",
+      "respiracion": "3:3",
+      "rpe": "3-4"
+    },
+    {
+      "z": "Z3",
+      "nombre": "Umbral aerobico (LT1)",
+      "lo_off": [
+        "lt1",
+        0
+      ],
+      "hi_off": [
+        "lt2",
+        -9
+      ],
+      "uso": "Finales progresivos del fondo, tempo largo continuo 25-40 min.",
+      "regla": "LT1 esta en el piso de esta zona. Cruzarla en un fondo es correcto; vivir aqui, no.",
+      "habla": "frases cortas; hablar empieza a costar — LT1 esta justo aqui",
+      "respiracion": "3:2",
+      "rpe": "5"
+    },
+    {
+      "z": "Z4",
+      "nombre": "SUB-UMBRAL",
+      "lo_off": [
+        "lt2",
+        -8
+      ],
+      "hi_off": [
+        "lt2",
+        -1
+      ],
+      "uso": "EL MOTOR DE ESTE BLOQUE. Doble umbral, reps de 5-10 min con rec corta.",
+      "regla": "La ultima rep debe poder ser la mas rapida. Si no, la sesion fue mal dosificada.",
+      "habla": "4-6 palabras seguidas y no mas",
+      "respiracion": "2:2",
+      "rpe": "6-7"
+    },
+    {
+      "z": "Z5",
+      "nombre": "Umbral / MLSS (LT2)",
+      "lo_off": [
+        "lt2",
+        0
+      ],
+      "hi_off": [
+        "lt2",
+        6
+      ],
+      "uso": "Umbral clasico, ritmo de 10K, reps de 2000-3000 m.",
+      "regla": "LT2 esta en el piso. Maximo 25-35 min acumulados por sesion.",
+      "habla": "2-3 palabras; respiracion forzada pero con ritmo",
+      "respiracion": "2:2",
+      "rpe": "7-8"
+    },
+    {
+      "z": "Z6",
+      "nombre": "VO2max",
+      "lo_off": [
+        "lt2",
+        7
+      ],
+      "hi_off": [
+        "fcmax",
+        -4
+      ],
+      "uso": "Reps de 1000-1200 m. Maximo 1 sesion cada 7-10 dias en este bloque.",
+      "regla": "Prescribir por RITMO, no por FC: la FC llega tarde a la rep.",
+      "habla": "nada de hablar",
+      "respiracion": "2:1",
+      "rpe": "9"
+    },
+    {
+      "z": "N",
+      "nombre": "Neuromuscular",
+      "lo_off": null,
+      "hi_off": null,
+      "uso": "Rectas de 60-120 m, cuestas de 8-20 s, sprints. Recuperacion completa.",
+      "regla": "La FC NO aplica. Se mide por calidad del gesto: si la tecnica se degrada, se termina la serie.",
+      "habla": "no aplica",
+      "respiracion": "libre",
+      "rpe": "10"
+    }
+  ],
+  "protocolos": {
+    "A_cr30": {
+      "titulo": "TEST A — Contrarreloj de 30 min (define LT2 / LTHR)",
+      "cada": "6 semanas (semanas 1, 7 y 13)",
+      "donde": "Pista de 400 m o tramo llano medido. Misma pista, misma hora, misma altitud SIEMPRE. Solo, sin liebres.",
+      "previo": [
+        "48 h sin sesion dura. El dia anterior, 40 min en Z1.",
+        "Banda de pecho, no muneca: en 30 min a tope la optica se va.",
+        "Auto-lap cada 5 min para poder separar despues los ultimos 20."
+      ],
+      "pasos": [
+        "Calentamiento C2 completo, incluidas las 4 rectas.",
+        "30 minutos al maximo esfuerzo SOSTENIBLE. No es un 10K ni un test de 5K: es lo maximo que puedes mantener 30 min exactos.",
+        "Los primeros 10 min NO pueden ser los mas rapidos. Sal a un ritmo que creas sostenible y aprieta solo en los ultimos 5.",
+        "Vuelta a la calma 12 min en Z1."
+      ],
+      "lectura": [
+        "LT2 (= LTHR) = FC MEDIA DE LOS ULTIMOS 20 MINUTOS. No la media de los 30: los primeros 10 la ensucian mientras la FC sube.",
+        "Ritmo de umbral = ritmo medio de esos mismos ultimos 20 min. Deberia coincidir con el ritmo que la regresion predice para esa FC: si difiere mas de 5 s/km, corre 'python3 zonas.py --refit'.",
+        "LT1 no sale de este test: sale del Test B. Como arranque provisional, LT1 = LT2 - 17.",
+        "Un 10K de competencia sirve igual: la FC media de un 10K a tope es LTHR +/- 2 lpm. Si corres uno, usalo y ahorrate el test.",
+        "Cargar: python3 zonas.py --lt2 <FC> --fecha <hoy> --metodo 'CR 30 min'   y luego gen_plan_v4.py"
+      ]
+    },
+    "B_deriva": {
+      "titulo": "TEST B — Deriva aerobica (define LT1)",
+      "cada": "Semanas 3 y 15. Es un fondo, no una sesion dura: ocupa el sabado.",
+      "donde": "Terreno llano, sin semaforos. Auto-lap cada 15 min.",
+      "previo": [
+        "Sin sesion dura el dia anterior.",
+        "Calor y deshidratacion inflan la deriva: misma hora y misma bebida cada vez."
+      ],
+      "pasos": [
+        "10 min de calentamiento progresivo hasta la FC objetivo. Estos 10 min NO cuentan.",
+        "60 min continuos clavando una FC fija. Primer intento: LT2 - 18 lpm.",
+        "Se corre por FC, no por ritmo. El ritmo baja solo conforme pasa el tiempo: eso es exactamente lo que se mide."
+      ],
+      "lectura": [
+        "Partir los 60 min en dos mitades de 30. Para cada mitad: razon = velocidad media / FC media.",
+        "Deriva % = (razon_1 - razon_2) / razon_1 x 100.",
+        "Deriva < 5% → estas EN o POR DEBAJO de LT1. Sube 3 lpm y repite en 2 semanas.",
+        "Deriva > 5% → estas POR ENCIMA de LT1. Baja 3-4 lpm.",
+        "LT1 = la FC mas alta que todavia da menos de 5%.",
+        "Calculo automatico: python3 zonas.py --deriva <v1> <fc1> <v2> <fc2>  (ritmos en m:ss por km).",
+        "Prueba del habla en la misma sesion: LT1 es la intensidad mas alta en la que todavia dices una frase entera comoda."
+      ]
+    },
+    "C_fcmax": {
+      "titulo": "TEST C — FCmax real (hoy solo hay una maxima observada de 194)",
+      "cada": "Cada 12 semanas, o cuando aparezca una FC mayor en entrenamiento",
+      "pasos": [
+        "Calentamiento 20 min Z1-Z2 + 4 rectas.",
+        "Cuesta de 3-5% de pendiente: 3 x 2 min subiendo el esfuerzo (80% / 90% / todo), 2 min de bajada trotando entre ellas.",
+        "En la tercera, los ultimos 30 s a maximo absoluto sin reservar nada.",
+        "Tomar el valor de FC mas alto de los 5 s finales, no el promedio."
+      ],
+      "lectura": [
+        "FCmax define el techo de Z6 y sirve de control de coherencia: LT2 deberia caer en 85-90% de FCmax y LT1 en 75-82%. Si un test deja LT2 por encima del 92%, el test salio mal.",
+        "Cargar: python3 zonas.py --fcmax <FC> --fecha <hoy> --metodo 'test C cuestas'"
+      ]
+    },
+    "D_tt_3000": {
+      "titulo": "TEST D — 3000 m contrarreloj (rendimiento)",
+      "cada": "Semanas 4, 12 y 16",
+      "pasos": [
+        "Calentamiento C2 completo.",
+        "3000 m a tope en pista, parciales cada 400 m.",
+        "Anotar tiempo, FC media, FC maxima y cadencia."
+      ],
+      "lectura": [
+        "Prediccion de 5K a la misma altitud: T5K ~ T3000 x 1.75.",
+        "Referencias en CDMX: 10:10 = 17:47 · 9:39 = 16:53 (sub-16 al mar) · 9:08 = 16:00.",
+        "Es el marcador honesto del bloque: un test a tope no se puede sobre-ejecutar."
+      ]
+    },
+    "E_velocidad_critica": {
+      "titulo": "TEST E — Par de contrarrelojes para Velocidad Critica y D'",
+      "cada": "Semanas 8 y 16",
+      "pasos": [
+        "Dia 1: 1200 m a tope. Dia 3 (48 h despues): 3600 m a tope. Ambos con calentamiento C2.",
+        "CS = (3600 - 1200) / (t3600 - t1200)   [m/s]",
+        "D' = 1200 - CS x t1200   [m]",
+        "Comprobacion de LT2: dos dias despues, corre 20 min clavado al ritmo de CS. La FC en la que te estabilices ES tu LT2."
+      ],
+      "lectura": [
+        "Sin lactometro, CS es el segundo pilar del sistema: debe coincidir con el ritmo de umbral del Test A dentro de 2-3 s/km. Si no coinciden, gana el Test A para las zonas de FC.",
+        "5K predicho = (5000 - D') / CS."
+      ]
+    },
+    "F_velocidad_maxima": {
+      "titulo": "TEST F — Velocidad maxima de sprint (perfila la reserva anaerobica)",
+      "cada": "Una vez por bloque (semana 2)",
+      "pasos": [
+        "Calentamiento C4 completo, muy largo.",
+        "3 x 30 m volantes con 20 m de aceleracion previa, 3 min completos entre intentos.",
+        "Cronometrar solo los 30 m centrales."
+      ],
+      "lectura": [
+        "ASR = velocidad maxima - velocidad a VO2max. Tu ASR ya es grande (400 m a 3:01 con 5K a 3:33): confirma que el trabajo pendiente es aerobico. Se mide para NO volver a entrenar lo que ya sobra."
+      ]
+    },
+    "G_dfa_alfa1": {
+      "titulo": "TEST G — DFA alfa1 (OPCIONAL, solo si la banda graba intervalos R-R)",
+      "cada": "Cuando quieras un contraste barato; no sustituye a los tests A y B",
+      "previo": [
+        "Requiere banda de pecho que exporte R-R latido a latido (HRM-Pro, HRM-Dual, Polar H10). Con sensor optico de muneca NO funciona: la senal no tiene la resolucion.",
+        "Hace falta una app que lo calcule (Runalyze, HRV Logger, AI Endurance)."
+      ],
+      "pasos": [
+        "Rodaje progresivo de 25-30 min subiendo de Z1 a Z5 en escalones de 5 min.",
+        "Registrar en que FC alfa1 cruza 0.75 (HRVT1) y en cual cruza 0.50 (HRVT2)."
+      ],
+      "lectura": [
+        "HRVT1 (alfa1 = 0.75) se acerca bien a LT1. HRVT2 (alfa1 = 0.50) es bastante menos fiable individualmente que el primero.",
+        "Usalo como CONTRASTE de LT1, nunca como ancla principal: la concordancia con los umbrales ventilatorios es buena en promedio de grupo y mas floja persona a persona.",
+        "Si discrepa mas de 5 lpm del Test B, gana el Test B."
+      ]
+    }
+  },
+  "historial_tests": [
+    {
+      "fecha": "2026-09-01",
+      "tipo": "reps 2x1592 m",
+      "nota": "Llamado 'test de lactato' en el plan anterior, pero sin tiras: solo ritmo y FC. 3:23/km con FC 175.",
+      "lt1": null,
+      "lt2": null
+    },
+    {
+      "fecha": "2026-09-20",
+      "tipo": "carrera 5K",
+      "nota": "17:47 (5000 m normalizado) a 3:33.4/km, FC media 174, max 187.",
+      "lt1": null,
+      "lt2": null
+    },
+    {
+      "fecha": "2026-09-21",
+      "tipo": "cambio de metodo",
+      "lt1": null,
+      "lt2": null,
+      "nota": "Sin lactometro: la bateria pasa a tests de campo con banda de FC. A = CR 30 min, B = deriva aerobica."
+    },
+    {
+      "fecha": "2026-10-01",
+      "tipo": "CR 30 min (Test A, banda de pecho)",
+      "lt1": 153,
+      "lt2": 183,
+      "fcmax": 194,
+      "nota": "Test A: 7805 m en 30 min. Ultimos 20 min: 5291 m a 3:47/km con FC media 183.2 (max 193). Primeros 10 min a 3:59/km con FC 170 — negativo limpio, no salio pasado."
+    }
+  ],
+  "garmin": {
+    "_comment": "Que teclear en Garmin Connect. Se regenera con: python3 zonas.py --garmin",
+    "donde": "Garmin Connect > Perfil de usuario > Configuracion de frecuencia cardiaca. Los nombres de menu cambian segun el modelo de reloj.",
+    "metodo_zonas": "La API NO acepta zonas en lpm absolutos: rechaza trainingMethod 'BPM' (400) y convierte 'CUSTOM' en 'HR_MAX'. Lo que si acepta es escribir los cinco pisos en lpm junto con la FCmax en el mismo PUT, y asi quedan exactos (verificado 2026-10-02: 100/141/153/175/183 con LTHR 183). El precio es que Garmin los guarda como % de la FCmax (51.5/72.7/78.9/90.2/94.3), de modo que CUALQUIER cambio de FCmax se los lleva por delante: con FCmax 205 el piso de Z3 se iria a 162 cuando LT1 esta en 153, y el de Z4 a 185, por encima de LT2. Los pisos del plan no dependen de la FCmax —cuelgan de LT1 y LT2—, solo el techo de Z6. Reglas: (1) la FCmax se cambia SIEMPRE con config_garmin.js, que reescribe pisos y techo a la vez; (2) la deteccion automatica de FCmax en el reloj se queda APAGADA, igual que la del umbral; (3) config_garmin.js en modo lectura avisa si los pisos se han desplazado.",
+    "desactivar": "Reloj > Configuracion > Estadisticas fisiologicas > Deteccion automatica: APAGAR tanto 'Umbral de lactato' como 'FC maxima'. La del umbral, porque Garmin lo reestima alto y sobrescribe el valor. La de FCmax, porque con el metodo HR_MAX un cambio de FCmax recalcula los cinco pisos de zona por porcentaje y descoloca LT1 y LT2.",
+    "nota_5_zonas": "Garmin solo tiene 5 zonas y este sistema usa 6. Se fusionan Z5 y Z6 en la zona 5 de Garmin, que es justo donde el plan manda correr por ritmo y no por FC. Todas las fronteras que importan (LT1 y LT2) quedan intactas."
+  }
+}
