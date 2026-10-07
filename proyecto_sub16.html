@@ -1,0 +1,970 @@
+<title>Proyecto Sub-16</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#F2F5F4; --surface:#FFFFFF; --sunk:#EAEEED;
+  --ink:#111C1A; --ink2:#4E605C; --ink3:#778884;
+  --line:#DCE3E1; --line2:#C6D1CE;
+  --aer:#00806B; --anaer:#B0741F; --alert:#A8321E;
+  --aer-soft:#E2EFEC; --anaer-soft:#F6EBDA; --alert-soft:#F7E5E1;
+  --gap-fill:#B0741F14;
+  --disp:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0C1312; --surface:#141F1D; --sunk:#101A19;
+    --ink:#E4ECE9; --ink2:#98AAA6; --ink3:#71827E;
+    --line:#22302D; --line2:#2E3E3B;
+    --aer:#12A992; --anaer:#C08529; --alert:#E07A62;
+    --aer-soft:#0F2E2A; --anaer-soft:#2C2517; --alert-soft:#301C17;
+    --gap-fill:#C0852918;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0C1312; --surface:#141F1D; --sunk:#101A19;
+  --ink:#E4ECE9; --ink2:#98AAA6; --ink3:#71827E;
+  --line:#22302D; --line2:#2E3E3B;
+  --aer:#12A992; --anaer:#C08529; --alert:#E07A62;
+  --aer-soft:#0F2E2A; --anaer-soft:#2C2517; --alert-soft:#301C17;
+  --gap-fill:#C0852918;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);
+  font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;margin:0}
+.wrap{max-width:1060px;margin:0 auto;padding-inline:20px;padding-block:0 72px}
+.col{max-width:65ch}
+h1,h2,h3{font-family:var(--disp);text-wrap:balance;margin:0}
+p{margin:0 0 1em}
+a{color:var(--aer)}
+strong{font-weight:600}
+em{font-style:italic}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* ---------- cabecera ---------- */
+header{border-bottom:1px solid var(--line);padding-block:52px 0;margin-bottom:8px}
+.kicker{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink3);margin:0 0 20px}
+h1{font-size:clamp(38px,7vw,68px);line-height:.98;font-weight:800;letter-spacing:-.025em;max-width:16ch}
+.dek{font-size:clamp(18px,2.4vw,21px);color:var(--ink2);max-width:52ch;margin-top:20px;line-height:1.5}
+.marca{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 26px;margin:34px 0 0;
+  padding:22px 0;border-top:1px solid var(--line)}
+.marca .big{font-family:var(--mono);font-size:clamp(42px,8vw,64px);font-weight:600;
+  letter-spacing:-.03em;line-height:1;color:var(--ink)}
+.marca .sub{font-family:var(--mono);font-size:12.5px;color:var(--ink2);line-height:1.5}
+.tiras{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);margin-bottom:56px}
+.tira{flex:1 1 128px;padding:14px 18px 15px;border-right:1px solid var(--line)}
+.tira:last-child{border-right:0}
+.tira b{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink3);font-weight:500;margin-bottom:5px}
+.tira span{font-family:var(--mono);font-size:19px;font-variant-numeric:tabular-nums}
+
+/* ---------- secciones ---------- */
+section{margin-bottom:60px;scroll-margin-top:20px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--aer);margin:0 0 12px;font-weight:500}
+h2{font-size:clamp(26px,3.6vw,36px);font-weight:700;letter-spacing:-.02em;line-height:1.1;
+  margin-bottom:20px;max-width:22ch}
+h3{font-size:19px;font-weight:700;letter-spacing:-.01em;margin:32px 0 10px}
+.lede{font-size:19.5px;color:var(--ink2);max-width:58ch;margin-bottom:26px}
+
+/* ---------- paneles de datos ---------- */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:4px;
+  padding:22px 24px 24px;margin:28px 0}
+.panel-cab{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink3);margin:0 0 4px}
+.panel-tit{font-family:var(--disp);font-size:18px;font-weight:700;margin:0 0 16px;letter-spacing:-.01em}
+.pie{font-family:var(--mono);font-size:12px;color:var(--ink3);line-height:1.6;margin:14px 0 0}
+
+.scroller{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:440px}
+caption{text-align:left;font-family:var(--mono);font-size:11px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink3);padding-bottom:10px}
+th,td{text-align:left;padding:9px 14px 9px 0;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink3);font-weight:500}
+td.n,th.n{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right;padding-left:22px}
+tr>*:last-child{padding-right:0}
+tbody tr:last-child td{border-bottom:0}
+.zchip{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:600;
+  padding:2px 7px;border-radius:3px;background:var(--sunk);border:1px solid var(--line2)}
+.zchip.a{background:var(--aer-soft);border-color:transparent;color:var(--aer)}
+.zchip.b{background:var(--anaer-soft);border-color:transparent;color:var(--anaer)}
+
+/* ---------- llamadas ---------- */
+.nota{border-left:3px solid var(--aer);background:var(--aer-soft);padding:16px 20px;
+  margin:26px 0;border-radius:0 4px 4px 0;font-size:16px}
+.nota.warn{border-left-color:var(--alert);background:var(--alert-soft)}
+.nota p:last-child{margin-bottom:0}
+.nota b{font-family:var(--disp);font-weight:700}
+
+/* ---------- lista de errores ---------- */
+.errs{list-style:none;padding:0;margin:26px 0;counter-reset:e}
+.errs li{counter-increment:e;padding:20px 0 20px 54px;border-top:1px solid var(--line);position:relative}
+.errs li:last-child{border-bottom:1px solid var(--line)}
+.errs li::before{content:counter(e);position:absolute;left:0;top:19px;font-family:var(--mono);
+  font-size:12px;font-weight:600;color:var(--anaer);border:1px solid var(--line2);
+  width:28px;height:28px;display:grid;place-items:center;border-radius:50%}
+.errs h3{margin:0 0 6px;font-size:18px}
+.errs p{margin:0 0 .6em;font-size:16px;color:var(--ink2)}
+.errs p:last-child{margin-bottom:0}
+.errs b{color:var(--ink)}
+
+/* ---------- graficas ---------- */
+.gr{width:100%;height:auto;display:block;overflow:visible}
+.gr .grid{stroke:var(--line);stroke-width:1}
+.gr .tick{font-family:var(--mono);font-size:11px;fill:var(--ink3)}
+.gr .axlab{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;fill:var(--ink3)}
+.gr .gap{fill:var(--gap-fill)}
+.gr .gaplab{font-family:var(--mono);font-size:11px;letter-spacing:.1em;fill:var(--anaer);font-weight:600}
+.gr .gaplab2{font-family:var(--mono);font-size:11px;fill:var(--ink3)}
+.gr .umb{stroke:var(--ink3);stroke-width:1;stroke-dasharray:2 4}
+.gr .umblab{font-family:var(--mono);font-size:10.5px;fill:var(--ink3)}
+.gr .reg{fill:none;stroke:var(--aer);stroke-width:2;opacity:.5}
+.gr .pt-a{fill:var(--aer);stroke:var(--surface);stroke-width:2}
+.gr .pt-b{fill:var(--anaer);stroke:var(--surface);stroke-width:2.5}
+.gr .ptlab{font-family:var(--mono);font-size:11.5px;fill:var(--anaer);font-weight:600}
+.gr .ptlab2{font-family:var(--mono);font-size:11px;fill:var(--ink3)}
+.gr .bar{fill:var(--aer)}
+.gr .bar-d{fill:var(--aer);opacity:.38}
+.gr .barlab{font-family:var(--mono);font-size:11px;fill:var(--ink2);font-weight:600}
+.gr .ref{stroke:var(--anaer);stroke-width:1.5;stroke-dasharray:5 4}
+.gr .reflab{font-family:var(--mono);font-size:11px;fill:var(--anaer)}
+.gr .fase{fill:var(--sunk);stroke:var(--line);stroke-width:1}
+.gr .faselab{font-family:var(--mono);font-size:10px;fill:var(--ink2);letter-spacing:.04em}
+.leyenda{display:flex;flex-wrap:wrap;gap:8px 22px;margin:16px 0 0;font-family:var(--mono);
+  font-size:12px;color:var(--ink2)}
+.leyenda i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px;
+  vertical-align:middle}
+.leyenda i.b{border-radius:2px}
+
+/* ---------- metodologias ---------- */
+.mets{margin:28px 0;border-top:1px solid var(--line)}
+.met{padding:20px 0;border-bottom:1px solid var(--line);display:grid;
+  grid-template-columns:minmax(0,210px) minmax(0,1fr);gap:6px 30px;align-items:start}
+.met h3{margin:0;font-size:17px;font-weight:700;letter-spacing:-.01em}
+.met .src{font-family:var(--mono);font-size:11px;color:var(--ink3);margin:6px 0 0;line-height:1.55}
+.met .cuerpo p{margin:0 0 .7em;font-size:16px;color:var(--ink2)}
+.met .cuerpo p:last-child{margin-bottom:0}
+.met .tuyo{color:var(--ink)}
+.met .tuyo b{font-family:var(--disp);color:var(--anaer);font-weight:700}
+.nohacer{list-style:none;padding:0;margin:22px 0 0;font-size:16px}
+.nohacer li{padding:12px 0 12px 28px;border-bottom:1px solid var(--line);position:relative;color:var(--ink2)}
+.nohacer li::before{content:"×";position:absolute;left:4px;top:11px;font-family:var(--mono);
+  color:var(--alert);font-weight:600}
+@media (max-width:640px){.met{grid-template-columns:1fr}}
+
+/* ---------- tests ---------- */
+.tests{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden;margin:28px 0}
+.test{background:var(--surface);padding:18px 20px 20px}
+.test .cod{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--anaer);
+  font-weight:600;margin-bottom:6px}
+.test h3{margin:0 0 8px;font-size:16.5px}
+.test p{font-size:14.5px;color:var(--ink2);margin:0 0 10px;line-height:1.55}
+.test .cuando{font-family:var(--mono);font-size:11.5px;color:var(--ink3);
+  padding-top:10px;border-top:1px solid var(--line)}
+/* El opcional no es uno más de la lista: ocupa la fila entera y va sobre fondo hundido. */
+.test.opt{grid-column:1/-1;background:var(--sunk)}
+.test.opt .cuerpo{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:0 26px;align-items:start}
+.test.opt .cuando{grid-column:1/-1;margin-top:4px}
+
+/* ---------- reglas ---------- */
+.reglas{list-style:none;padding:0;margin:24px 0;font-size:16px}
+.reglas li{padding:13px 0 13px 26px;border-bottom:1px solid var(--line);position:relative;color:var(--ink2)}
+.reglas li::before{content:"";position:absolute;left:0;top:22px;width:11px;height:1px;background:var(--aer)}
+.reglas b{color:var(--ink);font-weight:600}
+
+pre{background:var(--sunk);border:1px solid var(--line);border-radius:4px;padding:16px 18px;
+  overflow-x:auto;font-family:var(--mono);font-size:13px;line-height:1.85;margin:20px 0;color:var(--ink)}
+pre .c{color:var(--ink3)}
+footer{border-top:1px solid var(--line);padding-top:22px;font-family:var(--mono);
+  font-size:12px;color:var(--ink3);line-height:1.8}
+@media (max-width:640px){
+  body{font-size:16px}
+  .tira{flex:1 1 50%;border-bottom:1px solid var(--line)}
+  .errs li{padding-left:0;padding-top:46px}
+  .errs li::before{top:12px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header>
+  <p class="kicker">Bloque 5K · Ciudad de México, 2 240 m · informe de cierre y plan 21 sep 2026 → 24 ene 2027</p>
+  <h1>La carrera no fue el error.</h1>
+  <p class="dek">Fue el número con el que se calcularon las zonas. Un LTHR de 186 puso el
+    “umbral” a 3:13/km —ritmo de 3 000 m— y con esa ancla ninguna sesión de umbral del bloque
+    fue de umbral. Esto es lo que dicen los datos y lo que se hace ahora.</p>
+  <div class="marca">
+    <div class="big">17:47</div>
+    <div class="sub">5 000 m normalizados · 5 011 m en 17:49.3<br>20 sep 2026, 06:01 · Cuauhtémoc</div>
+  </div>
+</header>
+
+<div class="tiras">
+  <div class="tira"><b>Ritmo</b><span>3:33.4/km</span></div>
+  <div class="tira"><b>FC media</b><span>174 lpm</span></div>
+  <div class="tira"><b>FC máxima</b><span>187 lpm</span></div>
+  <div class="tira"><b>Potencia</b><span>397 W</span></div>
+  <div class="tira"><b>Cadencia</b><span>177.7</span></div>
+  <div class="tira"><b>Contacto</b><span>208 ms</span></div>
+</div>
+
+<section class="col">
+  <p class="eyebrow">01 · El resultado</p>
+  <h2>Corriste 15 segundos mejor de lo que tus datos sostenían</h2>
+  <p class="lede">La Banda B pedía 17:01. Llegaste en 17:47: 46 segundos más, 9.2 s/km más.
+    Esa diferencia parece un fallo de ejecución. No lo es.</p>
+
+  <p>El modelo de velocidad crítica construido con tus propias repeticiones del bloque
+    —800 m a 2:26.6 el 17 de septiembre y 1 592 m a 5:23 el 1 de septiembre, las dos únicas
+    en el rango válido de 2 a 15 minutos— da una velocidad crítica de
+    <span class="mono">4.490 m/s</span> (3:42.7/km) y una capacidad anaeróbica
+    <span class="mono">D′ = 142 m</span>. Con esos dos números, el 5K predicho era
+    <strong>18:02</strong>.</p>
+
+  <p>Corriste <strong>17:47</strong>. Quince segundos por debajo de la predicción, con la FC
+    volviendo a línea base sin arrastre y la mecánica intacta a 5 km (contacto de suelo 208 ms,
+    cadencia 177.7). La carrera fue una buena expresión de la forma que tenías.</p>
+
+  <div class="nota">
+    <p><b>Entonces, ¿de dónde salió la Banda B?</b> De extrapolar repeticiones cortas con
+      recuperación completa. Un 800 a 2:26.6 con 3 minutos de descanso no predice un 5K:
+      predice que puedes correr 800 metros. El bloque nunca probó un esfuerzo continuo más
+      largo de 1 592 m, así que 17:01 era una cifra sin respaldo desde el día que se escribió.</p>
+  </div>
+</section>
+
+<section>
+  <div class="col">
+    <p class="eyebrow">02 · El diagnóstico</p>
+    <h2>Tres errores encadenados, y todos cuelgan del mismo número</h2>
+  </div>
+
+  <ol class="errs col">
+    <li>
+      <h3>El ancla estaba a 28 s/km de su sitio</h3>
+      <p>El bloque usó <b>LTHR = 186</b>. Con tu propia relación entre frecuencia cardiaca y
+        ritmo, 186 lpm corresponde a <b>3:13.4/km</b>. Eso no es umbral: es ritmo de 3 000 m.</p>
+      <p>Tu LT2 real está cerca de <b>170 lpm</b>, y lo dicen dos métodos independientes que
+        coinciden solos: la velocidad crítica de tus repeticiones da 3:42.7/km, y la regresión
+        FC–ritmo pone 170 lpm en 3:41.1/km. Segundo y medio por kilómetro de diferencia
+        entre dos caminos que no se hablan entre sí.</p>
+    </li>
+    <li>
+      <h3>Con el ancla mal, ninguna sesión de umbral fue de umbral</h3>
+      <p>La Z4 “176–185” del bloque anterior estaba <b>entera por encima</b> de tu LT2. Todo lo
+        que se llamó umbral se corrió en dominio severo, donde el lactato no se estabiliza.
+        Y la Z1 con techo 157 te dejaba correr los regenerativos por encima de LT1.</p>
+      <p>De ahí el patrón que el informe llamó “sobre-ejecución” semana tras semana: no era
+        indisciplina, era un sistema de zonas que daba permiso para ir demasiado rápido abajo
+        y demasiado fuerte arriba.</p>
+    </li>
+    <li>
+      <h3>El agujero: 62 s/km que nunca se pisaron</h3>
+      <p>En seis semanas de datos no hay <b>un solo esfuerzo continuo</b> entre 4:34/km y
+        3:33/km. El continuo más rápido de todo el bloque fue un rodaje de 10 km a 4:34.
+        La franja de 3:41 a 4:21 —donde se construye un 5K— está vacía.</p>
+    </li>
+    <li>
+      <h3>Y debajo de todo: 47.7 km por semana</h3>
+      <p>265.5 km en 5.6 semanas, con una semana de <b>14.6 km</b> (7–13 sep) y ocho sesiones
+        omitidas. Ningún diseño de sesión compensa eso.</p>
+    </li>
+  </ol>
+
+  <div class="panel">
+    <p class="panel-cab">Gráfica 1 — todos los esfuerzos continuos del bloque</p>
+    <p class="panel-tit">Dónde vive tu frecuencia cardiaca, y dónde no ha estado nunca</p>
+    <svg viewBox="0 0 880 430" role="img" aria-label="Frecuencia cardiaca contra ritmo" preserveAspectRatio="xMidYMid meet" class="gr">
+<title>FC media contra ritmo en todos los esfuerzos continuos del bloque</title>
+<rect x="443.6" y="26" width="360.9" height="348" class="gap"/>
+<text x="624.0" y="340" class="gaplab" text-anchor="middle">SIN UN SOLO ESFUERZO CONTINUO</text>
+<text x="624.0" y="358" class="gaplab2" text-anchor="middle">4:35 → 3:33 · 62 s/km de hueco</text>
+<line x1="58" y1="349.1" x2="854" y2="349.1" class="grid"/>
+<text x="48" y="353.1" class="tick" text-anchor="end">130</text>
+<line x1="58" y1="287.0" x2="854" y2="287.0" class="grid"/>
+<text x="48" y="291.0" class="tick" text-anchor="end">140</text>
+<line x1="58" y1="224.9" x2="854" y2="224.9" class="grid"/>
+<text x="48" y="228.9" class="tick" text-anchor="end">150</text>
+<line x1="58" y1="162.7" x2="854" y2="162.7" class="grid"/>
+<text x="48" y="166.7" class="tick" text-anchor="end">160</text>
+<line x1="58" y1="100.6" x2="854" y2="100.6" class="grid"/>
+<text x="48" y="104.6" class="tick" text-anchor="end">170</text>
+<line x1="58" y1="38.4" x2="854" y2="38.4" class="grid"/>
+<text x="48" y="42.4" class="tick" text-anchor="end">180</text>
+<text x="48" y="16" class="axlab" text-anchor="end">lpm</text>
+<line x1="117.0" y1="26" x2="117.0" y2="374" class="grid"/>
+<text x="117.0" y="396" class="tick" text-anchor="middle">5:30</text>
+<line x1="293.9" y1="26" x2="293.9" y2="374" class="grid"/>
+<text x="293.9" y="396" class="tick" text-anchor="middle">5:00</text>
+<line x1="470.7" y1="26" x2="470.7" y2="374" class="grid"/>
+<text x="470.7" y="396" class="tick" text-anchor="middle">4:30</text>
+<line x1="647.6" y1="26" x2="647.6" y2="374" class="grid"/>
+<text x="647.6" y="396" class="tick" text-anchor="middle">4:00</text>
+<line x1="824.5" y1="26" x2="824.5" y2="374" class="grid"/>
+<text x="824.5" y="396" class="tick" text-anchor="middle">3:30</text>
+<text x="854" y="418" class="axlab" text-anchor="end">ritmo por km — más rápido →</text>
+<line x1="58" y1="206.2" x2="854" y2="206.2" class="umb"/>
+<text x="64" y="200.2" class="umblab">LT1 153 lpm · 4:21/km</text>
+<line x1="58" y1="100.6" x2="854" y2="100.6" class="umb"/>
+<text x="64" y="94.6" class="umblab">LT2 170 lpm · 3:41/km</text>
+<polyline points="58.0,343.3 66.8,341.3 75.7,339.2 84.5,337.2 93.4,335.1 102.2,333.1 111.1,331.0 119.9,328.9 128.8,326.7 137.6,324.6 146.4,322.4 155.3,320.2 164.1,318.0 173.0,315.8 181.8,313.5 190.7,311.3 199.5,309.0 208.4,306.7 217.2,304.3 226.0,302.0 234.9,299.6 243.7,297.2 252.6,294.7 261.4,292.3 270.3,289.8 279.1,287.3 288.0,284.8 296.8,282.2 305.6,279.6 314.5,277.0 323.3,274.4 332.2,271.7 341.0,269.0 349.9,266.3 358.7,263.6 367.6,260.8 376.4,258.0 385.2,255.2 394.1,252.3 402.9,249.4 411.8,246.5 420.6,243.6 429.5,240.6 438.3,237.6 447.2,234.5 456.0,231.4 464.8,228.3 473.7,225.2 482.5,222.0 491.4,218.7 500.2,215.5 509.1,212.2 517.9,208.9 526.8,205.5 535.6,202.1 544.4,198.6 553.3,195.1 562.1,191.6 571.0,188.0 579.8,184.4 588.7,180.7 597.5,177.0 606.4,173.3 615.2,169.5 624.0,165.6 632.9,161.7 641.7,157.8 650.6,153.8 659.4,149.8 668.3,145.7 677.1,141.5 686.0,137.4 694.8,133.1 703.6,128.8 712.5,124.4 721.3,120.0 730.2,115.5 739.0,111.0 747.9,106.4 756.7,101.7 765.6,97.0 774.4,92.2 783.2,87.4 792.1,82.4 800.9,77.5 809.8,72.4 818.6,67.3 827.5,62.0 836.3,56.8 845.2,51.4 854.0,46.0" class="reg"/>
+<circle cx="242.0" cy="311.9" r="5.5" class="pt-a"><title>6.8 km · 14 ago — 5:09/km · FC 136</title></circle>
+<circle cx="209.5" cy="324.3" r="5.5" class="pt-a"><title>6.7 km · 17 ago — 5:14/km · FC 134</title></circle>
+<circle cx="210.1" cy="318.1" r="5.5" class="pt-a"><title>6.0 km · 19 ago — 5:14/km · FC 135</title></circle>
+<circle cx="202.5" cy="318.1" r="5.5" class="pt-a"><title>6.7 km · 21 ago — 5:16/km · FC 135</title></circle>
+<circle cx="224.9" cy="330.5" r="5.5" class="pt-a"><title>8.0 km · 24 ago — 5:12/km · FC 133</title></circle>
+<circle cx="443.6" cy="237.3" r="5.5" class="pt-a"><title>10 km · 26 ago — 4:35/km · FC 148</title></circle>
+<circle cx="280.9" cy="305.6" r="5.5" class="pt-a"><title>7.0 km · 28 ago — 5:02/km · FC 137</title></circle>
+<circle cx="123.4" cy="299.4" r="5.5" class="pt-a"><title>8.0 km · 31 ago — 5:29/km · FC 138</title></circle>
+<circle cx="335.7" cy="218.6" r="5.5" class="pt-a"><title>10 km · 2 sep — 4:53/km · FC 151</title></circle>
+<circle cx="118.7" cy="349.1" r="5.5" class="pt-a"><title>8.0 km · 4 sep — 5:30/km · FC 130</title></circle>
+<circle cx="201.3" cy="293.2" r="5.5" class="pt-a"><title>7.0 km · 11 sep — 5:16/km · FC 139</title></circle>
+<circle cx="173.6" cy="324.3" r="5.5" class="pt-a"><title>7.0 km · 14 sep — 5:20/km · FC 134</title></circle>
+<circle cx="109.3" cy="299.4" r="5.5" class="pt-a"><title>4.0 km · 18 sep — 5:31/km · FC 138</title></circle>
+<circle cx="178.9" cy="305.6" r="5.5" class="pt-a"><title>6.6 km · 21 sep — 5:20/km · FC 137</title></circle>
+<circle cx="391.1" cy="231.1" r="5.5" class="pt-a"><title>18 km · 15 ago — 4:44/km · FC 149</title></circle>
+<circle cx="364.6" cy="224.9" r="5.5" class="pt-a"><title>8.6 km · 20 ago — 4:48/km · FC 150</title></circle>
+<circle cx="362.2" cy="218.6" r="5.5" class="pt-a"><title>13 km · 22 ago — 4:48/km · FC 151</title></circle>
+<circle cx="410.0" cy="224.9" r="5.5" class="pt-a"><title>15 km · 5 sep — 4:40/km · FC 150</title></circle>
+<circle cx="804.5" cy="75.7" r="9" class="pt-b"><title>CARRERA 5K · 20 sep · 17:47 — 3:33/km · FC 174</title></circle>
+<text x="790.5" y="61.7" class="ptlab" text-anchor="end">CARRERA · 3:33.4/km · FC 174</text>
+<text x="434.6" y="267.3" class="ptlab2" text-anchor="end">continuo más rápido · 4:34.6</text>
+</svg>
+    <div class="leyenda">
+      <span><i style="background:var(--aer)"></i>esfuerzo continuo de entrenamiento (18)</span>
+      <span><i style="background:var(--anaer)"></i>carrera del 20 de septiembre</span>
+      <span><i class="b" style="background:var(--gap-fill);outline:1px solid var(--line2)"></i>franja sin entrenar</span>
+    </div>
+    <p class="pie">La curva es la regresión FC&nbsp;=&nbsp;24.70·v&nbsp;+&nbsp;58.3 ajustada solo con
+      los puntos de entrenamiento. Predice FC 175 a 3:33.4/km; en carrera corriste a 3:33.4/km
+      con FC media 174. Un error de una pulsación extrapolando 80 s/km fuera del rango ajustado:
+      por eso las estimaciones de LT1 y LT2 de esta página son creíbles —y aun así se
+      confirman con la contrarreloj del 1 de octubre.</p>
+  </div>
+</section>
+
+<section class="col">
+  <p class="eyebrow">03 · Tu perfil fisiológico</p>
+  <h2>Velocidad de sobra, motor corto</h2>
+  <p class="lede">Compara tus repeticiones con tu ritmo de carrera. El patrón es inequívoco.</p>
+
+  <div class="scroller">
+    <table>
+      <caption>Diferencia entre el ritmo de cada repetición y el ritmo de 5K</caption>
+      <thead><tr><th>Esfuerzo</th><th class="n">Ritmo</th><th class="n">vs 5K</th><th class="n">FC</th></tr></thead>
+      <tbody>
+        <tr><td>6 × 400 m · 15 sep</td><td class="n">3:01.2</td><td class="n">−15.1 %</td><td class="n">179</td></tr>
+        <tr><td>2 × 800 m · 17 sep</td><td class="n">3:03.2</td><td class="n">−14.1 %</td><td class="n">176</td></tr>
+        <tr><td>2 × 1 592 m · 1 sep</td><td class="n">3:22.9</td><td class="n">−4.9 %</td><td class="n">175</td></tr>
+        <tr><td><strong>5K en carrera</strong></td><td class="n"><strong>3:33.4</strong></td><td class="n">—</td><td class="n">174</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Un corredor de 5K bien construido corre sus repeticiones de 800 m entre un 5 % y un 8 %
+    más rápido que su ritmo de carrera. Tú estás en <strong>14 %</strong>. Y la señal más clara:
+    a <span class="mono">FC 176</span> produces 3:03/km durante 800 metros, pero a
+    <span class="mono">FC 174</span> —dos pulsaciones menos— solo 3:33/km cuando el esfuerzo
+    dura 18 minutos. La misma bomba, la mitad del rendimiento, en cuanto el reloj se alarga.</p>
+
+  <div class="nota">
+    <p><b>Lo que esto ordena, y lo que prohíbe.</b> No te falta velocidad: te falta el motor
+      aeróbico que la sostenga. Entrenar más series de 400 m no mueve nada —ya tienes esa
+      cualidad y es la más barata de mantener. Todo el margen está en volumen y en umbral.</p>
+  </div>
+
+  <div class="nota">
+    <p><b>Lo que sí funciona, y no es poco.</b> El fondo del 5 de septiembre —15 km a 4:40/km
+      con FC 149–151 y cadencia 179— es un fondo de buen corredor. La FC vuelve a 136 entre
+      repeticiones sin arrastre. La mecánica aguanta a ritmo de carrera. La base sobre la que
+      se construye está sana; lo que faltaba era el piso de en medio.</p>
+  </div>
+</section>
+
+<section class="col">
+  <p class="eyebrow">04 · El objetivo</p>
+  <h2>Decidido: Reforma, 24 de enero, mismo circuito</h2>
+  <p class="lede">Eso cierra la pregunta que quedaba abierta y trae una ventaja que no es obvia:
+    corriste ese circuito el 20 de septiembre, así que la referencia es exacta. Nada de conversiones
+    por altitud ni por perfil — el 17:47 es el número a batir, medido en el mismo sitio.</p>
+
+  <p>Correr en CDMX significa que el sub-16 <em>no</em> está en juego en enero. Bajar de 16:00 a
+    2 240 m equivale a un 15:10 al nivel del mar, marca de nivel nacional: exige subir tu velocidad
+    crítica de 3:42.7/km a <span class="mono">3:17.6/km</span>, un <strong>+12.7 %</strong>,
+    partiendo de 47.7 km por semana. Eso no ocurre en cuatro meses en ningún corredor entrenado.
+    Sigue siendo el proyecto, pero es de 18 a 24 meses y este bloque es su primer tercio.</p>
+
+  <p>Lo que sí está en juego el 24 de enero es <strong>bajar de 17:00 en Reforma</strong>: cuarenta
+    y siete segundos en el mismo circuito, en cuatro meses. Eso no es un premio de consolación —
+    es una mejora del 4.5 % en un corredor ya entrenado, y es exactamente lo que el plan persigue.</p>
+
+  <div class="nota">
+    <p><b>El circuito cambia la estrategia, y es el error más fácil de cometer.</b> Reforma es de
+      ida y vuelta: unos <b>25 m de subida</b> hasta el retorno del km 2.5 y la misma bajada de
+      regreso. Tus parciales <em>no</em> deben ser iguales. Sal 4-6 s/km más lento que el objetivo
+      en la primera mitad y recupéralos en la segunda. Correr la ida a ritmo de objetivo es
+      exactamente cómo se revienta la vuelta.</p>
+  </div>
+
+  <div class="scroller">
+    <table>
+      <caption>Proyección al 24 de enero, derivada de cuánto suba la velocidad crítica</caption>
+      <thead><tr><th>Escenario</th><th class="n">CS</th><th class="n">En CDMX</th><th class="n">En el mar</th><th>Qué supone</th></tr></thead>
+      <tbody>
+        <tr><td><span class="zchip">Conservador</span></td><td class="n">+4 %</td><td class="n">17:20</td><td class="n">16:25</td><td>Se pierden 3-4 semanas; el volumen se queda en 75 km</td></tr>
+        <tr><td><span class="zchip a">Probable</span></td><td class="n">+6 %</td><td class="n">17:01</td><td class="n">16:07</td><td>Se cumplen 15 de 18 semanas y el volumen llega a 90 km</td></tr>
+        <tr><td><span class="zchip a">Bueno</span></td><td class="n">+8 %</td><td class="n">16:42</td><td class="n">15:49</td><td>Bloque completo, sin bajas, disciplina en los días fáciles</td></tr>
+        <tr><td><span class="zchip b">Excelente</span></td><td class="n">+10 %</td><td class="n">16:24</td><td class="n">15:32</td><td>Todo lo anterior y una respuesta al umbral por encima de lo típico</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="nota">
+    <p><b>Dónde corras decide si el reloj dice sub-16.</b> Son <b>53 segundos</b> de diferencia por
+      la misma forma física. En CDMX el sub-16 no ocurre en enero, con ningún escenario. A nivel
+      del mar cae justo en el centro de la banda probable: no es una apuesta segura, pero tampoco
+      un sueño — es una moneda al aire honesta.</p>
+  </div>
+
+  <div class="scroller">
+    <table>
+      <caption>Los tres 3000 m del bloque te lo dirán antes que la carrera</caption>
+      <thead><tr><th>Test</th><th>Cuándo</th><th class="n">Si marcas…</th><th>…vas camino de</th></tr></thead>
+      <tbody>
+        <tr><td>Primer marcador</td><td>22 oct · semana 4</td><td class="n">10:00–10:05</td><td>Normal. Es pronto: la base apenas empieza</td></tr>
+        <tr><td><strong>El que predice</strong></td><td>17 dic · semana 12</td><td class="n">9:40</td><td><strong>16:55 en CDMX · 16:02 en el mar</strong></td></tr>
+        <tr><td>Fija las bandas</td><td>14 ene · semana 16</td><td class="n">9:34</td><td>16:45 en CDMX · 15:52 en el mar</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="col">
+    <p class="eyebrow">05 · Las zonas</p>
+    <h2>Ancladas a LT1 y LT2, no a un solo número heredado</h2>
+    <p class="lede">Un sistema con una sola ancla propaga su error a las cinco zonas. Este tiene
+      tres —LT1, LT2 y FCmax— y cada una se mide por separado. Cambiar un test recalcula todo
+      el plan.</p>
+  </div>
+
+  <div class="panel">
+    <p class="panel-cab">Vigentes desde el 21 de septiembre · <span style="color:var(--alert)">PROVISIONALES hasta el test del 1 de octubre</span></p>
+    <p class="panel-tit">LT1 153 lpm &nbsp;·&nbsp; LT2 170 lpm &nbsp;·&nbsp; FCmax 194 lpm</p>
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Zona</th><th>Cómo se oye</th><th class="n">lpm</th><th class="n">Ritmo</th><th>Para qué</th></tr></thead>
+        <tbody>
+          <tr><td><span class="zchip a">Z1</span> Regenerativo</td><td>Frase entera sin esfuerzo · RPE 2-3</td><td class="n">≤ 140</td><td class="n">≥ 5:02</td><td>Dobles, día después de calidad, principio y final de todo</td></tr>
+          <tr><td><span class="zchip a">Z2</span> Base aeróbica</td><td>Frases largas cómodas · RPE 3-4</td><td class="n">141–152</td><td class="n">4:24–4:59</td><td>El grueso del volumen y los fondos</td></tr>
+          <tr><td><span class="zchip a">Z3</span> Umbral aeróbico</td><td>Frases cortas; hablar cuesta · RPE 5</td><td class="n">153–161</td><td class="n">4:01–4:21</td><td>Finales progresivos, tempo continuo de 25–40 min</td></tr>
+          <tr><td><span class="zchip b">Z4</span> Sub-umbral</td><td>4–6 palabras y no más · RPE 6-7</td><td class="n">162–169</td><td class="n">3:43–3:58</td><td><strong>El motor del bloque.</strong> Doble umbral, reps de 5–10 min</td></tr>
+          <tr><td><span class="zchip b">Z5</span> Umbral / MLSS</td><td>2–3 palabras · RPE 7-8</td><td class="n">170–176</td><td class="n">3:30–3:41</td><td>Ritmo de 10K, reps de 2 000–3 000 m. Máx 30 min por sesión</td></tr>
+          <tr><td><span class="zchip b">Z6</span> VO2max</td><td>Nada de hablar · RPE 9</td><td class="n">177–190</td><td class="n">3:08–3:28</td><td>Reps de 1 000–1 200 m. Una sesión cada 7–10 días</td></tr>
+          <tr><td><span class="zchip">N</span> Neuromuscular</td><td>—</td><td class="n">no aplica</td><td class="n">&lt; 3:05</td><td>Rectas, cuestas de 8–20 s. Se juzga por técnica, no por FC</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pie">Los ritmos son la <em>consecuencia</em> esperada de cada FC según la regresión,
+      no un objetivo paralelo. En Z1–Z5 se corre por frecuencia cardiaca. Z6 y N se corren por
+      ritmo, porque en repeticiones de 3 minutos o menos la FC llega tarde a la fiesta.</p>
+  </div>
+
+  <div class="nota col">
+    <p><b>Por qué 170 y no 186.</b> LT2 = 170 es el 87.6 % de tu FCmax observada, y LT1 = 153 es
+      el 78.9 %: los dos caen justo donde la fisiología los pone en un corredor entrenado.
+      LTHR 186 era el 95.9 % de FCmax —un valor que casi nadie sostiene una hora—. Además,
+      corriste 18 km a 4:43/km con FC 149 y 15 km a 4:40/km con FC 150, las dos veces sin
+      deriva: eso solo pasa por debajo de LT1.</p>
+  </div>
+</section>
+
+<section>
+  <div class="col">
+    <p class="eyebrow">06 · Los tests</p>
+    <h2>Siete protocolos, y ninguno necesita una gota de sangre</h2>
+    <p class="lede">No hay lactómetro: todo se mide con la banda de pecho. Eso no debilita el sistema
+      —el laboratorio de campo del corredor lleva décadas haciéndolo así— pero cambia dos cosas:
+      el umbral sale de una contrarreloj, no de una curva, y el control dentro de la sesión pasa a
+      ser la deriva de la frecuencia cardiaca.</p>
+  </div>
+
+  <div class="nota col">
+    <p><b>El sustituto del lactato es la deriva de FC.</b> Cuando el lactato se acumula por encima de
+      LT2, la frecuencia sube sola aunque el ritmo no cambie. Así que la regla de toda sesión de
+      umbral es: la FC debe <strong>estabilizarse dentro de la zona en los primeros 90 segundos</strong>
+      de cada repetición, y entre la repetición 2 y la última <strong>no debe subir más de 3 lpm al
+      mismo ritmo</strong>. Si sube más, ibas por encima de LT2 aunque la media pareciera correcta.
+      Es la misma señal, leída en pulsaciones.</p>
+  </div>
+
+  <div class="tests">
+    <div class="test">
+      <p class="cod">TEST A &nbsp;· define LT2</p>
+      <h3>Contrarreloj de 30 min</h3>
+      <p>30 minutos al máximo esfuerzo <em>sostenible</em> —no es un 5K ni un 10K—, solo, en pista,
+        con auto-lap cada 5 min. <strong>LT2 = la FC media de los últimos 20 minutos</strong>, no la
+        de los 30: los primeros diez la ensucian mientras la FC sube.</p>
+      <p>Los primeros 10 min no pueden ser los más rápidos. Banda de pecho obligatoria: a 30 min
+        a tope el sensor óptico de muñeca se descuelga.</p>
+      <p>Un 10K de competencia vale lo mismo: su FC media es LTHR ±2 lpm. Si corres uno, úsalo.</p>
+      <p class="cuando">1 oct · 12 nov · 22 dic &nbsp;—&nbsp; cada 6 semanas, mismo circuito y misma hora</p>
+    </div>
+    <div class="test">
+      <p class="cod">TEST B &nbsp;· define LT1</p>
+      <h3>Deriva aeróbica</h3>
+      <p>60 minutos clavado a una FC fija (primer intento: LT2 − 18 = 152), con auto-lap cada 15.
+        Se parte en dos mitades de 30 y se compara velocidad/FC de cada una.</p>
+      <p><strong>Menos del 5 % de caída → estás en o por debajo de LT1</strong>: sube 3 lpm y repite.
+        Más del 5 % → estás por encima: baja 3–4. LT1 es la FC más alta que aún deja la deriva bajo el 5 %.</p>
+      <p>Hace de fondo de la semana, así que no cuesta una sesión. El cálculo:
+        <span class="mono">zonas.py --deriva 4:38 149 4:47 150</span></p>
+      <p class="cuando">17 oct · 9 ene &nbsp;—&nbsp; siempre en sábado</p>
+    </div>
+    <div class="test">
+      <p class="cod">TEST C &nbsp;· define el techo</p>
+      <h3>FCmax real</h3>
+      <p>Hoy 194 es la máxima <em>vista</em> en un 6 × 400, no medida. Cuesta del 3–5 %,
+        3 × 2 min al 80 / 90 / todo, y se toma el pico de los 5 s finales.</p>
+      <p>Sirve de control de coherencia: LT2 debe caer en el 85–90 % de FCmax y LT1 en el 75–82 %.
+        Si un test deja LT2 por encima del 92 %, el test salió mal.</p>
+      <p class="cuando">4 oct &nbsp;—&nbsp; cada 12 semanas</p>
+    </div>
+    <div class="test">
+      <p class="cod">TEST D &nbsp;· rendimiento</p>
+      <h3>3 000 m contrarreloj</h3>
+      <p>El marcador honesto: un test a tope no se puede sobre-ejecutar. 5K equivalente
+        ≈ tiempo × 1.75. Referencias en CDMX: 10:10 = 17:47 · 9:39 = 16:53 · 9:08 = 16:00.</p>
+      <p class="cuando">22 oct · 17 dic · 14 ene &nbsp;—&nbsp; el del 14 de enero fija las bandas de carrera</p>
+    </div>
+    <div class="test">
+      <p class="cod">TEST E &nbsp;· contrasta LT2</p>
+      <h3>Velocidad crítica</h3>
+      <p>1 200 m y 3 600 m a tope con 48 h de separación. Sin lactómetro este es el segundo pilar:
+        la CS debe coincidir con el ritmo de umbral del Test A dentro de 2–3 s/km.</p>
+      <p>Comprobación extra: dos días después, 20 min clavado al ritmo de CS.
+        <strong>La FC en la que te estabilices es tu LT2.</strong></p>
+      <p class="cuando">19 y 21 nov</p>
+    </div>
+    <div class="test">
+      <p class="cod">TEST F &nbsp;· perfil</p>
+      <h3>Velocidad máxima</h3>
+      <p>3 × 30 m volantes con 20 m de lanzamiento. Perfila tu reserva anaeróbica. Se mide una
+        vez, para confirmar lo que ya sabemos y <strong>no volver a entrenarlo</strong>.</p>
+      <p class="cuando">11 oct &nbsp;—&nbsp; una vez por bloque</p>
+    </div>
+    <div class="test opt">
+      <p class="cod">TEST G &nbsp;· opcional</p>
+      <h3>DFA alfa-1</h3>
+      <div class="cuerpo">
+      <p>Solo si tu banda graba intervalos R-R latido a latido (HRM-Pro, HRM-Dual, Polar H10) y
+        tienes una app que lo calcule. Con sensor óptico de muñeca no funciona.</p>
+      <p>Rodaje progresivo en escalones de 5 min: alfa-1 cruzando <span class="mono">0.75</span>
+        se acerca bien a LT1; el cruce de <span class="mono">0.50</span> es bastante menos fiable
+        persona a persona.</p>
+      <p>Úsalo como contraste de LT1, nunca como ancla. Si discrepa más de 5 lpm del Test B,
+        gana el Test B.</p>
+      <p class="cuando">Cuando quieras &nbsp;—&nbsp; no sustituye a nada</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <h3>Y el otro ajuste: el reloj</h3>
+    <p>Garmin lleva el 186 dentro, así que hasta que lo cambies el reloj seguirá coloreando cada
+      sesión con las zonas viejas. Tres cosas, en Garmin Connect &rsaquo; Perfil de usuario &rsaquo;
+      Configuración de frecuencia cardiaca (los menús cambian según el modelo):</p>
+    <p><strong>1. Pon el método en “Personalizado (ppm)”</strong>, no en %FCmáx ni en %umbral de
+      lactato. Así un error en la FCmáx guardada no te desplaza las cinco zonas de golpe.</p>
+    <p><strong>2. Umbral de lactato: 170.</strong> FC máxima: 194, provisional hasta el Test C.</p>
+    <p><strong>3. Desactiva la detección automática del umbral</strong> (Reloj &rsaquo; Configuración
+      &rsaquo; Estadísticas fisiológicas &rsaquo; Detección automática). Si se queda encendida, Garmin
+      vuelve a sobrescribir el valor con su propia estimación —que es de dónde salió el 186—.</p>
+    <p>Garmin solo tiene cinco zonas y este sistema usa seis, así que Z5 y Z6 se fusionan en la
+      zona 5 del reloj, que es justo donde el plan manda correr por ritmo y no por pulso. Las dos
+      fronteras que importan, LT1 y LT2, quedan intactas:</p>
+  </div>
+
+  <div class="panel">
+    <p class="panel-cab">Zonas personalizadas · perfil de Carrera</p>
+    <p class="panel-tit">Lo que hay que teclear</p>
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Garmin</th><th class="n">ppm</th><th>Equivale a</th></tr></thead>
+        <tbody>
+          <tr><td>Zona 1</td><td class="n">100–140</td><td><span class="zchip a">Z1</span> Regenerativo</td></tr>
+          <tr><td>Zona 2</td><td class="n">141–152</td><td><span class="zchip a">Z2</span> Base aeróbica</td></tr>
+          <tr><td>Zona 3</td><td class="n">153–161</td><td><span class="zchip a">Z3</span> Umbral aeróbico</td></tr>
+          <tr><td>Zona 4</td><td class="n">162–169</td><td><span class="zchip b">Z4</span> Sub-umbral</td></tr>
+          <tr><td>Zona 5</td><td class="n">170–194</td><td><span class="zchip b">Z5</span> Umbral + <span class="zchip b">Z6</span> VO2max</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pie">Se regenera con <span class="mono">python3 zonas.py --garmin</span> después de cada
+      test, para que el reloj y el repositorio no se separen nunca.</p>
+  </div>
+</section>
+
+<section>
+  <div class="col">
+    <p class="eyebrow">07 · El bloque</p>
+    <h2>18 semanas, 7 días, 1 291 km</h2>
+    <p class="lede">De 47.7 a 95 km por semana, repartidos en los siete días que ya entrenabas.
+      Casi todo lo que se añade es Z1 y Z2, buena parte en dobles regenerativos: volumen aeróbico
+      barato, que suma kilómetros sin sumar fatiga.</p>
+  </div>
+
+  <div class="panel">
+    <p class="panel-cab">Gráfica 2 — kilómetros por semana</p>
+    <p class="panel-tit">Tres semanas de carga, una de descarga, y cada bloque arranca un 5–9 % arriba del anterior</p>
+    <svg viewBox="0 0 880 330" role="img" aria-label="Volumen semanal planificado" preserveAspectRatio="xMidYMid meet" class="gr">
+<title>Kilómetros por semana a lo largo de las 18 semanas del bloque</title>
+<line x1="46" y1="199.5" x2="860" y2="199.5" class="grid"/>
+<text x="37" y="203.5" class="tick" text-anchor="end">25</text>
+<line x1="46" y1="141.0" x2="860" y2="141.0" class="grid"/>
+<text x="37" y="145.0" class="tick" text-anchor="end">50</text>
+<line x1="46" y1="82.5" x2="860" y2="82.5" class="grid"/>
+<text x="37" y="86.5" class="tick" text-anchor="end">75</text>
+<line x1="46" y1="24.0" x2="860" y2="24.0" class="grid"/>
+<text x="37" y="28.0" class="tick" text-anchor="end">100</text>
+<text x="37" y="16" class="axlab" text-anchor="end">km</text>
+<rect x="48.0" y="150.4" width="41.2" height="107.6" rx="3" class="bar"><title>Semana 0 — 46 km</title></rect>
+<text x="68.6" y="143.4" class="barlab" text-anchor="middle">46</text>
+<text x="68.6" y="275" class="tick" text-anchor="middle">S0</text>
+<rect x="93.2" y="127.0" width="41.2" height="131.0" rx="3" class="bar"><title>Semana 1 — 56 km</title></rect>
+<rect x="138.4" y="112.9" width="41.2" height="145.1" rx="3" class="bar"><title>Semana 2 — 62 km</title></rect>
+<rect x="183.7" y="98.9" width="41.2" height="159.1" rx="3" class="bar"><title>Semana 3 — 68 km</title></rect>
+<text x="204.3" y="275" class="tick" text-anchor="middle">S3</text>
+<rect x="228.9" y="124.6" width="41.2" height="133.4" rx="3" class="bar-d"><title>Semana 4 — 57 km · descarga</title></rect>
+<rect x="274.1" y="87.2" width="41.2" height="170.8" rx="3" class="bar"><title>Semana 5 — 73 km</title></rect>
+<rect x="319.3" y="73.1" width="41.2" height="184.9" rx="3" class="bar"><title>Semana 6 — 79 km</title></rect>
+<text x="339.9" y="275" class="tick" text-anchor="middle">S6</text>
+<rect x="364.6" y="59.1" width="41.2" height="198.9" rx="3" class="bar"><title>Semana 7 — 85 km</title></rect>
+<rect x="409.8" y="103.6" width="41.2" height="154.4" rx="3" class="bar-d"><title>Semana 8 — 66 km · descarga</title></rect>
+<rect x="455.0" y="42.7" width="41.2" height="215.3" rx="3" class="bar"><title>Semana 9 — 92 km</title></rect>
+<text x="475.6" y="275" class="tick" text-anchor="middle">S9</text>
+<rect x="500.2" y="40.4" width="41.2" height="217.6" rx="3" class="bar"><title>Semana 10 — 93 km</title></rect>
+<rect x="545.4" y="35.7" width="41.2" height="222.3" rx="3" class="bar"><title>Semana 11 — 95 km</title></rect>
+<text x="566.1" y="28.7" class="barlab" text-anchor="middle">95</text>
+<rect x="590.7" y="84.8" width="41.2" height="173.2" rx="3" class="bar-d"><title>Semana 12 — 74 km · descarga</title></rect>
+<text x="611.3" y="275" class="tick" text-anchor="middle">S12</text>
+<rect x="635.9" y="61.4" width="41.2" height="196.6" rx="3" class="bar"><title>Semana 13 — 84 km</title></rect>
+<rect x="681.1" y="63.8" width="41.2" height="194.2" rx="3" class="bar"><title>Semana 14 — 83 km</title></rect>
+<rect x="726.3" y="87.2" width="41.2" height="170.8" rx="3" class="bar"><title>Semana 15 — 73 km</title></rect>
+<text x="746.9" y="275" class="tick" text-anchor="middle">S15</text>
+<rect x="771.6" y="105.9" width="41.2" height="152.1" rx="3" class="bar"><title>Semana 16 — 65 km</title></rect>
+<rect x="816.8" y="164.4" width="41.2" height="93.6" rx="3" class="bar"><title>Semana 17 — 40 km</title></rect>
+<text x="837.4" y="275" class="tick" text-anchor="middle">S17</text>
+<line x1="46" y1="146.4" x2="860" y2="146.4" class="ref"/>
+<text x="860" y="138.4" class="reflab" text-anchor="end">media del bloque anterior · 47.7 km</text>
+<rect x="48.0" y="288" width="41.2" height="16" rx="3" class="fase"/>
+<text x="68.6" y="300" class="faselab" text-anchor="middle">0</text>
+<rect x="93.2" y="288" width="176.9" height="16" rx="3" class="fase"/>
+<text x="181.7" y="300" class="faselab" text-anchor="middle">1 · base</text>
+<rect x="274.1" y="288" width="176.9" height="16" rx="3" class="fase"/>
+<text x="362.6" y="300" class="faselab" text-anchor="middle">2 · umbral</text>
+<rect x="455.0" y="288" width="176.9" height="16" rx="3" class="fase"/>
+<text x="543.4" y="300" class="faselab" text-anchor="middle">3 · VO2</text>
+<rect x="635.9" y="288" width="176.9" height="16" rx="3" class="fase"/>
+<text x="724.3" y="300" class="faselab" text-anchor="middle">4 · específico</text>
+<rect x="816.8" y="288" width="41.2" height="16" rx="3" class="fase"/>
+<text x="837.4" y="300" class="faselab" text-anchor="middle">5 · taper</text>
+</svg>
+    <div class="leyenda">
+      <span><i class="b" style="background:var(--aer)"></i>semana de carga</span>
+      <span><i class="b" style="background:var(--aer);opacity:.38"></i>semana de descarga</span>
+      <span><i class="b" style="background:var(--anaer)"></i>media del bloque anterior</span>
+    </div>
+    <p class="pie">Ningún salto pasa del 10 % sobre el pico del bloque anterior, y el arranque no es
+      terreno nuevo: tu mejor semana de agosto ya fue de 65.5 km. El riesgo real de este plan
+      no son las sesiones: es la rampa. Si algo duele, se congela el volumen
+      una semana en lugar de seguir subiendo —y eso no retrasa nada.</p>
+  </div>
+
+  <div class="scroller">
+    <table>
+      <caption>Las cinco fases</caption>
+      <thead><tr><th>Fase</th><th>Semanas</th><th class="n">km/sem</th><th>Qué construye</th></tr></thead>
+      <tbody>
+        <tr><td><strong>0 · Reset</strong></td><td>21–27 sep</td><td class="n">46</td><td>Reparación post-carrera. Nada por encima de Z2</td></tr>
+        <tr><td><strong>1 · Recalibración</strong></td><td>28 sep – 25 oct</td><td class="n">56 → 68</td><td>Tests A y C, primeras sesiones de Z4 reales, tempo continuo</td></tr>
+        <tr><td><strong>2 · Umbral</strong></td><td>26 oct – 22 nov</td><td class="n">73 → 85</td><td>Entra el doble umbral. 36–42 min de Z4 por martes</td></tr>
+        <tr><td><strong>3 · Umbral + VO2</strong></td><td>23 nov – 20 dic</td><td class="n">92 → 95</td><td>Pico de volumen. Reps de 1 000–1 200 m una vez por semana</td></tr>
+        <tr><td><strong>4 · Específico</strong></td><td>21 dic – 17 ene</td><td class="n">84 → 65</td><td>Ritmo objetivo: 6 × 1 000, 4 × 1 600, 3 × 2 000, 5K partido</td></tr>
+        <tr><td><strong>5 · Taper</strong></td><td>18 – 24 ene</td><td class="n">40</td><td>Volumen −35 %, intensidad intacta. Carrera el domingo 24</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col">
+    <h3>El martes de doble umbral</h3>
+    <p>Es la pieza central y la que más cambia respecto a lo que venías haciendo. La mañana
+      acumula <em>volumen</em> de umbral —5 a 7 repeticiones de 6 a 8 min en Z4, a 162–169 lpm,
+      con un minuto de trote entre ellas—. La tarde acumula <em>intensidad</em> de umbral: series
+      más cortas en Z5, a 170–176. Partido en dos, se llega a 50 o 60 minutos de trabajo de
+      umbral en un día sin entrar nunca en la zona donde el esfuerzo se vuelve deuda y la sesión
+      siguiente se arruina.</p>
+    <p>El control es la deriva: mira la FC de la repetición 2 y la de la última <em>al mismo
+      ritmo</em>. Si subió más de 3 lpm, la sesión salió demasiado fuerte, se anota y la siguiente
+      se recorta una repetición. Y la prueba del habla, que no necesita reloj: en Z4 caben cuatro
+      a seis palabras seguidas. Si caben diez, vas corto; si no cabe ninguna, te pasaste.</p>
+  </div>
+</section>
+
+<section>
+  <div class="col">
+    <p class="eyebrow">08 · La metodología</p>
+    <h2>Siete métodos, y por qué estos y no otros</h2>
+    <p class="lede">Nada de esto se eligió por estar de moda. Cada método entró porque un número
+      concreto de tus datos lo pedía, y la columna de la derecha dice cuál.</p>
+  </div>
+
+  <div class="mets">
+    <div class="met">
+      <div><h3>Distribución polarizada</h3>
+        <p class="src">Seiler · modelo 80/20</p></div>
+      <div class="cuerpo">
+        <p>El grueso del volumen claramente por debajo de LT1 y el resto concentrado arriba, con
+          lo mínimo posible en la franja intermedia.</p>
+        <p class="tuyo"><b>Por qué en ti:</b> tu bloque no tenía ni fácil de verdad ni umbral de
+          verdad. Con Z1 tope 157 corrías los regenerativos por encima de LT1, y con Z4 en 176-185
+          las series se iban al dominio severo. Todo quedaba en el medio. Ahora el informe mide el
+          <span class="mono">% de km en Z1-Z2</span> cada lunes, para que sea un hecho y no una intención.</p>
+      </div>
+    </div>
+
+    <div class="met">
+      <div><h3>Doble umbral sub-máximo</h3>
+        <p class="src">Modelo noruego · Marius Bakken, los Ingebrigtsen</p></div>
+      <div class="cuerpo">
+        <p>Partir el trabajo de umbral en dos sesiones sub-máximas el mismo día en vez de una
+          grande. Se acumulan 50-60 min de estímulo sin tocar nunca el punto donde la sesión
+          siguiente se arruina.</p>
+        <p class="tuyo"><b>Por qué en ti:</b> tu velocidad crítica es <b>3:42.7/km</b> y ese es el
+          techo que decide un 5K. Es exactamente lo que no se entrenó. Y aquí está el motor del bloque:
+          los martes acumulan más minutos de umbral que todo el bloque anterior junto.</p>
+        <p class="tuyo">Con una salvedad honesta: el método original se pilota midiendo lactato cada
+          pocas repeticiones. Nosotros lo sustituimos por deriva de FC y prueba del habla, que es
+          más basto. Funciona, pero no es lo mismo.</p>
+      </div>
+    </div>
+
+    <div class="met">
+      <div><h3>Velocidad crítica y D′</h3>
+        <p class="src">Monod &amp; Scherrer · Jones &amp; Vanhatalo</p></div>
+      <div class="cuerpo">
+        <p>Modelo de dos parámetros: una velocidad sostenible (CS) y una reserva finita por encima
+          de ella (D′). Separa lo aeróbico de lo anaeróbico con dos contrarrelojes.</p>
+        <p class="tuyo"><b>Por qué en ti:</b> es lo que demostró que la carrera no fue el fallo.
+          Con CS 4.490 m/s y D′ 142 m el modelo predecía <b>18:02</b> y corriste <b>17:47</b>.
+          Sin ese cálculo, el 17:47 parecía un mal día; con él, era tu forma real y el problema
+          estaba en la banda objetivo.</p>
+      </div>
+    </div>
+
+    <div class="met">
+      <div><h3>Umbrales duales en campo</h3>
+        <p class="src">Contrarreloj de 30 min · desacople Pa:FC</p></div>
+      <div class="cuerpo">
+        <p>Dos anclas medidas por separado —LT1 y LT2— en vez de un solo número del que cuelgan
+          las cinco zonas.</p>
+        <p class="tuyo"><b>Por qué en ti:</b> porque un sistema de un ancla propaga su error a
+          todas las zonas, y el tuyo lo hizo: <b>28 s/km</b> de error en el ancla convirtieron cada
+          sesión de umbral del bloque en otra cosa.</p>
+      </div>
+    </div>
+
+    <div class="met">
+      <div><h3>Perfilado por reserva anaeróbica</h3>
+        <p class="src">Sandford · tipo velocista vs tipo resistente</p></div>
+      <div class="cuerpo">
+        <p>Antes de decidir qué entrenar, medir qué sobra. Dos corredores con el mismo 5K necesitan
+          planes opuestos según de dónde venga ese tiempo.</p>
+        <p class="tuyo"><b>Por qué en ti:</b> tus 800 salen <b>14 %</b> más rápidos que tu ritmo de
+          5K, cuando un corredor de 5K construido está en 5-8 %. Eres tipo velocista con motor corto.
+          Esta es la decisión más individualizada del plan: por eso hay <b>una</b> sesión de VO2 cada
+          7-10 días y no dos por semana. Entrenar más velocidad sería entrenar lo que ya tienes.</p>
+      </div>
+    </div>
+
+    <div class="met">
+      <div><h3>Fuerza máxima y pliometría</h3>
+        <p class="src">Rønnestad &amp; Mujika · economía de carrera</p></div>
+      <div class="cuerpo">
+        <p>Cargas altas con pocas repeticiones mejoran la economía sin añadir masa: el mismo ritmo
+          cuesta menos oxígeno. La pliometría trabaja la rigidez elástica del tendón.</p>
+        <p class="tuyo"><b>Por qué en ti:</b> tu contacto con el suelo (208 ms) y tu ratio vertical
+          (6.49 %) están bien, pero la <b>oscilación vertical de 10.19 cm</b> es alta para 3:33/km:
+          estás gastando energía subiendo en vez de avanzando. Es justo lo que la fuerza y los
+          multisaltos atacan.</p>
+      </div>
+    </div>
+
+    <div class="met">
+      <div><h3>Bloques 3:1 y altitud</h3>
+        <p class="src">Periodización por bloques · Levine &amp; Stray-Gundersen</p></div>
+      <div class="cuerpo">
+        <p>Tres semanas de carga y una de descarga, con cada bloque arrancando un 5-9 % por encima
+          del pico anterior. Y el reconocimiento de que 2 240 m cambia el reloj, no la forma.</p>
+        <p class="tuyo"><b>Por qué en ti:</b> vas de 47.7 a 95 km por semana. La rampa es el riesgo
+          real del plan, no las sesiones. Y la altitud es la razón de la decisión estratégica: los
+          mismos pulmones valen <b>53 segundos</b> menos en el mar.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <h3>Lo que deliberadamente no hacemos</h3>
+    <ul class="nohacer">
+      <li><b>Más series de 400.</b> Tu vuelta más rápida del bloque fue 72.5 s. Esa cualidad ya está
+        y es la más barata de mantener: sobra con rectas y cuestas cortas.</li>
+      <li><b>VO2max dos veces por semana.</b> Una cada 7-10 días. Con tu perfil, más VO2 desplazaría
+        trabajo de umbral, que es el que falta.</li>
+      <li><b>Tempos largos a LT2 desde el principio.</b> Primero volumen sub-umbral. El umbral duro
+        rinde cuando hay base debajo, no antes.</li>
+      <li><b>Días de descanso impuestos.</b> Tus tres semanas completas fueron de 7/7 días. El plan
+        se adapta a eso, no al revés.</li>
+    </ul>
+
+    <h3>Cuatro cosas que tus números permitirían añadir</h3>
+  </div>
+
+  <div class="tests">
+    <div class="test">
+      <p class="cod">01 · ya está activo</p>
+      <h3>Seguir el desplazamiento de tu curva FC-ritmo</h3>
+      <p>Tu relación entre pulso y ritmo es <em>excepcionalmente</em> limpia: predice FC 175 a
+        3:33.4/km y corriste con 174, extrapolando 80 s/km fuera del rango ajustado.</p>
+      <p>Eso permite algo que no se puede prescribir en general: medir tu forma <strong>con los
+        rodajes de todos los días</strong>, sin tests. Hoy FC 150 te da 4:29/km. Si en ocho semanas
+        te diera 4:15, son 15 s/km de mejora aeróbica, gratis.</p>
+      <p>Ya corre cada lunes con <span class="mono">zonas.py --refit</span>.</p>
+    </div>
+    <div class="test">
+      <p class="cod">02 · logística</p>
+      <h3>Bajar a entrenar la calidad</h3>
+      <p>Vives a 2 240 m, que es bueno para adaptarte y malo para correr rápido. Cuernavaca está a
+        ~1 500 m y a hora y media.</p>
+      <p>Una sesión de calidad allí cada dos o tres semanas te deja alcanzar velocidades absolutas
+        que en CDMX no puedes, sin perder la adaptación de vivir arriba. Es el <em>live high, train
+        low</em> clásico, y en tu caso es geografía, no presupuesto.</p>
+    </div>
+    <div class="test">
+      <p class="cod">03 · inversión</p>
+      <h3>Un lactómetro</h3>
+      <p>Unos 300 USD más tiras. Los tests de campo te dan la mayor parte del camino, pero hay un
+        sitio donde el margen importa de verdad: los martes de doble umbral, donde la diferencia
+        entre 2.5 y 4.0 mmol es toda la sesión.</p>
+      <p>Si el sub-16 es un proyecto de 18 meses y no de cuatro, se amortiza. Si no, los tests de
+        campo bastan y no pasa nada.</p>
+    </div>
+    <div class="test opt">
+      <p class="cod">04 · el que más rendiría</p>
+      <h3>Arreglar el monitoreo de carga</h3>
+      <div class="cuerpo">
+      <p>Garmin tiene tu FC en reposo en <strong>101</strong>. Para alguien que corre 17:47 eso es
+        imposible, y con ese número está calculando tu Body Battery, tu estrés y tu estado de
+        entrenamiento. Todo lo que te dice sobre si estás recuperado sale de ahí.</p>
+      <p>Y esto no es cosmético. La semana del 7 al 13 de septiembre se perdió por problemas de
+        sueño: <strong>14.6 km</strong> contra los 65.5 de la mejor semana. Ese hueco costó más que
+        cualquier decisión de diseño de sesión.</p>
+      <p>Con una FC de reposo y una variabilidad fiables tendrías una señal objetiva de "hoy no",
+        que es exactamente la barrera que tu historial dice que necesitas — en vez de descubrirlo
+        el jueves cuando la sesión ya salió mal.</p>
+      <p class="cuando">Lo más barato de arreglar y lo que más protege el bloque</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="col">
+  <p class="eyebrow">09 · Las reglas</p>
+  <h2>Once reglas que no se negocian</h2>
+  <ul class="reglas">
+    <li><b>Regla del techo.</b> Pasar el techo de FC más de 3 lpm durante más de un minuto
+      invalida la sesión, aunque el ritmo sea bueno. Ir más rápido de lo prescrito no es
+      disciplina: es cambiar de sesión.</li>
+    <li><b>El ritmo es la consecuencia, no el objetivo.</b> En Z1–Z5 se corre por FC.
+      Solo Z6 y N se corren por ritmo.</li>
+    <li>Si la última repetición no puede ser la más rápida de la serie, la sesión estuvo mal
+      dosificada. <b>Se corta y se anota.</b></li>
+    <li><b>60–70 % de los kilómetros en Z1–Z2</b>, cada semana. Si esa proporción baja, el
+      volumen no está construyendo nada.</li>
+    <li>Correr siempre antes de la pesa, con 4–6 h de separación. La <b>fuerza máxima va el
+      jueves</b>, después de la sesión de calidad, para que el viernes regenerativo la absorba;
+      la <b>pliometría va el domingo</b> con las cuestas, que ya es el día neuromuscular.
+      Nunca lunes, miércoles ni viernes: esos días existen para estar fáciles.</li>
+    <li>Se entrena los <b>siete días</b>, pero el viernes es el <b>día ajustable</b>: el único que se
+      puede convertir en descanso total sin recuperarlo, y el primero que se recorta cuando algo va
+      mal. Los otros seis no se negocian.</li>
+    <li><b>La semana perdida cuesta más que la sesión perdida.</b> Piso mínimo: 5 sesiones y
+      60 % del volumen, aunque todo salga mal.</li>
+    <li>Sin lactómetro, el control de la sesión de umbral es la <b>deriva de FC</b>: estabilizarse
+      en 90 s y no subir más de 3 lpm entre la rep 2 y la última, al mismo ritmo.</li>
+    <li>Molestia: se recorta el fondo antes que la calidad. <b>Dos días seguidos de molestia
+      = parar y revisar.</b></li>
+    <li>Los dobles son volumen barato. <b>Si un doble se siente como entrenamiento, ibas
+      demasiado rápido.</b></li>
+    <li>Todo umbral se mide a 2 240 m. A nivel del mar la misma FC da un ritmo 5–6 % más rápido:
+      <b>se trasladan las FC, no los ritmos.</b></li>
+  </ul>
+</section>
+
+<section class="col">
+  <p class="eyebrow">10 · Las herramientas</p>
+  <h2>Qué corre y cuándo</h2>
+  <p>El plan completo está en <span class="mono">sesiones.html</span>, día por día, con el
+    calentamiento, el protocolo y la vuelta a la calma de cada sesión. Todo cuelga de
+    <span class="mono">zonas.json</span>: cambiar las anclas regenera las 18 semanas.</p>
+
+  <pre><span class="c"># ver las zonas vigentes y los ritmos que implican</span>
+python3 zonas.py
+
+<span class="c"># leer el protocolo completo de un test antes de ir a la pista</span>
+python3 zonas.py --protocolo A
+
+<span class="c"># cargar el resultado de la contrarreloj del 1 de octubre y recalcular todo</span>
+python3 zonas.py --lt2 173 --fecha 2026-10-01 --metodo "CR 30 min"
+python3 gen_plan_v4.py
+
+<span class="c"># Test B: deriva de las dos mitades de 30 min -&gt; ¿estoy por debajo de LT1?</span>
+python3 zonas.py --deriva 4:38 149 4:47 150
+
+<span class="c"># qué teclear en Garmin Connect, ya con las zonas nuevas</span>
+python3 zonas.py --garmin
+
+<span class="c"># re-ajustar la relación FC↔ritmo con lo que ya corriste</span>
+python3 zonas.py --refit
+
+<span class="c"># informe semanal (sigue corriendo los lunes 07:00)</span>
+npm start &amp;&amp; python3 analiza.py --dias 14 &amp;&amp; python3 informe.py</pre>
+
+  <p>El informe semanal ahora mide dos cosas nuevas: el <strong>porcentaje de kilómetros en
+    Z1–Z2</strong> —para que la regla del 60–70 % sea un hecho y no una intención— y los
+    <strong>días en que se excedió el techo de FC</strong>, con cuántas pulsaciones. La regla
+    del techo deja de ser un consejo y pasa a ser un número que aparece cada lunes.</p>
+</section>
+
+<footer>
+  Datos: 36 actividades de Garmin Connect, 13 ago – 21 sep 2026 · 265.5 km ·
+  entrenamientos_performance.csv, historial_entrenamientos.json<br>
+  Marcos de referencia: velocidad crítica y D′ (modelo de 2 parámetros) · umbrales de campo
+  (contrarreloj de 30 min para LT2, deriva aeróbica para LT1) · distribución polarizada 80/20 ·
+  doble umbral sub-máximo ·
+  reserva de velocidad anaeróbica · decremento por altitud 5.0–5.5 % a 2 240 m<br>
+  Generado el 21 de septiembre de 2026. Sin lactómetro: todos los umbrales se estiman con
+  banda de frecuencia cardiaca. Las anclas LT1/LT2/FCmax son provisionales hasta el Test A
+  del 1 de octubre.
+</footer>
+
+</div>

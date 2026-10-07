@@ -13,7 +13,7 @@
   --accent:#C1502E; --accent-ink:#A33F20; --accent-soft:#F7E6DF;
   --ok:#3D6B57;
   /* Zonas FC: rampa secuencial de un tono, monotónica Z1->Z5 (recesiva, es fondo) */
-  --z1:#F6E7DF; --z2:#EFD3C5; --z3:#E5B9A3; --z4:#D99A7C; --z5:#CB7853;
+  --z1:#F6E7DF; --z2:#EFD3C5; --z3:#E5B9A3; --z4:#D99A7C; --z5:#CB7853; --z6:#B25F3C;
   --shadow:0 1px 2px rgba(17,21,28,.05), 0 8px 24px -16px rgba(17,21,28,.25);
 
   --f-display:"IBM Plex Sans Condensed",ui-sans-serif,system-ui,sans-serif;
@@ -223,13 +223,13 @@ td.num{font-family:var(--f-mono); font-variant-numeric:tabular-nums; white-space
 <div class="envoltura">
 
   <header class="cabecera">
-    <div class="encabezado-eyebrow" id="eyebrow">Bloque 5K · CDMX 2,240 m</div>
+    <div class="encabezado-eyebrow" id="eyebrow">Proyecto Sub-16 · CDMX 2,240 m · Reforma 24 ene 2027</div>
     <h1>Bitácora Sub-16</h1>
     <div class="cabecera-meta">
       <span>Actualizado <b id="meta-generado">—</b></span>
       <span>Ventana <b id="meta-ventana">—</b></span>
       <span>Datos desde <b id="meta-cobertura">—</b></span>
-      <span>LTHR <b id="meta-lthr">—</b></span>
+      <span>Umbrales <b id="meta-lthr">—</b></span>
     </div>
   </header>
 
@@ -286,7 +286,7 @@ td.num{font-family:var(--f-mono); font-variant-numeric:tabular-nums; white-space
   <section>
     <div class="sec-cab">
       <h2>Dónde cayó la frecuencia cardiaca</h2>
-      <p>Cada barra va de la FC media (punto oscuro) a la máxima (punto de acento) de la sesión, sobre las zonas Friel para LTHR 186.</p>
+      <p>Cada barra va de la FC media (punto oscuro) a la máxima (punto de acento) de la sesión, sobre las zonas ancladas a los umbrales de lactato LT1 y LT2.</p>
     </div>
     <div class="zonas" id="grafico-zonas"></div>
   </section>
@@ -320,7 +320,10 @@ const esc = (t) => String(t??'').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;
 document.getElementById('meta-generado').textContent = DATOS.generado.replace('T',' ').slice(0,16);
 document.getElementById('meta-ventana').textContent  = `${DATOS.desde} → ${DATOS.hasta}`;
 document.getElementById('meta-cobertura').textContent= DATOS.cobertura_desde;
-document.getElementById('meta-lthr').textContent     = `${DATOS.lthr} lpm`;
+const _a = DATOS.anclas || {};
+document.getElementById('meta-lthr').textContent     = _a.lt2
+  ? `LT1 ${_a.lt1} · LT2 ${_a.lt2} · FCmax ${_a.fcmax}${_a.provisional ? ' (provisionales)' : ''}`
+  : `${DATOS.lthr} lpm`;
 
 if (DATOS.carrera){
   document.getElementById('reg-dias').textContent = DATOS.carrera.dias_restantes;
@@ -335,6 +338,8 @@ document.getElementById('tira').innerHTML = DATOS.calendario.map(c => {
   let clase, estado;
   if (c.fecha > hoy)            { clase='futuro';   estado='por venir'; }
   else if (c.cumplido)          { clase='cumplido'; estado='cumplido'; }
+  // El dia de hoy todavia no termina: sin actividad aun no es una omision.
+  else if (c.fecha === hoy)     { clase='futuro';   estado='en curso'; }
   else if (c.fecha >= DATOS.cobertura_desde) { clase='omitido'; estado='omitido'; }
   else                          { clase='sindatos'; estado='sin datos'; }
   const plan = c.planeado ? c.planeado.sesion : '—';
@@ -432,11 +437,14 @@ document.getElementById('tbody-sesiones').innerHTML = DATOS.calendario
 (function(){
   const MIN=110, MAX=200;
   const pos = (v) => ((v-MIN)/(MAX-MIN))*100;
-  const BANDAS = [
-    {z:'Z1', hasta:157, color:'var(--z1)'}, {z:'Z2', hasta:165, color:'var(--z2)'},
-    {z:'Z3', hasta:175, color:'var(--z3)'}, {z:'Z4', hasta:185, color:'var(--z4)'},
-    {z:'Z5', hasta:MAX, color:'var(--z5)'},
-  ];
+  // Las bandas vienen de zonas.json vía analisis.json: ancladas a LT1/LT2 medidos,
+  // no a un LTHR fijo. Un retest las mueve sin tocar esta plantilla.
+  const ZFC = DATOS.zonas_fc || [
+    {z:'Z1',lo:0,hi:140},{z:'Z2',lo:141,hi:152},{z:'Z3',lo:153,hi:161},
+    {z:'Z4',lo:162,hi:169},{z:'Z5',lo:170,hi:176},{z:'Z6',lo:177,hi:999}];
+  const BANDAS = ZFC.map((z,i) => ({
+    z: z.z, hasta: (i === ZFC.length-1 ? MAX : Math.min(z.hi, MAX)),
+    color: `var(--z${i+1})`}));
   let prev = MIN;
   const fondo = BANDAS.map(b => {
     const w = ((b.hasta-prev)/(MAX-MIN))*100; prev = b.hasta;
@@ -462,7 +470,8 @@ document.getElementById('tbody-sesiones').innerHTML = DATOS.calendario
     const centro = pos((prev + Math.min(b.hasta,MAX))/2); prev = b.hasta;
     return `<span class="zlab" style="left:${centro}%">${b.z}</span>`;
   }).join('');
-  const ticks = [120,140,158,166,176,186,200].map(t =>
+  const ticks = [MIN, ...ZFC.slice(1).map(z => z.lo), MAX]
+    .filter((t,i,a) => t > MIN-1 && t < MAX+1 && a.indexOf(t) === i).map(t =>
     `<span class="tick" style="left:${pos(t)}%">${t}</span>`).join('');
 
   document.getElementById('grafico-zonas').innerHTML = filas +

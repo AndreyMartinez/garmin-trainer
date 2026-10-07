@@ -1,0 +1,223 @@
+<title>Plan Sub-16 Día a Día</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#F2F5F4; --surface:#FFFFFF; --sunk:#EAEEED;
+  --ink:#111C1A; --ink2:#4E605C; --ink3:#778884;
+  --line:#DCE3E1; --line2:#C6D1CE;
+  --aer:#00806B; --anaer:#B0741F; --alert:#A8321E;
+  --aer-soft:#E2EFEC; --anaer-soft:#F6EBDA; --alert-soft:#F7E5E1;
+  --disp:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#0C1312; --surface:#141F1D; --sunk:#101A19;
+  --ink:#E4ECE9; --ink2:#98AAA6; --ink3:#71827E;
+  --line:#22302D; --line2:#2E3E3B;
+  --aer:#12A992; --anaer:#C08529; --alert:#E07A62;
+  --aer-soft:#0F2E2A; --anaer-soft:#2C2517; --alert-soft:#301C17;
+}}
+:root[data-theme="dark"]{
+  --ground:#0C1312; --surface:#141F1D; --sunk:#101A19;
+  --ink:#E4ECE9; --ink2:#98AAA6; --ink3:#71827E;
+  --line:#22302D; --line2:#2E3E3B;
+  --aer:#12A992; --anaer:#C08529; --alert:#E07A62;
+  --aer-soft:#0F2E2A; --anaer-soft:#2C2517; --alert-soft:#301C17;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);
+  font-size:16px;line-height:1.55;margin:0;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding-inline:18px;padding-block:0 72px}
+h1,h2,h3,h4{font-family:var(--disp);margin:0;text-wrap:balance}
+p{margin:0 0 .8em}
+a{color:var(--aer)}
+.mono,.n{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* ---------- cabecera ---------- */
+header{padding-block:40px 20px;border-bottom:1px solid var(--line)}
+.kick{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink3);margin:0 0 12px}
+h1{font-size:clamp(30px,5.5vw,46px);line-height:1;font-weight:800;letter-spacing:-.025em}
+.sub{font-family:var(--mono);font-size:12.5px;color:var(--ink2);margin-top:14px;line-height:1.7}
+.sub b{color:var(--ink);font-weight:600}
+.cuenta{display:inline-block;background:var(--aer-soft);color:var(--aer);font-family:var(--mono);
+  font-size:12px;font-weight:600;padding:3px 9px;border-radius:3px;margin-top:12px}
+
+/* ---------- rail de semanas ---------- */
+.railwrap{position:sticky;top:0;z-index:5;background:var(--ground);
+  border-bottom:1px solid var(--line);margin-bottom:28px}
+.rail{display:flex;gap:3px;overflow-x:auto;padding:12px 0 10px;scrollbar-width:thin}
+/* La barra vive arriba y la etiqueta en su propia franja: asi el texto nunca
+   queda medio dentro y medio fuera del relleno. */
+.wk{flex:0 0 50px;height:68px;position:relative;display:block;text-decoration:none;
+  border-radius:3px;background:var(--sunk);overflow:hidden}
+.wk .bar{position:absolute;left:0;right:0;bottom:22px;background:var(--aer);opacity:.9}
+.wk.dl .bar{opacity:.4}
+.wk .lab{position:absolute;left:0;right:0;bottom:0;height:22px;background:var(--surface);
+  border-top:1px solid var(--line);display:flex;align-items:baseline;justify-content:center;gap:4px}
+.wk b,.wk i{font-family:var(--mono);font-style:normal;line-height:1}
+.wk b{font-size:10.5px;font-weight:600;color:var(--ink)}
+.wk i{font-size:9px;color:var(--ink3)}
+.wk[aria-current="true"]{outline:2px solid var(--anaer);outline-offset:-2px}
+.wk:focus-visible{outline:2px solid var(--aer);outline-offset:2px}
+.railpie{font-family:var(--mono);font-size:10.5px;color:var(--ink3);padding-bottom:9px}
+
+/* ---------- semana ---------- */
+.sem{margin-bottom:34px;scroll-margin-top:96px}
+.semcab{padding:0 0 10px;border-bottom:2px solid var(--ink);margin-bottom:2px}
+.semfase{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--aer);margin:0 0 4px}
+.semcab h3{font-size:21px;font-weight:700;letter-spacing:-.015em}
+.semmeta{font-family:var(--mono);font-size:12px;color:var(--ink2);margin:4px 0 0}
+
+/* ---------- dia ---------- */
+.dia{border-bottom:1px solid var(--line);background:var(--surface)}
+.dia summary{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding:12px 14px;
+  cursor:pointer;list-style:none;border-left:3px solid var(--line2)}
+.dia summary::-webkit-details-marker{display:none}
+.dia summary:hover{background:var(--sunk)}
+.dia summary:focus-visible{outline:2px solid var(--aer);outline-offset:-2px}
+.dia.duro    summary{border-left-color:var(--anaer)}
+.dia.test    summary{border-left-color:var(--alert)}
+.dia.carrera summary{border-left-color:var(--alert);background:var(--alert-soft)}
+.dia.fondo   summary{border-left-color:var(--aer)}
+.dia.off     summary{border-left-color:transparent;opacity:.6}
+.dd{flex:0 0 76px;font-family:var(--mono);font-size:11.5px;color:var(--ink3);line-height:1.3}
+.dd i{display:block;font-style:normal;font-weight:600;color:var(--ink2);text-transform:uppercase;
+  letter-spacing:.08em;font-size:10px}
+.ds{flex:1 1 210px;font-family:var(--disp);font-weight:700;font-size:15.5px;letter-spacing:-.01em}
+.chips{flex:1 1 100%;display:flex;flex-wrap:wrap;gap:5px;margin-top:3px}
+.mini{font-family:var(--mono);font-size:11px;background:var(--sunk);border-radius:3px;
+  padding:2px 7px;color:var(--ink2)}
+.mini b{color:var(--ink3);font-weight:500;margin-right:5px;text-transform:uppercase;font-size:9.5px;
+  letter-spacing:.07em}
+.det{padding:4px 16px 20px 17px;border-left:3px solid var(--line2);font-size:15px}
+.det h4{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink3);font-weight:500;margin:14px 0 7px}
+.det ol,.det ul{margin:0;padding-left:20px}
+.det li{margin-bottom:4px;color:var(--ink2)}
+.proto ol li{color:var(--ink)}
+.ref{font-family:var(--mono);font-size:12px;color:var(--ink3);margin:14px 0 0}
+.pmt{font-family:var(--disp);font-weight:700;font-size:14.5px;margin:0 0 6px}
+.coach{background:var(--aer-soft);border-radius:4px;padding:11px 14px;margin:14px 0 0;font-size:14.5px}
+.coach b{font-family:var(--disp)}
+
+/* ---------- referencia ---------- */
+.refsec{margin-top:52px;padding-top:26px;border-top:2px solid var(--ink)}
+.refsec h2{font-size:24px;font-weight:700;letter-spacing:-.02em;margin-bottom:6px}
+.refsec .intro{color:var(--ink2);margin-bottom:22px;max-width:62ch}
+.blqs{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.blq{background:var(--surface);padding:15px 18px 17px}
+.blq h4{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--anaer);
+  font-weight:600;margin:0 0 9px}
+.blq ol,.blq ul{margin:0;padding-left:19px;font-size:14px}
+.blq li{margin-bottom:4px;color:var(--ink2);line-height:1.5}
+.scroller{overflow-x:auto;margin:20px 0}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:460px}
+th,td{text-align:left;padding:8px 14px 8px 0;border-bottom:1px solid var(--line)}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink3);font-weight:500}
+td.n,th.n{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right;padding-left:20px}
+tr>*:last-child{padding-right:0}
+tbody tr:last-child td{border-bottom:0}
+.reglas{list-style:none;padding:0;margin:20px 0 0;font-size:15px}
+.reglas li{padding:11px 0 11px 24px;border-bottom:1px solid var(--line);position:relative;color:var(--ink2)}
+.reglas li::before{content:"";position:absolute;left:0;top:20px;width:10px;height:1px;background:var(--aer)}
+footer{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);
+  font-family:var(--mono);font-size:11.5px;color:var(--ink3);line-height:1.8}
+@media (max-width:560px){
+  .dd{flex:0 0 100%}
+  .ds{flex:1 1 100%}
+  .det{padding-left:14px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header>
+  <p class="kick">Bloque 5K · CDMX 2 240 m · 21 sep 2026 → 24 ene 2027</p>
+  <h1>Plan día a día</h1>
+  <p class="sub">Objetivo <b>__META__</b><br>
+    Ritmo de carrera en CDMX <b>__RITMO__</b> &nbsp;·&nbsp; Zonas <b>__ANCLAS__</b><br>
+    __NDIAS__ días · 18 semanas · toca cualquier día para abrirlo</p>
+  <p class="cuenta" id="cuenta">—</p>
+</header>
+
+<div class="railwrap">
+  <nav class="rail" id="rail" aria-label="Semanas del bloque">__RAIL__</nav>
+  <p class="railpie">Altura de la barra = kilómetros de esa semana · las claras son descarga</p>
+</div>
+
+__CUERPO__
+
+<section class="refsec">
+  <h2>Zonas</h2>
+  <p class="intro">En Z1–Z5 se corre por frecuencia cardiaca y el ritmo es la consecuencia.
+    Z6 y neuromuscular se corren por ritmo, porque en repeticiones cortas la FC llega tarde.
+    Provisionales hasta el Test A del 1 de octubre.</p>
+  <div class="scroller">
+    <table>
+      <thead><tr><th>Zona</th><th class="n">lpm</th><th class="n">Ritmo</th><th>Cómo se oye</th></tr></thead>
+      <tbody>__ZONAS__</tbody>
+    </table>
+  </div>
+</section>
+
+<section class="refsec">
+  <h2>Bloques de referencia</h2>
+  <p class="intro">Cada día remite a uno de estos por su código, para no repetir lo mismo
+    ciento veintiséis veces. El calentamiento no es opcional: si falta tiempo, se recorta
+    la sesión, nunca el calentamiento.</p>
+  <div class="blqs">__BLOQUES__</div>
+</section>
+
+<section class="refsec">
+  <h2>Las reglas</h2>
+  <ul class="reglas">__REGLAS__</ul>
+</section>
+
+<footer>
+  Generado desde plan_maestro.json y zonas.json. Un retest cambia las anclas y todo el plan
+  se recalcula: <span class="mono">python3 zonas.py --lt2 &lt;FC&gt; --fecha &lt;hoy&gt; --metodo "CR 30 min"</span>
+  y luego <span class="mono">python3 gen_plan_v4.py &amp;&amp; python3 gen_web_plan.py</span>.<br>
+  Carrera objetivo: __CARRERA__.
+</footer>
+
+</div>
+
+<script>
+(function(){
+  // toISOString() pasa a UTC: en CDMX (UTC-6) a partir de las 18:00 devolveria mañana.
+  function hoyLocal(){var d=new Date();return d.getFullYear()+'-'+
+    String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+  var HOY = hoyLocal();
+  var dias = Array.prototype.slice.call(document.querySelectorAll('.dia'));
+  var sems = Array.prototype.slice.call(document.querySelectorAll('.sem'));
+  var hecho = null;
+
+  // La semana en curso se marca en el rail y el contador dice donde estamos.
+  for (var i = 0; i < sems.length; i++) {
+    var ds = sems[i].querySelectorAll('.dia');
+    var ini = ds[0].id.slice(2), fin = ds[ds.length-1].id.slice(2);
+    if (HOY >= ini && HOY <= fin) { hecho = i; break; }
+    if (HOY < ini) { hecho = i; break; }
+  }
+  if (hecho === null) hecho = sems.length - 1;
+  var chip = document.querySelectorAll('.rail .wk')[hecho];
+  if (chip) chip.setAttribute('aria-current','true');
+
+  var hoyEl = document.getElementById('d-' + HOY);
+  var c = document.getElementById('cuenta');
+  var carrera = new Date('__CARRERA__T06:00:00');
+  var faltan = Math.round((carrera - new Date()) / 86400000);
+  c.textContent = hoyEl
+    ? 'Hoy: ' + hoyEl.querySelector('.ds').textContent + ' · faltan ' + faltan + ' días para la carrera'
+    : 'Faltan ' + faltan + ' días para la carrera';
+  if (hoyEl) { hoyEl.open = true; hoyEl.querySelector('summary').style.fontWeight = '700'; }
+})();
+</script>

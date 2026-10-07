@@ -8,7 +8,7 @@ El informe narrativo se construye encima de este JSON, no re-derivando a mano.
 
 Uso:  python3 analiza.py [--dias 14]
 """
-import csv, json, sys, datetime, argparse, os
+import csv, json, sys, re, datetime, argparse, os
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 HIST = os.path.join(BASE, 'historial_entrenamientos.json')
@@ -16,10 +16,51 @@ CSV_ENTRENOS = os.path.join(BASE, 'entrenamientos_performance.csv')
 PLAN = os.path.join(BASE, 'PLAN_MAESTRO.csv')
 OUT = os.path.join(BASE, 'analisis.json')
 
-# --- Contexto del atleta (README): LTHR ~186, zonas Friel, 5K en CDMX a 2,240 m ---
-LTHR = 186
-ZONAS = [('Z1', 0, 157), ('Z2', 158, 165), ('Z3', 166, 175), ('Z4', 176, 185), ('Z5', 186, 999)]
+# --- Zonas: se leen de zonas.json, NO se cablean aquí ---------------------------
+# Las anclas son LT1, LT2 y FCmax, medidas con lactato. Un retest cambia zonas.json
+# y todo lo que cuelga de él (este análisis y el plan) se recalcula solo.
+ZONAS_CFG = os.path.join(BASE, 'zonas.json')
+
+
+def cargar_zonas():
+    """[(nombre, lo, hi)] + anclas. Cae a un default explícito si falta el archivo."""
+    if not os.path.exists(ZONAS_CFG):
+        return ([('Z1', 0, 140), ('Z2', 141, 152), ('Z3', 153, 161),
+                 ('Z4', 162, 169), ('Z5', 170, 176), ('Z6', 177, 190)],
+                {'lt1': 153, 'lt2': 170, 'fcmax': 194, 'provisional': True,
+                 'metodo': 'default de emergencia — falta zonas.json', 'fecha': None})
+    cfg = json.load(open(ZONAS_CFG, encoding='utf-8'))
+    a = cfg['anclas']
+    zs = []
+    for z in cfg['zonas']:
+        if z['lo_off'] is None:          # N neuromuscular: no se mide por FC
+            continue
+        lo = 0 if z['lo_off'][1] == -999 else a[z['lo_off'][0]] + z['lo_off'][1]
+        zs.append((z['z'], lo, a[z['hi_off'][0]] + z['hi_off'][1]))
+    zs[-1] = (zs[-1][0], zs[-1][1], 999)  # la última zona no tiene techo útil
+    return zs, a
+
+
+ZONAS, ANCLAS = cargar_zonas()
+LTHR = ANCLAS['lt2']   # el "umbral" del informe ahora es LT2 medido, no un número heredado
 DIAS = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']
+
+
+def techo_prescrito(zona_txt):
+    """Saca el techo de FC de una celda 'Zona FC' del plan: 'Z4 sub-umbral (162-169)' -> 169.
+
+    Hay celdas que no prescriben techo y solo describen el dia: los tests a tope
+    ('define LT2 = FC media de los ultimos 20 min', 'FCmax (hoy solo hay 194 observada)')
+    y la zona neuromuscular, donde la FC no aplica por regla. Sin este filtro el 20 de
+    'ultimos 20 min' se leia como techo de 20 lpm y el informe daba el dia del test
+    como 139 lpm por encima del techo.
+    """
+    if not zona_txt:
+        return None
+    if re.search(r'FC no aplica|define LT2|FCmax|por ritmo|a tope', zona_txt, re.I):
+        return None
+    nums = [int(n) for n in re.findall(r'\d{2,3}', zona_txt) if int(n) >= 90]
+    return max(nums) if nums else None
 
 
 def zona(fc):
@@ -208,7 +249,21 @@ def main():
             'ejecutado': reales,
             'cumplido': bool(reales),
             'km_dia': round(sum(s['km'] for s in reales), 2),
+            # Regla del techo: la sesión se juzga por FC, no por ritmo. Un día más rápido
+            # de lo pedido con la FC por encima del techo no es una sesión superada: es otra sesión.
+            'techo_fc': techo_prescrito(p['Zona FC']) if p else None,
+            'fc_max_dia': max((s['fc_maxima'] for s in reales if s['fc_maxima']), default=None),
+            'fc_media_dia': (round(sum(s['fc_media'] * s['minutos'] for s in reales if s['fc_media'])
+                                   / sum(s['minutos'] for s in reales if s['fc_media']), 1)
+                             if any(s['fc_media'] for s in reales) else None),
         })
+        c = calendario[-1]
+        if c['techo_fc'] and c['fc_media_dia']:
+            c['excedio_techo'] = c['fc_media_dia'] > c['techo_fc'] + 3
+            c['exceso_lpm'] = round(c['fc_media_dia'] - c['techo_fc'], 1)
+        else:
+            c['excedio_techo'] = None
+            c['exceso_lpm'] = None
         d += datetime.timedelta(days=1)
 
     # Volumen por semana ISO, sobre el horizonte largo
@@ -260,6 +315,22 @@ def main():
                        'dias_restantes': (datetime.date.fromisoformat(f) - hoy).days}
             break
 
+    # Distribución de la carga por zona. La regla del bloque es 60-70% del volumen en Z1-Z2;
+    # sin medirla, "polarizado" es una intención, no un hecho.
+    dist = {z[0]: {'km': 0.0, 'minutos': 0.0} for z in ZONAS}
+    for s in sesiones:
+        if s['es_fragmento'] or not s['zona_fc_global']:
+            continue
+        d_ = dist.setdefault(s['zona_fc_global'], {'km': 0.0, 'minutos': 0.0})
+        d_['km'] += s['km']
+        d_['minutos'] += s['minutos']
+    km_zonas = sum(v['km'] for v in dist.values()) or 1
+    for v in dist.values():
+        v['km'] = round(v['km'], 2)
+        v['minutos'] = round(v['minutos'], 1)
+        v['pct_km'] = round(v['km'] / km_zonas * 100, 1)
+    faciles = round(sum(dist[z]['pct_km'] for z in ('Z1', 'Z2') if z in dist), 1)
+
     salida = {
         'generado': datetime.datetime.now().isoformat(timespec='seconds'),
         'ventana_dias': args.dias, 'historial_dias': args.historial,
@@ -267,6 +338,10 @@ def main():
         'desde_historial': desde_hist.isoformat(),
  'cobertura_desde': cobertura_desde,
         'lthr': LTHR,
+        'anclas': ANCLAS,
+        'zonas_fc': [{'z': z, 'lo': lo, 'hi': hi} for z, lo, hi in ZONAS],
+        'distribucion_zonas': dist,
+        'pct_km_faciles': faciles,
         'carrera': carrera,
         'total_sesiones': len([s for s in sesiones if not s['es_fragmento']]),
         'km_totales': round(sum(s['km'] for s in sesiones if not s['es_fragmento']), 2),
@@ -290,6 +365,20 @@ def main():
               f"{round(sum(c['km'] for c in cruzado),2)} km — fuera de los promedios de carrera")
     if carrera:
         print(f"Carrera: {carrera['fecha']} ({carrera['dias_restantes']} días) · objetivo {carrera['objetivo']}")
+    prov = '  ⚠ PROVISIONALES' if ANCLAS.get('provisional') else ''
+    print(f"Zonas: LT1 {ANCLAS['lt1']} · LT2 {ANCLAS['lt2']} · FCmax {ANCLAS['fcmax']} "
+          f"({ANCLAS.get('metodo')}){prov}")
+    print(f"  Distribución: {faciles}% del volumen en Z1-Z2 "
+          f"({'dentro' if faciles >= 60 else 'POR DEBAJO'} de la regla del 60-70%)")
+    for z, v in dist.items():
+        if v['km']:
+            print(f"    {z}: {v['km']} km ({v['pct_km']}%)")
+    excesos = [c for c in calendario if c.get('excedio_techo')]
+    if excesos:
+        print(f"  TECHO DE FC EXCEDIDO ({len(excesos)} días):")
+        for c in excesos:
+            print(f"    {c['fecha']} {c['dia']}: FC media {c['fc_media_dia']} "
+                  f"vs techo {c['techo_fc']} (+{c['exceso_lpm']} lpm) — {c['planeado']['sesion']}")
     for k in sorted(semanas):
         w = semanas[k]
         print(f"  {k}: {w['km']} km · {w['sesiones']} sesiones · {w['dias_entrenados']} días")
