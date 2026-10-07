@@ -1,59 +1,146 @@
 {
   "_comment": "Lo único escrito a mano cada semana. analiza.py produce los números; esto los interpreta.",
-  "pronostico": "Ninguna sesión a ritmo de carrera se completó en todo el bloque. El esfuerzo sostenido más largo que existe son 1592 m (5:23) a 3:23/km, con descanso completo. El objetivo no está respaldado por ningún dato.",
-  "banda_objetivo": ["3:19", "3:23"],
-  "nota_ritmo": "Ordenado por longitud de la repetición, no por fecha. Es la lectura que importa: el ritmo aguanta en reps cortas y se cae al alargarlas. La carrera son 5000 m continuos, casi el triple de la repetición más larga jamás completada. Las cuestas se omiten aquí porque su ritmo ajustado no es comparable.",
+  "pronostico": "112 días para Reforma. El jueves fijó el número que faltaba —LT2 183 lpm a 3:47/km, validado por Daniels a 1 s/km de diferencia— y la semana lo sostuvo con cero excesos de techo de FC por segunda vez seguida y el fondo del sábado de regreso. Queda una pieza abierta: el Test C de hoy domingo, que debía fijar si el techo de FCmax son de verdad 194 o más, y no se corrió.",
+  "banda_objetivo": [
+    "3:23",
+    "3:28"
+  ],
+  "nota_ritmo": "Esta escala va de 3:00 a 4:10/km. Esta semana sí entró un punto propio: el umbral ya no es un estimado de la curva FC-ritmo, es el resultado medido de la contrarreloj del jueves —3:47/km a FC media 183. La banda sombreada es el objetivo de enero: 3:23/km es la meta (16:55, rompe 17:00) y 3:28/km la proyección conservadora (17:20); 17:00 exacto cae dentro, en 3:24/km. Entre ese umbral medido (3:47) y la banda objetivo quedan 19-24 s/km por cerrar en 112 días — es la distancia que tiene que recorrer el bloque.",
   "ritmos": [
-    { "etiqueta": "10×280 m · 10 sep", "detalle": "54.0 s · tras 3 días sin correr", "ritmo": "3:13" },
-    { "etiqueta": "10×400 m · 3 sep", "detalle": "74.2 s por vuelta", "ritmo": "3:05", "destaca": true },
-    { "etiqueta": "4×736 m · 18 ago", "detalle": "2:28 por rep · FC 164", "ritmo": "3:21" },
-    { "etiqueta": "6×944 m · 25 ago", "detalle": "3:14 por rep · FC 165", "ritmo": "3:26" },
-    { "etiqueta": "2×1592 m · 1 sep", "detalle": "5:23 por rep · el test", "ritmo": "3:23", "referencia": true }
+    {
+      "etiqueta": "6×400 m · 15 sep",
+      "detalle": "72.5 s por vuelta · FC 179, máx 194 — el pico de FC del histórico",
+      "ritmo": "3:01",
+      "referencia": true
+    },
+    {
+      "etiqueta": "2×800 m · 17 sep",
+      "detalle": "2:26.6 por rep · FC 176",
+      "ritmo": "3:03",
+      "referencia": true
+    },
+    {
+      "etiqueta": "2×1592 m · 1 sep",
+      "detalle": "5:23 por rep · FC 174",
+      "ritmo": "3:23",
+      "referencia": true
+    },
+    {
+      "etiqueta": "Carrera 5K · 20 sep",
+      "detalle": "17:47 en 5.000 m · FC 174, máx 187 — el punto de partida del bloque",
+      "ritmo": "3:33",
+      "referencia": true
+    },
+    {
+      "etiqueta": "Umbral medido · TEST A · 1 oct",
+      "detalle": "Últimos 20 min de la contrarreloj de 30: 5291 m a 3:47/km con FC media 183 (máx 193) — define LT2. Primeros 10 min a 3:59/km con FC 170: negativo limpio. Daniels predice 3:48/km de umbral para su 17:47 de 5K: 1 s/km de diferencia con lo medido.",
+      "ritmo": "3:47",
+      "destaca": true
+    }
   ],
   "veredictos": {
-    "2026-09-11": { "marca": "se pasó", "tipo": "supera", "texto": "7 km a 5:16 contra 6 km a 5:30 prescritos. Sigue en Z1, así que el coste es bajo, pero es el mismo patrón del día 4." },
-    "2026-09-10": { "marca": "reps cortas", "tipo": "corto", "texto": "10 reps de 280 m donde el plan pedía 8×400. Ocho segundos por km más lento que el 3 de septiembre, con descansos más cortos: consistente con tres días sin correr antes." },
-    "2026-09-06": { "marca": "degradada", "tipo": "corto", "texto": "Cadencia 155 contra 197 y 191 de las cuestas del 16 y 23 de agosto; ritmo ajustado 3:57 contra 3:17 y 3:19. No es la misma sesión que venías haciendo." },
-    "2026-09-05": { "marca": "la mejor", "tipo": "cumple", "texto": "15 km a 4:40 con FC 150 y cadencia 179. Mejor que los fondos del 15 y 22 de agosto (4:44 y 4:48) con la misma FC. El final progresivo no se puede confirmar: Garmin agrupa las dos vueltas activas." },
-    "2026-09-04": { "marca": "se pasó", "tipo": "supera", "texto": "Ritmo clavado a 5:30 y FC 130, muy holgada. Pero 8 km en un día regenerativo de 6." },
-    "2026-09-03": { "marca": "idéntica a agosto", "tipo": "cumple", "texto": "74.2 s por vuelta. El 13 de agosto fueron 74.3 s: tres semanas después, una décima de diferencia, con la FC media tres pulsaciones más alta. La velocidad pura no se movió." },
-    "2026-09-02": { "marca": "cumple", "tipo": "cumple", "texto": "Rodaje medio de 10 km, el volumen prescrito." },
-    "2026-09-01": { "marca": "reps cortas", "tipo": "corto", "texto": "El test se corrió en reps de 1592 m, no de 2000 m: 3:23/km sostenido 5:23, no los ~6:46 que habrían sido 2000 m. FC media 175, máxima 188. Es el ancla de toda la predicción, y es más corta de lo que el plan pidió." }
+    "2026-10-03": {
+      "marca": "el fondo que faltó volvió",
+      "tipo": "cumple",
+      "texto": "13.05 km a 5:13/km (fase activa de 9.00 km a 5:05/km) con FC media 146, máxima 159 — dentro de la banda 4:40-5:06 y del techo 152 en todo momento. El sábado pasado se había omitido; este volvió completo y es el primer fondo corrido ya con LT2 confirmado por el Test A."
+    },
+    "2026-10-02": {
+      "marca": "día después del test",
+      "tipo": "cumple",
+      "texto": "5.20 km a 5:38/km con FC media 138, máxima 149, un día después del esfuerzo a tope del jueves. Z1 estricto, igual que el lunes posterior a la carrera del 20-sep."
+    },
+    "2026-10-01": {
+      "marca": "negativo limpio",
+      "tipo": "cumple",
+      "texto": "TEST A: 7805 m en 30 min. Primeros 10 min a 3:59/km con FC 170, últimos 20 min a 3:47/km con FC media 183 (máx 193) — exactamente el patrón que pedía el protocolo, sin salir pasado. Ese ritmo y esa FC son ahora LT2. Daniels predice 3:48/km de umbral para su 17:47 de 5K: 1 s/km de diferencia con lo medido."
+    },
+    "2026-09-30": {
+      "marca": "simple y clavado",
+      "tipo": "cumple",
+      "texto": "5.02 km a FC media 136, máxima 144, contra un techo de 140. Sin nada que comentar, que es lo que pedía."
+    },
+    "2026-09-29": {
+      "marca": "las rectas que no se separan",
+      "tipo": "cumple",
+      "texto": "9.06 km con FC media 149 y máxima 172, techo 152. Garmin fundió el rodaje continuo con las 6 rectas en un solo bloque de 7 repeticiones a 5:09/km: no se puede aislar el ritmo de cada recta. Pero los 6 trotes de recuperación entre ellas, a 10:12/km, muestran FC media 157 y máxima 172 — mucho para un trote: es el residuo del esfuerzo de la recta anterior, que no bajó a tiempo."
+    },
+    "2026-09-28": {
+      "marca": "estricto, sin prisa",
+      "tipo": "cumple",
+      "texto": "5.01 km a 6:05/km con FC media 138, máxima 150 — 2 lpm bajo el techo de 140."
+    },
+    "2026-09-27": {
+      "marca": "por FC, no por ritmo",
+      "tipo": "cumple",
+      "texto": "4.33 km a 7:36/km (7:14 ajustado por pendiente) con 102 m de desnivel positivo, FC media 129 contra un techo de 140. Por ritmo parece una caminata; por FC es exactamente el regenerativo prescrito. En Z1 el ritmo es la consecuencia, no el objetivo."
+    },
+    "2026-09-25": {
+      "marca": "regenerativo real",
+      "tipo": "cumple",
+      "texto": "4.01 km a 5:22/km, FC media 131 y máxima 142 — nunca tocó el techo de 140 de forma sostenida. El día ajustable se usó como día ajustable."
+    },
+    "2026-09-24": {
+      "marca": "el ejemplo del bloque",
+      "tipo": "cumple",
+      "texto": "7.40 km de fase activa a 4:53/km con FC 146, más 4 rectas. El ritmo global (5:10) queda fuera de la banda 4:24-4:59 prescrita, pero la FC está en mitad de Z2: la sesión se juzga por FC y está clavada. Es justo la sesión que el bloque anterior habría corrido 20 s/km más rápido."
+    },
+    "2026-09-23": {
+      "marca": "sin adornos",
+      "tipo": "cumple",
+      "texto": "4.01 km a 5:13/km, FC media 134, máxima 145. Cuatro kilómetros pedidos, cuatro kilómetros corridos."
+    },
+    "2026-09-22": {
+      "marca": "clavada",
+      "tipo": "cumple",
+      "texto": "8.01 km a 4:55/km con FC media 148 y máxima 156, dentro de la banda 4:24-4:59 y en el centro de Z2. Primer rodaje base del bloque nuevo y salió exacto, sin el sobregiro que marcó todo el bloque anterior."
+    },
+    "2026-09-21": {
+      "marca": "día después",
+      "tipo": "cumple",
+      "texto": "6.58 km a 5:19/km con FC 137, al día siguiente de la carrera. Z1 estricto, sin intentar probar nada."
+    },
+    "2026-09-20": {
+      "marca": "el punto de partida",
+      "tipo": "cumple",
+      "texto": "17:47 normalizados a 5.000 m, 3:33.4/km, FC media 174 y máxima 187. Quedó 46 s por encima de la Banda B, pero el modelo de velocidad crítica construido con sus propias repeticiones predecía 18:02: corrió 15 s mejor de lo que sus datos sostenían. La Banda B nunca estuvo respaldada."
+    }
   },
   "hallazgos": [
     {
-      "marcador": "El agujero",
-      "titulo": "Las dos sesiones a ritmo de carrera se omitieron",
-      "cuerpo": "El <b>3×1500 m del 27 de agosto</b> y el <b>4×1500 m del 8 de septiembre</b> no tienen actividad, con el histórico cubriendo ambas fechas. Eran las dos únicas sesiones del bloque que ensayaban el ritmo objetivo durante cinco o seis minutos seguidos. El bloque termina sin haber probado nunca el ritmo de carrera."
+      "marcador": "El número que faltaba",
+      "titulo": "Test A confirma LT2 = 183 lpm a 3:47/km — y valida el ancla vieja",
+      "cuerpo": "El jueves 1 de octubre, contrarreloj de 30 min con banda de pecho: 7805 m totales, primeros 10 min a 3:59/km con FC 170, últimos 20 min a 3:47/km con FC media <b>183</b> (máx 193) — negativo limpio, justo lo que pedía el protocolo. Ese valor y ese ritmo son ahora LT2. El LTHR=186 del bloque anterior quedó a solo 3 lpm del medido: el error de 25 s/km de entonces no estaba en el ancla de FC, estaba en la curva FC↔ritmo, que mapeaba 186 lpm a 3:13/km en vez de los 3:43 que le tocaban entonces. Validación independiente: para un 5K de 17:47 las tablas de Daniels predicen un ritmo de umbral de ~3:48/km; medido, 3:47/km — 1 s/km de diferencia."
     },
     {
-      "marcador": "Estancamiento",
-      "titulo": "La velocidad en 400 m no se movió en cuatro semanas",
-      "cuerpo": "13 de agosto: 74.3 s por vuelta, FC media 171. 3 de septiembre: 74.2 s, FC media 174. Una décima de segundo de diferencia, con tres pulsaciones más de coste. Las series cortas ya no están produciendo adaptación."
+      "marcador": "Lo que no se separa",
+      "titulo": "El martes fundió el rodaje con las 6 rectas, pero la FC de la \"recuperación\" delata el esfuerzo",
+      "cuerpo": "Garmin agrupa por tipo de intervalo: el bloque activo del martes aparece como <b>7 repeticiones de 1229 m a 5:09/km</b>, mezclando el rodaje continuo con las 6 rectas sin forma de separarlas. Lo que sí se ve es la \"recuperación\" entre ellas: 6 tramos de 76 m a 10:12/km —un trote— con FC media <b>157 y máxima 172</b>, muy por encima del techo de Z2 (152) de la sesión. Un trote a ese ritmo no genera esa FC por sí solo: es el residuo de un esfuerzo que terminó segundos antes. No se puede comprobar el ritmo de cada recta, pero la FC que no baja a tiempo es la evidencia indirecta de que sí se corrieron."
     },
     {
-      "marcador": "Carga",
-      "titulo": "De 65 km a 15 km en una semana",
-      "cuerpo": "La semana 36 fue la más alta del bloque con 65.5 km en 7 días. La 37 lleva 14.6 km en 2 días. Parte es el pre-taper previsto, pero el plan pedía cerca de 40 km: la caída es mucho más profunda que la programada, y arrastra los tres días omitidos."
+      "marcador": "Lo que sí funcionó",
+      "titulo": "Segunda semana seguida sin un solo exceso de techo de FC",
+      "cuerpo": "Los seis días con datos de esta semana cerraron por debajo de su techo de FC —otra vez cero infracciones, igual que la semana pasada. Es la primera racha de <b>dos semanas seguidas</b> del histórico. El fondo del sábado, que se había omitido la semana anterior (el tercero en cinco semanas), volvió completo: <b>13.05 km a 5:13/km con FC media 146</b>, dentro de la banda 4:40-5:06 y del techo 152 en todo momento."
     },
     {
-      "marcador": "Lo que sí funciona",
-      "titulo": "El motor aeróbico sigue mejorando",
-      "cuerpo": "Los fondos van 4:44 → 4:48 → <b>4:40</b>/km con la FC clavada en 149–151 y la cadencia subiendo a 179. A 2,240 m de altitud, eso es progreso real y es la parte del plan que se ejecutó con disciplina."
+      "marcador": "Lo que sigue en el aire",
+      "titulo": "El Test C de hoy no se corrió: la FCmax real sigue sin medirse",
+      "cuerpo": "El domingo tocaba TEST C (cuestas, 3×2 min al 80/90/100%) para fijar la FCmax real. Al cierre de este informe no hay actividad registrada. Importa porque LT2/FCmax ya está en <b>94.3%</b>, fuera del rango normal (85-90%): o el umbral es excepcional o la FCmax real anda 10-15 lpm por encima de los 194 observados (183/0.88 ≈ 208). Sin el test, Z6 sigue prescrita por ritmo y no por FC, y el calendario no tiene otra fecha fija para este test — solo \"cada 12 semanas, o cuando aparezca una FC mayor en entrenamiento\"."
     }
   ],
-  "veredicto_titulo": "El objetivo no está sostenido por los datos, y el bloque ya no tiene margen para probarlo",
-  "veredicto_cuerpo": "El esfuerzo sostenido más largo de todo el bloque son <b>1592 m en 5:23</b> a 3:23/km, con 2:28 de descanso y repetido solo dos veces. La carrera son 5000 m continuos: más del triple de esa distancia, sin descanso. Ese salto nunca se ensayó, porque las dos sesiones que lo hacían se omitieron. A esto se suma que la velocidad en 400 m lleva cuatro semanas plana. Con ocho días restantes, el <b>jueves 17 (2×800 m a ritmo objetivo)</b> es la última oportunidad de generar un dato real: si esos 800 m salen a 3:19–3:23 sintiéndose sostenibles, el objetivo es defendible; si cuestan como el test, conviene ajustar la expectativa antes de la salida y no durante el kilómetro 3.",
+  "veredicto_titulo": "La semana cerró el número que faltaba y sostuvo la disciplina — dejó pendiente el Test C",
+  "veredicto_cuerpo": "49.4 km contra 56 planificados (88%), con el único hueco siendo el Test C de hoy domingo. El jueves fijó LT2 en 183 lpm a 3:47/km con un negativo limpio, validado por Daniels a 1 s/km de diferencia, y confirmó que el LTHR=186 del bloque anterior nunca estuvo mal: lo que fallaba era la curva FC↔ritmo. Los seis días con datos cerraron sin un solo exceso de techo de FC —segunda semana seguida, la primera racha así del histórico— y el fondo del sábado, omitido la semana pasada, volvió completo y dentro de banda. Lo que falta es lo de siempre: LT1 (153) sigue sin medirse hasta el Test B del 17 de octubre, y ahora se suma la FCmax real, que el Test C de hoy debía fijar y no se corrió.",
   "a_favor": [
-    "Fondos mejorando a 4:40/km con FC estable en 150, en altitud",
-    "400 m a 1:14 y mecánica de velocidad intacta: zancada 166 cm, contacto 185 ms",
-    "El test sostuvo 3:23/km con FC media 175, por debajo del LTHR"
+    "Test A confirmó LT2 = 183 lpm a 3:47/km con negativo limpio (3:59/km los primeros 10 min, 3:47/km los últimos 20)",
+    "Validación externa: Daniels predice 3:48/km de umbral para el 17:47 del 20-sep; medido 3:47/km — 1 s/km de diferencia",
+    "El LTHR=186 del bloque anterior quedó a 3 lpm del valor medido: el ancla nunca estuvo mal, el error estaba en la curva FC-ritmo",
+    "Cero excesos de techo de FC en los seis días con datos — segunda semana seguida, la primera racha de dos semanas del histórico",
+    "El fondo del sábado volvió completo: 13.05 km a 5:13/km con FC media 146, dentro de banda y de techo todo el recorrido"
   ],
   "en_contra": [
-    "Ninguna sesión a ritmo de carrera completada en todo el bloque",
-    "La repetición más larga jamás corrida son 1592 m, y la carrera son 5000 m",
-    "Velocidad en 400 m plana durante cuatro semanas, con más FC",
-    "Seis sesiones omitidas en 30 días, tres de ellas consecutivas",
-    "Volumen de la semana 37 a una quinta parte de la 36"
+    "TEST C (FCmax real) programado para hoy sin actividad al cierre de este informe; el calendario no fija otra fecha",
+    "LT2/FCmax = 94.3%, fuera del rango normal 85-90%: posible indicio de que la FCmax real supera los 194 observados",
+    "LT1 (153 lpm) sigue siendo estimación, no medición — lo resuelve el Test B del 17 de octubre",
+    "49.4 km contra 56 planificados (88%): el único hueco es el Test C de hoy",
+    "El rodaje del martes volvió a fundir el bloque continuo con las 6 rectas en un solo tramo de Garmin; no se puede aislar el ritmo de cada recta"
   ]
 }
