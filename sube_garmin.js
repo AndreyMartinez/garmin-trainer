@@ -333,11 +333,16 @@ function construirPasos(d) {
                       : paso('recovery', 'lap', null, null, d.descanso || 'Recuperacion completa'));
         return [...cal, conHijos(grupo, hijos), ...enfriar(d)];
     }
-    // 3c) Tempo continuo cronometrado: "20 min continuos a 4:00-4:38"
-    if ((m = /^(\d+)\s*min\s*continuos?\s*a\s*(\d+:\d\d)(?:\s*[-–]\s*(\d+:\d\d))?/.exec(r))) {
+    // 3c) Continuo cronometrado: "20 min continuos a 4:00-4:38". El ritmo es OPCIONAL:
+    //     un rodaje por tiempo lo prescribe el plan como "45 min continuos a >=5:08", donde
+    //     no hay rango numerico porque el techo de FC es el objetivo y el ritmo es libre.
+    //     Sin el ritmo opcional ese dia caia en la rama 6d y perdia la duracion: un paso a
+    //     golpe de boton no ejecuta 45 minutos.
+    if ((m = /^(\d+)\s*min\s*continuos?(?:\s*a\s*(\d+:\d\d)(?:\s*[-–]\s*(\d+:\d\d))?)?/.exec(r))) {
+        const ritmoTxt = m[2] ? `${m[2]}${m[3] ? '-' + m[3] : ''}` : (r.replace(/^\d+\s*min\s*continuos?\s*a?\s*/i, '') || d.zona);
         return [...cal,
             paso('interval', 'time', +m[1] * 60, { fc },
-                `${m[1]} min continuos · ${m[2]}${m[3] ? '-' + m[3] : ''}`),
+                `${m[1]} min continuos · ${ritmoTxt}`),
             ...enfriar(d)];
     }
     // 3d) Escalera descendente: "2000 + 1600 + 1000 + 400 a 3:23", con una recuperacion
@@ -345,10 +350,17 @@ function construirPasos(d) {
     if ((m = /^(\d{3,5}(?:\s*\+\s*\d{3,5})+)\s*a\s*(\d+:\d\d)(?:\s*[-–]\s*(\d+:\d\d))?/.exec(r))) {
         const tramos = m[1].split('+').map((t) => parseInt(t.trim(), 10));
         const ritmo = m[3] ? [m[2], m[3]] : [ensancha(m[2], -3), ensancha(m[2], 3)];
+        // "... a 3:23 · ultimo a 3:15": el tramo final de una escalera descendente se corre
+        // mas rapido que el resto, porque la sesion existe para ensayar el cierre de carrera.
+        // Si el ritmo del cierre no es un paso, no se ejecuta: se corre igual que los demas.
+        const fin = /[·,]\s*[uú]ltimo\s*a\s*(\d+:\d\d)/i.exec(r);
+        const ritmoFin = fin ? [ensancha(fin[1], -3), ensancha(fin[1], 3)] : ritmo;
         const recs = recLista(d.descanso);
         const pasos = [...cal];
         tramos.forEach((dist, i) => {
-            pasos.push(paso('interval', 'distance', dist, { ritmo }, `${dist} m · ${m[2]}`));
+            const ultimo = i === tramos.length - 1;
+            pasos.push(paso('interval', 'distance', dist, { ritmo: ultimo ? ritmoFin : ritmo },
+                `${dist} m · ${ultimo && fin ? fin[1] : m[2]}`));
             if (i < tramos.length - 1) {
                 const rr = recs[i] ?? recs[recs.length - 1];
                 pasos.push(rr ? paso('recovery', 'time', rr, { fc: [90, techoZona('Z1')] },
@@ -406,8 +418,13 @@ function construirPasos(d) {
         return [
             paso('warmup', 'time', +m[1] * 60, { fc: [100, objetivo] },
                 `Subir progresivo hasta ${objetivo} lpm. Estos ${m[1]} min NO cuentan.`),
-            paso('interval', 'time', +m[2] * 60, { fc: [objetivo - 2, objetivo + 2] },
-                `${m[2]} min clavado a ${objetivo} lpm. Auto-lap cada 15 min.`),
+            // El "auto-lap cada 15 min" del protocolo no existe dentro de un entrenamiento
+            // estructurado: el reloj solo cierra vuelta al cambiar de paso. Sin esos
+            // parciales no hay mitades y la deriva no se puede calcular, asi que cada
+            // bloque de 15 min es su propio paso.
+            ...Array.from({ length: Math.ceil(+m[2] / 15) }, (_, i) => paso('interval', 'time',
+                Math.min(15, +m[2] - 15 * i) * 60, { fc: [objetivo - 2, objetivo + 2] },
+                `Bloque ${i + 1}/${Math.ceil(+m[2] / 15)} clavado a ${objetivo} lpm. Sin parar entre bloques.`)),
             ...enfriar(d)
         ];
     }
@@ -418,7 +435,19 @@ function construirPasos(d) {
     // 6c) Contrarreloj por distancia: la distancia esta en el nombre del test
     //     ("TEST D — 3000 m contrarreloj"). Mejor un paso de distancia que un boton.
     if (/tope/i.test(r) && (m = /(\d{3,5})\s*m\b/.exec(d.sesion))) {
-        return [...cal, paso('interval', 'distance', +m[1], null, r), ...enfriar(d)];
+        const total = +m[1];
+        // "Parciales cada 400 m": igual que en el Test B, pulsar vuelta dentro de un
+        // entrenamiento estructurado salta de paso y terminaria el test. Cada parcial
+        // es su propio paso de distancia, seguidos y sin recuperacion entre ellos.
+        const parcial = /parciales\s*cada\s*(\d+)\s*m/i.exec(r);
+        if (parcial && +parcial[1] < total) {
+            const tramo = +parcial[1], n = Math.ceil(total / tramo);
+            return [...cal, ...Array.from({ length: n }, (_, i) => paso('interval', 'distance',
+                Math.min(tramo, total - tramo * i), null,
+                `Parcial ${i + 1}/${n} del ${total} m a tope. Sin parar: el siguiente arranca solo.`)),
+                ...enfriar(d)];
+        }
+        return [...cal, paso('interval', 'distance', total, null, r), ...enfriar(d)];
     }
     // 6d) Lo demas (simulaciones, carrera): estructura minima y el
     //     protocolo en la descripcion. Nunca inventar pasos para un test a tope.

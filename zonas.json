@@ -27,10 +27,10 @@
   },
   "regresion_fc_ritmo": {
     "_comment": "FC = a * v + b, con v en m/s. Se re-ajusta con 'python3 zonas.py --refit'.",
-    "a": 36.36,
-    "b": 22.8,
-    "n": 21,
-    "ajustada": "2026-10-04",
+    "a": 35.71,
+    "b": 25.7,
+    "n": 25,
+    "ajustada": "2026-10-18",
     "validacion": "Anclada en el punto del Test A: pasa por 3:47.0/km @ 183 lpm por construccion. Control en el extremo aerobico, que no esta anclado: 18 km a 4:43/km predice 150 lpm y la FC real fue 149; 15 km a 4:40/km predice 152 y fue 150. Error de 1-2 lpm en los dos extremos. La validacion anterior (carrera del 20-sep, error 1 lpm) estaba hecha contra FC de muneca corrupta: no valia.",
     "limite": "Valida de ~FC 130 a ~FC 183 (el punto medido). Por encima de 183 la FC se aplana contra FCmax y el ritmo sigue subiendo: Z6 y N se prescriben por RITMO/TIEMPO, nunca por FC. Por debajo de 130 se abre hasta 15 lpm, pero ahi la regla es 'si dudas, mas suave' y no importa."
   },
