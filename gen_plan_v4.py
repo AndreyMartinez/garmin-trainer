@@ -1,6 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-Generador del PROYECTO SUB-16 — bloque de 18 semanas (21 sep 2026 -> 24 ene 2027).
+Generador del PROYECTO SUB-16 (21 sep 2026 -> 21 mar 2027).
+
+El calendario acumula los bloques en vez de sustituirlos: lo ya corrido no se
+reescribe nunca, porque analiza.py cruza plan contra ejecutado por fecha. De ahi que
+haya dos re-entradas y dos fases de umbral dentro del mismo plan — la del paron de 8
+dias de octubre y la del paron de 21 dias de noviembre, con la carrera movida de
+Reforma (24-ene) a un 5K el 21-mar-2027.
 
 Anclado a zonas.json: si un test cambia LT1/LT2/FCmax, se vuelve a correr esto y
 todas las FC y ritmos del plan se recalculan solos.
@@ -19,7 +25,7 @@ A, REG = CFG['anclas'], CFG['regresion_fc_ritmo']
 ZDEF = {z['z']: z for z in CFG['zonas']}
 
 RITMO_OBJ = 203       # s/km del objetivo de carrera en CDMX (3:23) = sub-16 a nivel del mar
-META = "bajar de 17:00 en Reforma (CDMX, 2,240 m) · el sub-16 en CDMX es el proyecto largo"
+META = ("bajar de 17:00 en 5K a 2,240 m · carrera objetivo el 21-mar-2027 · el sub-16 en CDMX es el proyecto largo")
 
 
 # ---------------------------------------------------------------- zonas -> texto
@@ -192,6 +198,15 @@ F = {
  4: "Fase 4: Umbral + VO2 · pico de volumen",
  5: "Fase 5: Específico 5K",
  6: "Fase 6: Taper y carrera",
+ # El bloque de marzo (replanificado el 17-nov-2026) usa claves con nombre y no numeros:
+ # sus fases se repiten dentro del mismo calendario —hay dos re-entradas y dos fases de
+ # umbral en el plan— y volver a numerarlas dejaria el visor ilegible.
+ 'R':  "Bloque marzo · Re-entrada tras el parón",
+ 'RC': "Bloque marzo · Reconstrucción y recalibración",
+ 'U':  "Bloque marzo · Umbral, el motor",
+ 'V':  "Bloque marzo · Umbral + VO2 · pico de volumen",
+ 'E':  "Bloque marzo · Específico 5K",
+ 'T':  "Bloque marzo · Taper y carrera",
 }
 
 # ---------------------------------------------------------------- protocolos largos
@@ -253,7 +268,10 @@ PROTO = {'A': P_TESTA, 'B': P_TESTB, 'C': P_TESTC, 'D': P_TESTD, 'E': P_TESTE, '
 # antes de una sesion de calidad (Ronnestad): ponerla el miercoles dejaba 20 h hasta el
 # jueves. Va DESPUES de la calidad del jueves, con el viernes regenerativo absorbiendola.
 # La pliometria se junta con las cuestas del domingo, que ya es el dia neuromuscular.
-REPLAN = '2026-10-26'   # lunes en que arranca el bloque replanificado el 24-oct-2026
+# Frontera de REGLAS, no de bloque: desde este lunes rigen colocar_fuerza (jueves+domingo)
+# y compensar=False. La marca el replan del 24-oct-2026 y el del 17-nov-2026 la hereda —
+# moverla reescribiría las semanas del 26-oct al 15-nov, que ya pasaron.
+REPLAN = '2026-10-26'
 
 
 def colocar_fuerza_b1(spec):
@@ -356,6 +374,14 @@ def D(t, s, v, r, z, pm=None, n='', desc='', proto=None, princ=None):
 OFF = D('off', 'DESCANSO TOTAL', '0 km', '—', '—', 'MOV',
         'Descanso real. El bloque anterior se rompió por semanas perdidas, no por sesiones blandas.')
 
+# Dia del paron que ya pasó. NO lleva 'DESCANSO' en el nombre a propósito: a_siete_dias
+# convierte en regenerativo todo descanso que lo lleve, y estos días no son un día libre
+# del plan, son días que el plan nuevo ya encontró gastados. Se dejan escritos para que
+# analiza.py no los cuente como sesiones omitidas del bloque que empieza después.
+PARON = D('off', 'Parón — vacaciones', '0 km', '—', '—', None,
+          'Día ya pasado cuando se replanificó el bloque: parte del parón de 21 días '
+          '(28-oct → 17-nov). No era una sesión del plan nuevo y no cuenta como omitida.')
+
 
 def rec(km, n=''):
     return D('rec', 'Recuperación', f'{km} km', RZ('Z1'), Z('Z1'), None,
@@ -377,7 +403,7 @@ def fondo(km, z3=0, n=''):
                    if z3 else "Fondo plano, sin final rápido. Su trabajo es el tiempo en pie, no la intensidad."))
 
 
-def continuo(minutos, km_aprox, s='RE-ENTRADA — rodaje por tiempo', zc='Z1', n=''):
+def continuo(minutos, km_aprox, s='RE-ENTRADA — rodaje por tiempo', zc='Z1', n='', pm=None):
     """Rodaje prescrito por TIEMPO, no por distancia.
 
     Al volver de un paron la FC va 3-6 lpm alta para el mismo ritmo: el volumen
@@ -386,7 +412,7 @@ def continuo(minutos, km_aprox, s='RE-ENTRADA — rodaje por tiempo', zc='Z1', n
     la FC como techo, el kilometraje es la consecuencia — que es la regla del bloque.
     El km aproximado se conserva en el volumen para que analiza.py siga sumando."""
     return D('reentrada', s, f'{km_aprox} km aprox ({minutos} min)',
-             f"{minutos} min continuos a {RZ(zc)}", Z(zc), None, n)
+             f"{minutos} min continuos a {RZ(zc)}", Z(zc), pm, n)
 
 
 # ---------------------------------------------------------------- semanas
@@ -574,159 +600,341 @@ W('2026-11-09', 'Semana 7 · Primera carga real + FCmax', F[3], [
     "Valor = el más alto de los 5 s finales de la tercera, no el promedio.",
     '2 min bajando trotando.', 'C')])
 
-W('2026-11-16', 'Semana 8 · DESCARGA + reubicar LT2', F[3], [
-  rec(6, "Descarga de INTENSIDAD, no de volumen: los km se quedan cerca de tu mejor semana sostenida (49-51) y lo que baja es el umbral. Así la costumbre de volumen no se interrumpe cada tres semanas."),
-  D('cal', 'SUB-UMBRAL de mantenimiento', '9 km total', f"4 x 6 min a {RZ('Z4')}", Z('Z4'), None,
-    "Descarga: se mantiene el estímulo y se recorta el volumen. El jueves hay test a tope.",
+# ---- BLOQUE DE MARZO · replanificado el 17-nov-2026 -------------------------
+# PARON DE 21 DIAS (28-oct -> 17-nov, vacaciones) y carrera movida a marzo.
+#
+# Lo que dice el dato, para que no haya que reconstruirlo de memoria:
+#
+# 1) EL PARON FUERON 21 DIAS, NO OCHO. Ultima carrera: 27-oct, 10.5 km de sub-umbral a
+#    5:09/km con FC 158. Nada entre el 28-oct y el 17-nov. Tres semanas sin estimulo
+#    cuestan ~6-7% de VO2max —casi todo central: volumen plasmatico y volumen sistolico—,
+#    un 5-12% de volumen plasmatico ya en la primera semana y entre un 12% y un 25% de
+#    las enzimas mitocondriales. Lo que NO se pierde en tres semanas: densidad capilar,
+#    economia de carrera y el gesto. Se recupera en 3-4 semanas de carrera seguida, y la
+#    cuenta es la que decide el bloque: Reforma del 24-ene dejaba 9 semanas, de las que
+#    3 se iban en volver; marzo deja 18, de las que 14 son de construir.
+#
+# 2) LAS FC SIGUEN VALIENDO, LOS RITMOS NO. LT2 = 183 lpm se midio el 1-oct con banda de
+#    pecho y sigue siendo el mejor dato que hay: el umbral como %FCmax es de lo mas
+#    estable que tiene un corredor. Lo que se ha movido es el RITMO a esas pulsaciones:
+#    a 183 lpm hoy no se va a 3:47, se va cerca de 4:00. De ahi tres decisiones:
+#    (a) no se toca ninguna ancla; (b) NO se re-ajusta la regresion FC-ritmo con los
+#    datos del 19-27 oct, que eran una re-entrada del paron anterior y por tanto FC
+#    inflada para el ritmo —meterlos acuesta la recta justo donde se prescribe el
+#    umbral—; (c) el plan se prescribe por FC, que es la regla del bloque, y el ritmo se
+#    vuelve a medir el 10-dic. Un retest dentro de la re-entrada mide el paron, no al
+#    atleta.
+#
+# 3) LA RE-ENTRADA VA POR TIEMPO Y EMPIEZA EL MIERCOLES 18. El lunes 16 y el martes 17 ya
+#    pasaron y se dejan escritos como paron, para que el informe no los cuente como
+#    sesiones omitidas del bloque nuevo. Los 19 dias omitidos del 28-oct al 15-nov se
+#    quedan donde estan: el plan los pidio, no se corrieron, y borrarlos seria retocar el
+#    historial.
+#
+# 4) 18 SEMANAS, Y EL VOLUMEN ES EL PROYECTO. El historico dice que el limitante no es el
+#    pico (66.1 km) sino el piso: media 43.5 km con un coeficiente de variacion del 30%,
+#    y las dos unicas semanas por encima de 55 seguidas de un desplome del 35% y del 78%.
+#    Este bloque tiene el espacio que el de enero no tenia: 17 semanas entre 45 y 78
+#    nominales (~36-62 reales), el pico una sola vez —el 8-feb— y las descargas bajando
+#    INTENSIDAD, no volumen. Si sale, es el bloque mas sostenido del registro, y ahi esta
+#    el sub-17: no en una semana enorme.
+#
+# 5) LOS TESTS, cada uno con un trabajo:
+#    A  jue 10-dic  reubica LT2 tras la vuelta -> cargar y regenerar ESE MISMO DIA
+#    B  sab 19-dic  deriva aerobica -> LT1 real (hoy estimado, deja Z3 de 22 lpm de ancho)
+#    C  dom 03-ene  FCmax real, antes de que entre el VO2 (LT2/FCmax = 94.3% es imposible)
+#    D  jue 14-ene  3000 m, marcador de mitad de bloque
+#    A  jue 18-feb  retest final -> las zonas que gobiernan la fase especifica
+#    D  jue 04-mar  3000 m final -> de aqui salen las bandas del 21-mar, no de una tabla
+#    Reforma del 24-ene queda FUERA del plan: correrla a tres semanas de haber vuelto no
+#    mide nada y cuesta una semana del bloque.
+
+W('2026-11-16', 'Semana 8 · RE-ENTRADA tras 21 días', F['R'], [
+  PARON, PARON,
+  continuo(30, 5.5,
+    n="Primer día después de 21 sin correr, y el objetivo son los 30 minutos, no los kilómetros. "
+      f"Techo {techo('Z1')} y si hay que caminar para no pasarlo, se camina. Con el volumen plasmático "
+      "caído ~10% la FC de siempre va a dar un ritmo 20-30 s/km más lento: eso no es forma perdida, "
+      "es sangre que falta, y vuelve en dos semanas de correr."),
+  continuo(35, 6.5,
+    n="Cinco minutos más y nada más. Hoy no hay pesa: el gimnasio vuelve la semana que viene, cuando "
+      "las piernas lleven cuatro días de impacto encima. Lo que se lesiona al volver es el tendón, no "
+      "el corazón.", pm='MOV'),
+  OFF,
+  continuo(40, 7.5,
+    n="El rodaje largo de la semana y sigue siendo Z1 puro, sin final progresivo. Si a los 30 min la FC "
+      "se escapa del techo sin motivo, se corta ahí y se anota: es el dato más útil de la semana."),
+  D('cuesta', 'CUESTAS cortas — despertar el gesto', '5 km total', '6 x 20 s cuesta fuerte', Z('N'), 'MOV',
+    "Seis de 20 s, y son baratas: en cuesta no hay impacto excéntrico y 20 s no acumulan fatiga. Es lo "
+    "único con intensidad de toda la semana y existe porque tres semanas quietas apagan el gesto antes "
+    "que el motor. Hoy tampoco hay pliometría: es lo de más riesgo a cuatro días de volver.",
+    'Bajar CAMINANDO. Recuperación completa entre repeticiones.')])
+
+W('2026-11-23', 'Semana 9 · Re-entrada 2 · vuelve la pesa', F['R'], [
+  rec(5, "Segunda semana de vuelta: siete días seguidos de carrera fácil antes de la primera sesión de "
+         "calidad, que llega el 1-dic. No es conservador, es la cuenta: las enzimas mitocondriales "
+         "vuelven en 2-3 semanas y el umbral sin ellas solo acumula fatiga."),
+  base(7, 6, None, "Primer rodaje en Z2 desde el 27-oct. Seis rectas al final, que son gesto y no carga."),
+  rec(5),
+  base(8, 4, None, "Vuelve la pesa, y vuelve LIGERA: la primera sesión después de tres semanas se hace al "
+                   "60-70% de lo que movías, con el movimiento perfecto. El jueves está reservado para esto."),
+  OFF,
+  fondo(11, 0, "Primer fondo tras el parón: plano, por FC y sin final progresivo. El final progresivo vuelve "
+               "cuando estos 11 km salgan cómodos, no antes."),
+  D('cuesta', 'CUESTAS cortas', '5 km total', '8 x 20 s cuesta fuerte', Z('N'), 'MOV',
+    "Ocho. Sigue sin haber pliometría: eso entra la semana que viene, con dos semanas de impacto ya "
+    "acumuladas.", 'Bajar CAMINANDO. Recuperación completa.')])
+
+W('2026-11-30', 'Semana 10 · Vuelve la calidad', F['RC'], [
+  rec(6),
+  D('cal', 'SUB-UMBRAL corto — vuelve la calidad', '9 km total', f"4 x 6 min a {RZ('Z4')}", Z('Z4'), None,
+    f"24 min en Z4, el mismo escalón con el que se volvió en octubre. Techo {techo('Z4')}: tras un parón la FC "
+    "va 3-6 lpm alta para el mismo ritmo durante 3-5 sesiones, así que si el ritmo no llega sin pasar el "
+    "techo, se cede el RITMO. Espera 10-15 s/km más lento que el 1-oct y no corrijas nada por eso.",
     '1 min de trote.'),
-  base(9, 4),
-  D('test', 'TEST A — Retest de 30 min (7 semanas)', '11 km total',
-    'Máximo esfuerzo sostenible 30 min', 'reubica LT2', None,
-    "Mismo circuito y misma hora que el 1 de octubre, o el dato no es comparable. Lo que debe "
-    "haber cambiado NO es la FC: es el RITMO a esa misma FC. El 1-oct fueron 3:47/km a 183 lpm. "
-    "Cargar el resultado con zonas.py y regenerar: las 9 semanas que quedan se recalculan solas, "
-    "y lo hacen con LT1 y FCmax ya medidos, que es la primera vez en todo el proyecto.",
+  base(7, 6),
+  base(9, 4, None, "Jueves fácil a propósito: en la primera semana con calidad hay UNA sesión dura, no dos. "
+                   "La pesa sí es la segunda de verdad, ya con carga."),
+  OFF,
+  fondo(12, 0, "Doce planos. El fondo crece 1 km por semana y nada más."),
+  D('cuesta', 'CUESTAS cortas + pliometría', '5 km total', '8 x 20 s cuesta fuerte', Z('N'), None,
+    "Hoy entra la pliometría, con dos semanas de carrera en las piernas. Si algo tira en el tendón de "
+    "Aquiles o en el sóleo, se cae la pliometría y se queda la cuesta.", 'Bajar CAMINANDO.')])
+
+W('2026-12-07', 'Semana 11 · Carga ligera + TEST A', F['RC'], [
+  rec(6),
+  D('cal', 'SUB-UMBRAL', '10 km total', f"5 x 6 min a {RZ('Z4')}", Z('Z4'), None,
+    "30 min en Z4. Una repetición más que la semana pasada: eso es toda la progresión que toca.",
+    '1 min de trote.'),
+  base(7, 4),
+  D('test', 'TEST A — Contrarreloj de 30 min (reubica LT2)', '12 km total',
+    'Máximo esfuerzo sostenible 30 min', 'define LT2 = FC media de los últimos 20 min', None,
+    "EL DÍA QUE REABRE LAS ZONAS. Hoy se cumplen 23 días de correr seguido: es el primer momento en que "
+    "el número mide al atleta y no al parón. Mismo circuito y misma hora que el 1-oct o el dato no es "
+    "comparable. Lo que debe haber cambiado NO es la FC —183 va a seguir siendo 183— es el RITMO a esa "
+    "FC: el 1-oct fueron 3:47/km. Si hoy sale 3:55-4:00, es exactamente lo previsto y el plan se "
+    "recalcula solo. Auto-lap cada 5 min y banda de pecho, obligatorio. Cargar con zonas.py y regenerar "
+    "HOY: las 14 semanas que quedan cuelgan de este número.",
     None, 'A'),
   OFF,
-  fondo(13, 0, "Plano. El jueves fue a tope y la semana que viene empieza la carga de verdad."),
+  fondo(12, 0, "Plano y por FC. Ayer fue a tope: si las piernas no están, 10 km y a casa."),
   D('cuesta', 'CUESTAS cortas', '5 km total', '6 x 20 s cuesta fuerte', Z('N'), None,
-    "Cortas y suaves.", 'Bajar CAMINANDO. Recuperación completa.')])
+    "Cortas y suaves.", 'Bajar CAMINANDO.')])
 
-W('2026-11-23', 'Semana 9 · Carga · reps largas', F[3], [
-  rec(7),
-  D('cal', 'UMBRAL — reps largas', '11 km total', f"4 x 10 min a {RZ('Z4')}", Z('Z4'), None,
-    "40 min en Z4 en bloques de 10. Aquí empieza la parte del bloque que de verdad mueve el 5K: "
-    "a partir de hoy el umbral crece alargando la repetición, no añadiendo repeticiones.",
-    '2 min de trote.'),
-  base(11, 6),
-  D('cal', 'UMBRAL CONTINUO', '11 km total', f"3 x 12 min a {RZ('Z4')}", Z('Z4'), None,
-    "36 min en tres bloques. Segunda sesión de umbral de la semana: si la del martes salió por "
-    "encima del techo, esta se convierte en 2 x 12 y no pasa nada.", '2:30 de trote.'),
+W('2026-12-14', 'Semana 12 · Reconstrucción + TEST B', F['RC'], [
+  rec(6),
+  D('cal', 'UMBRAL — reps de 6', '11 km total', f"6 x 6 min a {RZ('Z4')}", Z('Z4'), None,
+    "36 min en Z4, ya con las zonas del retest. El control es la deriva: si entre la rep 2 y la 6 la FC "
+    "sube más de 3 lpm al mismo ritmo, salió fuerte y el sábado se recorta.", '1 min de trote.'),
+  base(9, 6),
+  base(9, 4, None, "Jueves fácil: el sábado hay 70 min clavados a una FC y eso no se corre sobre un jueves "
+                   "duro. Rectas al final para no apagarse."),
   OFF,
-  fondo(18, 3),
+  D('test', 'TEST B — Deriva aeróbica (LT1 real)', '15 km total',
+    f"10 min progresivos + 60 min clavado a {A['lt2'] - 18} lpm", f"FC fija {A['lt2'] - 18}", None,
+    "El test que lleva dos bloques pendiente, y hoy sí se puede: la deriva depende del volumen plasmático, "
+    "que es justo lo que vacía un parón, y hoy llevas cuatro semanas y media de vuelta. Corrido en "
+    "noviembre habría dado deriva inflada y un LT1 falsamente bajo — el mismo error que costó el bloque "
+    "anterior. Hace falta porque LT1 sigue siendo estimación y deja Z3 con 22 lpm de ancho. Este test ES "
+    "el fondo de la semana. Auto-lap cada 15 min o no hay cálculo.",
+    None, 'B'),
+  D('cuesta', 'CUESTAS cortas', '5 km total', '8 x 20 s cuesta fuerte', Z('N'), None,
+    "Suaves: ayer fueron 70 min clavados a una FC. Si las piernas pesan, 5 km Z1 y ya.",
+    'Bajar CAMINANDO.')])
+
+W('2026-12-21', 'Semana 13 · Primera carga real', F['U'], [
+  rec(7),
+  D('cal', 'UMBRAL — reps largas', '12 km total', f"4 x 10 min a {RZ('Z4')}", Z('Z4'), None,
+    "40 min en Z4 en bloques de 10. Aquí empieza la parte del bloque que de verdad mueve el 5K: de hoy en "
+    "adelante el umbral crece ALARGANDO la repetición, no añadiendo repeticiones.", '2 min de trote.'),
+  base(9, 6),
+  D('cal', 'UMBRAL CONTINUO', '11 km total', f"3 x 12 min a {RZ('Z4')}", Z('Z4'), 'MOV',
+    "36 min en tres bloques, segunda sesión de umbral de la semana. Si la del martes salió por encima del "
+    "techo, esta se convierte en 2 x 12 y no pasa nada. Es 24 de diciembre: la SESIÓN se queda —se corre "
+    "temprano y se acaba— pero la pesa no, porque el gimnasio estará cerrado. No se recupera: son 2 de "
+    "los 20 días del mes y el margen existe justo para esto.", '2:30 de trote.'),
+  OFF,
+  fondo(15, 3),
   D('cuesta', 'CUESTAS largas', '6 km total', '6 x 60 s cuesta a esfuerzo de 5K', Z('N'), None,
     "Cuesta larga = fuerza específica sin impacto excéntrico. Bajar trotando suave.",
     'Bajar trotando 2-3 min.')])
 
-W('2026-11-30', 'Semana 10 · Carga alta', F[3], [
-  rec(8),
-  D('cal', 'UMBRAL — bloques de 15', '12 km total', f"3 x 15 min a {RZ('Z4')}", Z('Z4'), None,
-    "45 min en Z4: el máximo de umbral de todo el bloque. No hay que superarlo, hay que repetirlo "
-    "limpio.", '3 min de trote.'),
-  base(12, 6),
-  D('cal', 'UMBRAL — reps a Z5', '11 km total', f"4 x 2000 m a {RZ('Z5')}", Z('Z5'), None,
-    f"Ritmo de 10K, FC techo {techo('Z5')}. Máximo 30 min acumulados en Z5 por sesión: por encima "
-    "de eso ya no es umbral, es carrera.", '2 min de trote.'),
-  OFF,
-  fondo(19, 4),
-  D('cuesta', 'CUESTAS cortas', '6 km total', '10 x 20 s cuesta fuerte', Z('N'), None,
-    "Mantenimiento neuromuscular. Mañana empieza descarga.", 'Bajar CAMINANDO.')])
-
-W('2026-12-07', 'Semana 11 · DESCARGA + marcador', F[3], [
-  rec(7, "Descarga de INTENSIDAD, no de volumen: los km se quedan cerca de tu mejor semana sostenida (49-51) y lo que baja es el umbral. Así la costumbre de volumen no se interrumpe cada tres semanas."),
+W('2026-12-28', 'Semana 14 · DESCARGA + TEST C', F['U'], [
+  rec(7, "Descarga de INTENSIDAD, no de volumen: los km se quedan cerca de tu mejor semana sostenida "
+         "(49-51 reales) y lo que baja es el umbral. Y cae en la semana de fiestas a propósito: es la que "
+         "siempre se rompe, así que esta vez la rotura ya está planificada."),
   D('cal', 'SUB-UMBRAL de mantenimiento', '10 km total', f"5 x 6 min a {RZ('Z4')}", Z('Z4'), None,
-    "Mantener, no cargar. El jueves hay test.", '1 min de trote.'),
-  base(10, 4),
-  D('tt', 'TEST D — 3000 m contrarreloj', '11 km total', 'A tope, parciales cada 400 m',
-    'máxima', None,
-    "Marcador de mitad de bloque, el primero de verdad del proyecto. Referencias: 10:10 = 17:47 "
-    "de 5K (tu marca del 20-sep) · 9:50 = 17:12 · 9:39 = 16:53 · 9:08 = 16:00 en CDMX. "
-    "Un test a tope no se puede sobre-ejecutar: sal al ritmo que creas sostenible, no al que "
-    "quieras. Los primeros 400 m deciden el test.", None, 'D'),
+    "Mantener, no cargar. El domingo hay test máximo.", '1 min de trote.'),
+  base(9, 4),
+  base(9, 4, 'MOV', "Fácil con rectas, y es 31 de diciembre: hoy no hay pesa porque el gimnasio estará "
+                   "cerrado. En una semana de descarga eso no cuesta nada — la fuerza vuelve el 7-ene."),
   OFF,
-  fondo(15, 0),
+  fondo(13, 0, "Plano."),
+  D('maxi', 'TEST C — FCmax real', '6 km total', '3 x 2 min en cuesta: 80% · 90% · todo',
+    'FCmax (hoy solo hay 194 observada)', None,
+    "194 es la máxima VISTA el 1-oct en los últimos 30 s de un esfuerzo de 30 min, que no es un protocolo "
+    "de FCmax. Y chirría: LT2/FCmax = 94.3% cuando el rango normal es 85-90%. Si la real está 10-15 lpm "
+    "más arriba, Z6 deja de salir degenerada (190-190) y el VO2 de enero se puede prescribir de verdad. "
+    "Se mide hoy, cuatro semanas antes de que haga falta. Valor = el más alto de los 5 s finales de la "
+    "tercera, no el promedio.", '2 min bajando trotando.', 'C')])
+
+W('2027-01-04', 'Semana 15 · Carga · 45 min de umbral', F['U'], [
+  rec(7),
+  D('cal', 'UMBRAL — bloques de 15', '13 km total', f"3 x 15 min a {RZ('Z4')}", Z('Z4'), None,
+    "45 min en Z4: el máximo de umbral de todo el bloque. No hay que superarlo, hay que repetirlo limpio "
+    "tres veces en seis semanas.", '3 min de trote.'),
+  base(10, 6),
+  D('cal', 'UMBRAL — reps a Z5', '11 km total', f"3 x 2000 m a {RZ('Z5')}", Z('Z5'), None,
+    f"Ritmo de 10K, FC techo {techo('Z5')}. Máximo 30 min acumulados en Z5 por sesión: por encima de eso "
+    "ya no es umbral, es carrera.", '2 min de trote.'),
+  OFF,
+  fondo(16, 4),
+  D('cuesta', 'CUESTAS cortas', '6 km total', '10 x 20 s cuesta fuerte', Z('N'), None,
+    "Mantenimiento neuromuscular.", 'Bajar CAMINANDO.')])
+
+W('2027-01-11', 'Semana 16 · Carga + marcador de mitad', F['U'], [
+  rec(7),
+  D('cal', 'SUB-UMBRAL', '10 km total', f"5 x 6 min a {RZ('Z4')}", Z('Z4'), None,
+    "Corta a propósito: el jueves hay 3000 a tope.", '1 min de trote.'),
+  base(10, 4),
+  D('tt', 'TEST D — 3000 m contrarreloj', '11 km total', 'A tope, parciales cada 400 m', 'máxima', None,
+    "Marcador de mitad de bloque, el primero de verdad del proyecto. Referencias en CDMX: 10:10 = 17:47 de "
+    "5K (tu marca del 20-sep) · 9:50 = 17:12 · 9:39 = 16:53 · 9:08 = 16:00. Un test a tope no se puede "
+    "sobre-ejecutar: sal al ritmo que creas sostenible, no al que quieras. Los primeros 400 m deciden el "
+    "test. Y mide contra el 27-oct, no contra septiembre: diez semanas atrás no corrías.", None, 'D'),
+  OFF,
+  fondo(16, 0, "Plano. Ayer fue a tope."),
   D('cuesta', 'CUESTAS cortas', '5 km total', '6 x 20 s cuesta fuerte', Z('N'), None,
     "Suaves.", 'Bajar CAMINANDO.')])
 
-# ---- Fase 4 · umbral + VO2 -------------------------------------------------
-W('2026-12-14', 'Semana 12 · Entra el VO2', F[4], [
-  rec(8, "El VO2 entra esta semana y el pico de volumen es la que viene: dos estímulos nuevos "
-         "no se meten en la misma semana."),
-  D('cal', 'UMBRAL — bloques de 20', '13 km total', f"2 x 20 min a {RZ('Z4')}", Z('Z4'), None,
-    "40 min en dos bloques de 20: el formato más parecido a lo que exige un 5K rápido. Si el "
-    "segundo bloque no se puede sostener en zona, se corta en 15 y se anota.", '4 min de trote.'),
-  base(12, 6),
-  D('cal', 'VO2max', '12 km total', f"5 x 1000 m a {ro(-8)}-{ro(-3)}", Z('Z6'), None,
-    f"Por RITMO, no por FC: a tres minutos por repetición la FC llega tarde. Objetivo "
-    f"{ro(-8)}-{ro(-3)}/km. UNA sola sesión de VO2 cada 7-10 días: tu reserva de velocidad ya "
-    "está desarrollada, lo que falta está debajo.", '2:30 de trote — recuperación amplia de verdad.'),
+W('2027-01-18', 'Semana 17 · DESCARGA', F['U'], [
+  rec(7, "Descarga de INTENSIDAD, no de volumen. Es la última semana tranquila antes del VO2: el bloque "
+         "entra en su parte cara y entra descansado."),
+  D('cal', 'SUB-UMBRAL de mantenimiento', '10 km total', f"4 x 8 min a {RZ('Z4')}", Z('Z4'), None,
+    "32 min en bloques de 8. Mantener el estímulo con menos coste.", '1:30 de trote.'),
+  base(10, 6),
+  base(9, 4, None, "Fácil con rectas, y la pesa de siempre."),
   OFF,
-  fondo(18, 4),
+  fondo(15, 0),
+  D('cuesta', 'CUESTAS cortas', '5 km total', '8 x 20 s cuesta fuerte', Z('N'), None,
+    "Mañana empieza la fase que decide la carrera.", 'Bajar CAMINANDO.')])
+
+W('2027-01-25', 'Semana 18 · Entra el VO2', F['V'], [
+  rec(8, "El VO2 entra esta semana y el pico de volumen es dentro de tres: dos estímulos nuevos no se "
+         "meten en la misma semana."),
+  D('cal', 'UMBRAL — reps largas', '12 km total', f"4 x 10 min a {RZ('Z4')}", Z('Z4'), None,
+    "40 min en Z4. Mismo trabajo que la semana 13, pero ahora con VO2 el jueves: la semana pesa más aunque "
+    "la sesión sea igual.", '2 min de trote.'),
+  base(11, 6),
+  D('cal', 'VO2max', '12 km total', f"5 x 1000 m a {ro(-8)}-{ro(-3)}", Z('Z6'), None,
+    f"Por RITMO, no por FC: a tres minutos por repetición la FC llega tarde. Objetivo {ro(-8)}-{ro(-3)}/km. "
+    "UNA sola sesión de VO2 cada 7-10 días — tu reserva de velocidad ya está desarrollada, lo que falta "
+    "está debajo.", '2:30 de trote — recuperación amplia de verdad.'),
+  OFF,
+  fondo(17, 4),
   D('cuesta', 'CUESTAS cortas', '6 km total', '8 x 20 s cuesta fuerte', Z('N'), None,
     "Muy suave: esta semana el jueves fue nuevo.", 'Bajar CAMINANDO.')])
 
-W('2026-12-21', 'Semana 13 · PICO DE VOLUMEN', F[4], [
-  rec(8, "Semana más grande del bloque. Si algo molesta hoy, se recorta HOY, no el jueves."),
-  D('cal', 'UMBRAL — reps largas', '12 km total', f"4 x 10 min a {RZ('Z4')}", Z('Z4'), None,
-    "40 min en Z4. Mismo trabajo que la semana 9, pero ahora con VO2 el jueves: la semana pesa "
-    "más aunque la sesión sea igual.", '2 min de trote.'),
-  base(12, 6),
-  D('cal', 'VO2max', '12 km total', f"6 x 1000 m a {ro(-8)}-{ro(-3)}", Z('Z6'), None,
-    "Seis reps. Si la última no puede ser la más rápida, se corta en cinco y no pasa nada — "
-    "esa es la regla, no una concesión.", '2:30 de trote.'),
+W('2027-02-01', 'Semana 19 · Carga alta', F['V'], [
+  rec(8),
+  D('cal', 'UMBRAL — bloques de 15', '13 km total', f"3 x 15 min a {RZ('Z4')}", Z('Z4'), None,
+    "45 min en Z4 otra vez, y ahora con una sesión de VO2 en la misma semana. Si el tercer bloque no se "
+    "sostiene en zona, se corta y se anota: es información, no un fallo.", '3 min de trote.'),
+  base(11, 6),
+  D('cal', 'VO2max', '13 km total', f"6 x 1000 m a {ro(-8)}-{ro(-3)}", Z('Z6'), None,
+    "Seis reps. Si la última no puede ser la más rápida, se corta en cinco y no pasa nada — esa es la "
+    "regla, no una concesión.", '2:30 de trote.'),
   OFF,
-  fondo(22, 5, "Fondo más largo del bloque, y el primer ladrillo de la maratón: 22 km con final progresivo. 60-80 g de carbohidrato DURANTE."),
+  fondo(19, 4),
   D('cuesta', 'CUESTAS cortas', '6 km total', '8 x 20 s cuesta fuerte', Z('N'), None,
-    "Mantenimiento.", 'Bajar CAMINANDO.')])
+    "Mantenimiento. La semana que viene es la más grande del bloque.", 'Bajar CAMINANDO.')])
 
-W('2026-12-28', 'Semana 14 · DESCARGA + zonas finales', F[4], [
-  rec(7, "Descarga de INTENSIDAD, no de volumen: los km se quedan cerca de tu mejor semana sostenida (49-51) y lo que baja es el umbral. Así la costumbre de volumen no se interrumpe cada tres semanas."),
-  D('cal', 'SUB-UMBRAL de mantenimiento', '9 km total', f"5 x 6 min a {RZ('Z4')}", Z('Z4'), None,
-    "Descarga profunda: después de dos semanas de carga es aquí donde aparece la forma.",
-    '1 min de trote.'),
+W('2027-02-08', 'Semana 20 · PICO DE VOLUMEN', F['V'], [
+  rec(8, "Semana más grande del bloque: 78 nominales, ~62 reales. Tu máximo histórico fue 66.1 y lo "
+         "siguió un desplome del 78%, así que esta semana se pasa UNA vez y no se repite. Si algo molesta "
+         "hoy, se recorta HOY, no el jueves."),
+  D('cal', 'UMBRAL — bloques de 20', '13 km total', f"2 x 20 min a {RZ('Z4')}", Z('Z4'), None,
+    "40 min en dos bloques de 20: el formato más parecido a lo que exige un 5K rápido. Si el segundo no se "
+    "puede sostener en zona, se corta en 15 y se anota.", '4 min de trote.'),
+  base(10, 6),
+  D('cal', 'VO2max', '13 km total', f"5 x 1200 m a {ro(-8)}-{ro(-3)}", Z('Z6'), None,
+    "Reps más largas, una menos. Cuatro minutos por repetición es donde el VO2 se pasa de verdad.",
+    '3 min de trote.'),
+  OFF,
+  fondo(22, 5, "Fondo más largo del bloque y el primer ladrillo de la maratón: 22 km con final progresivo. "
+               "60-80 g de carbohidrato DURANTE, no después."),
+  D('cuesta', 'CUESTAS cortas', '6 km total', '8 x 20 s cuesta fuerte', Z('N'), None,
+    "Mantenimiento. Mañana empieza la descarga.", 'Bajar CAMINANDO.')])
+
+W('2027-02-15', 'Semana 21 · DESCARGA + zonas finales', F['V'], [
+  rec(7, "Descarga de verdad: después de tres semanas de carga es aquí donde aparece la forma, no en el "
+         "pico de la semana pasada."),
+  D('cal', 'SUB-UMBRAL de mantenimiento', '10 km total', f"5 x 6 min a {RZ('Z4')}", Z('Z4'), None,
+    "Mantener. El jueves hay test a tope.", '1 min de trote.'),
   base(10, 4),
-  D('test', 'TEST A — Retest de 30 min (zonas finales)', '11 km total',
+  D('test', 'TEST A — Retest de 30 min (zonas finales)', '12 km total',
     'Máximo esfuerzo sostenible 30 min', 'zonas de la fase específica', None,
-    "Último retest del proyecto. Estas zonas gobiernan las tres semanas que deciden la carrera, "
-    "así que se carga y se regenera el plan el mismo día. Mismo circuito, misma hora.",
-    None, 'A'),
+    "Último retest del proyecto, y el primero de toda su historia que se hace con LT1 y FCmax ya medidos. "
+    "Estas zonas gobiernan las cinco semanas que deciden la carrera, así que se carga y se regenera el "
+    "plan el mismo día. Mismo circuito, misma hora.", None, 'A'),
   OFF,
   fondo(16, 0),
   D('cuesta', 'CUESTAS cortas', '5 km total', '6 x 20 s cuesta fuerte', Z('N'), None,
     "Cortas.", 'Bajar CAMINANDO.')])
 
-# ---- Fase 5 · específico ---------------------------------------------------
-W('2027-01-04', 'Semana 15 · Específico 5K', F[5], [
+W('2027-02-22', 'Semana 22 · Específico 5K', F['E'], [
   rec(7),
-  D('cal', 'UMBRAL CONTINUO', '11 km total', f"3 x 12 min a {RZ('Z4')}", Z('Z4'), None,
-    "El motor se mantiene mientras lo específico sube. A partir de aquí el umbral no crece más.",
+  D('cal', 'UMBRAL CONTINUO', '12 km total', f"3 x 12 min a {RZ('Z4')}", Z('Z4'), None,
+    "El motor se mantiene mientras lo específico sube. A partir de hoy el umbral no crece más.",
     '2:30 de trote.'),
   base(10, 6),
   D('cal', 'SIMULACIÓN 5K PARTIDO', '13 km total',
-    f"2000 + 1600 + 1000 + 400 a {ro()} · último a {ro(-8)}",
-    Z('Z6'), None,
-    f"La sesión más específica del bloque: 5000 m a ritmo objetivo ({ro()}/km) partidos en cuatro, "
-    f"con recuperación decreciente. El 400 final a {ro(-8)}: así se cierra una carrera. Ese ritmo "
-    "en CDMX equivale a 3:12/km a nivel del mar.", "3 min · 2:30 · 2 min de trote."),
+    f"2000 + 1600 + 1000 + 400 a {ro()} · último a {ro(-8)}", Z('Z6'), None,
+    f"La sesión más específica del bloque: 5000 m a ritmo objetivo ({ro()}/km) partidos en cuatro, con "
+    f"recuperación decreciente. El 400 final a {ro(-8)}: así se cierra una carrera. Ese ritmo en CDMX "
+    "equivale a 3:12/km a nivel del mar.", "3 min · 2:30 · 2 min de trote."),
   OFF,
-  fondo(16, 4, "La fase específica no es una fase de volumen: el fondo baja de 22 a 16 para que la "
-               "simulación del jueves se corra entera."),
+  fondo(16, 4, "La fase específica no es de volumen: el fondo baja de 22 a 16 para que la simulación del "
+               "jueves se corra entera."),
   D('cuesta', 'CUESTAS cortas', '5 km total', '6 x 20 s cuesta fuerte', Z('N'), None,
     "Mantenimiento.", 'Bajar CAMINANDO.')])
 
-W('2027-01-11', 'Semana 16 · Afinado + marcador final', F[5], [
+W('2027-03-01', 'Semana 23 · Específico + marcador final', F['E'], [
   rec(6),
-  D('cal', 'SUB-UMBRAL corto', '9 km total', f"4 x 6 min a {RZ('Z4')}", Z('Z4'), None,
-    "Corta a propósito: el jueves es el test que fija las bandas del 24-ene.", '1 min de trote.'),
+  D('cal', 'SUB-UMBRAL corto', '10 km total', f"4 x 6 min a {RZ('Z4')}", Z('Z4'), None,
+    "Corta a propósito: el jueves es el test que fija las bandas del 21-mar.", '1 min de trote.'),
   base(9, 4),
-  D('tt', 'TEST D — 3000 m contrarreloj FINAL', '11 km total', 'A tope, parciales cada 400 m',
-    'máxima', None,
-    "De aquí salen las bandas de la carrera, no de una tabla. x1.75 = tu 5K en CDMX; -5.3% si "
-    "fuera a nivel del mar. En septiembre la carrera no se perdió por falta de fitness: el modelo "
-    "predecía 18:02 y corriste 17:47. Se perdió por una banda que los datos no sostenían.",
-    None, 'D'),
+  D('tt', 'TEST D — 3000 m contrarreloj FINAL', '11 km total', 'A tope, parciales cada 400 m', 'máxima',
+    None,
+    "De aquí salen las bandas de la carrera, no de una tabla. x1.75 = tu 5K en CDMX; -5.3% si fuera a "
+    "nivel del mar. En septiembre la carrera no se perdió por falta de fitness —el modelo predecía 18:02 "
+    "y corriste 17:47—: se perdió por una banda que los datos no sostenían. Este número es el que manda "
+    "el 21 de marzo.", None, 'D'),
+  OFF,
+  fondo(14, 0, "Último fondo largo del bloque."),
+  D('cuesta', 'CUESTAS cortas', '5 km total', '6 x 20 s cuesta fuerte', Z('N'), None,
+    "Cortas y vivas.", 'Bajar CAMINANDO.')])
+
+W('2027-03-08', 'Semana 24 · Afinado', F['E'], [
+  rec(6),
+  D('cal', 'ESPECÍFICO — ritmo de carrera', '11 km total', f"5 x 1000 m a {ro()}", Z('Z6'), None,
+    f"5000 m a ritmo de carrera partidos en cinco, con la banda que salió del 3000 del jueves pasado. Si "
+    f"{ro()}/km se siente imposible hoy, el objetivo del 21-mar es el que sale del test, no el que estaba "
+    "escrito en noviembre.", '2 min de trote.'),
+  base(9, 4),
+  D('cal', 'SUB-UMBRAL corto', '9 km total', f"3 x 8 min a {RZ('Z4')}", Z('Z4'), None,
+    "Último trabajo de umbral del bloque, y última sesión de pesa con carga: nueve días hasta la carrera "
+    "es el límite para que la fuerza máxima sume en vez de restar.", '1:30 de trote.'),
   OFF,
   fondo(12, 0, "Último fondo. Plano y alegre."),
   D('rec', 'Regenerativo + movilidad', '5 km', RZ('Z1'), Z('Z1'), 'MOV',
-    "Última sesión de fuerza del bloque fue el domingo pasado. A partir de hoy solo movilidad: "
-    "nada que deje las piernas pesadas a siete días de la carrera.")])
+    "A partir de hoy solo movilidad: nada que deje las piernas pesadas a siete días de la carrera.")])
 
-# ---- Fase 6 · taper --------------------------------------------------------
-W('2027-01-18', 'Semana 17 · TAPER y CARRERA', F[6], [
+W('2027-03-15', 'Semana 25 · TAPER y CARRERA', F['T'], [
   rec(6, "Empieza el taper: volumen -35%, intensidad se mantiene. No inventes nada esta semana."),
   D('cal', 'AFILADO', '8 km total', f"5 x 400 m a {ro(-4)}", Z('Z6'), None,
-    "Recordar el ritmo, NO fatigar. Debe sentirse fácil — y si se siente fácil, NO añadas "
-    "repeticiones. Ese fue exactamente el error de septiembre.", '2 min completos de trote.'),
+    "Recordar el ritmo, NO fatigar. Debe sentirse fácil — y si se siente fácil, NO añadas repeticiones. "
+    "Ese fue exactamente el error de septiembre.", '2 min completos de trote.'),
   base(6, 4, None, "Suave con 4 rectas. FC techo Z1."),
   D('cal', 'ACTIVACIÓN', '6 km total', f"3 x 300 m a {ro(-4)}", Z('Z6'), None,
     "Última sesión con ritmo. Ensaya AQUÍ el calentamiento completo de carrera, cronómetro en mano.",
@@ -734,12 +942,13 @@ W('2027-01-18', 'Semana 17 · TAPER y CARRERA', F[6], [
   OFF,
   D('base', 'Trote pre-carrera + rectas', '4 km + 4 x 80 m', 'Muy suave', Z('Z1'), None,
     "Soltar nervios. Ropa, dorsal, alfileres, desayuno y gel listos HOY, no mañana."),
-  D('carrera', '🏁 CARRERA 5K — Reforma', '5 km', f"{ro()}/km de media · NO en parciales iguales",
+  D('carrera', '🏁 CARRERA 5K — objetivo de marzo', '5 km', f"{ro()}/km de media · NO en parciales iguales",
     'máxima', None,
-    "Mismo circuito del 20 de septiembre: ida en subida (~25 m hasta el retorno del km 2.5) y "
-    "vuelta en bajada. Los parciales NO deben ser iguales. Sal 4-6 s/km MÁS LENTO que el objetivo "
-    f"en los primeros 2.5 km y recupéralos en la bajada. El primer km nunca más rápido que {ro(6)}. "
-    "La banda sale del 3000 m del 14 de enero, no de una tabla.",
+    f"Cuatro meses desde el parón de octubre. La banda sale del 3000 m del 4 de marzo, no de esta línea: "
+    f"{ro()}/km es el objetivo del proyecto, el del día lo dice el test. Los parciales NO deben ser "
+    f"iguales — el primer km nunca más rápido que {ro(6)}, y lo que sobre se gasta en el último. Si el "
+    "circuito es el de Reforma, la ida sube ~25 m hasta el retorno del km 2.5 y la vuelta baja: sal 4-6 "
+    "s/km MÁS LENTO que el objetivo en la primera mitad y recupéralos abajo.",
     None, None)])
 
 # ---------------------------------------------------------------- PM: dobles y umbral 2
@@ -805,7 +1014,7 @@ def construir():
         # La semana 0 es reset post-carrera: ahi los descansos se convierten pero NO se
         # compensa, porque 34 km sigue estando muy por debajo de su media de 47.7.
         spec = a_siete_dias([dict(x) for x in spec], compensar=(n_sem > 0 and lunes < REPLAN))
-        if n_sem < 17:                  # en la semana de carrera no hay pesa
+        if n_sem < len(S) - 1:          # en la semana de carrera no hay pesa
             spec = (colocar_fuerza if lunes >= REPLAN else colocar_fuerza_b1)(spec)
         d0 = datetime.date.fromisoformat(lunes)
         km_sem = 0.0
@@ -832,7 +1041,7 @@ def construir():
 
 def escribir(dias):
     plan = {'meta': {'proyecto': 'SUB-16 en 5K', 'meta': META,
-                     'carrera_objetivo': '2027-01-24',
+                     'carrera_objetivo': '2027-03-21',
                      'generado': datetime.datetime.now().isoformat(timespec='seconds'),
                      'anclas': {k: A[k] for k in ('lt1', 'lt2', 'fcmax', 'fecha', 'metodo', 'provisional')},
                      'ritmo_objetivo_cdmx': f'{ro()}/km'},
@@ -905,7 +1114,8 @@ if __name__ == '__main__':
         tot += km
         print(f"{et:46}{lun:12}{km:7.0f}")
     print('─' * 66)
-    print(f"{'TOTAL 18 semanas':46}{'':12}{tot:7.0f} km   (media {tot/18:.0f} km/sem)")
+    n_sem = len(resumen)
+    print(f"{f'TOTAL {n_sem} semanas':46}{'':12}{tot:7.0f} km   (media {tot / n_sem:.0f} km/sem)")
     # Calendario de la fuerza guiada: que dias reservar en el gimnasio, semana a semana.
     # El plan ya los coloca segun la regla (jueves la maxima, domingo la pliometria, y
     # martes cuando el martes PM no lo ocupa la 2a sesion de umbral), pero verlos juntos
@@ -922,8 +1132,8 @@ if __name__ == '__main__':
         if carga or mov:
             print(f"{et[:44]:46}{' · '.join(carga) or '—':26}{' · '.join(mov) or '—':10}")
     print('─' * 84)
-    print(f"{'TOTAL sesiones con carga en 18 semanas':46}{tot_carga:>4}   "
-          f"(~{tot_carga / 18 * 4.3:.0f} al mes de los 20 disponibles)")
+    print(f"{f'TOTAL sesiones con carga en {n_sem} semanas':46}{tot_carga:>4}   "
+          f"(~{tot_carga / n_sem * 4.3:.0f} al mes de los 20 disponibles)")
 
     print(f"\nhistórico del bloque 1 conservado en PLAN_MAESTRO.csv (desde PLAN_HISTORICO.csv)")
     print(f"días generados: {len(dias)}  ·  {dias[0]['fecha']} → {dias[-1]['fecha']}")

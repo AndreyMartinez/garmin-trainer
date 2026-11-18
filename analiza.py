@@ -289,7 +289,13 @@ def main():
     while d < hoy:
         f = d.isoformat()
         p = plan.get(f)
-        if p and f not in dias_con_carrera:
+        # Un dia de 0 km no es una sesion omitida: es descanso, o un dia que el plan nuevo
+        # ya encontro gastado (los dos primeros del paron de noviembre). Contarlo como
+        # omitido convierte un dia libre en un entrenamiento perdido, que es exactamente
+        # la distincion que este informe existe para no romper.
+        m_km = re.search(r'([\d.]+)\s*km', (p or {}).get('Volumen') or '') if p else None
+        descanso = m_km is not None and float(m_km.group(1)) == 0
+        if p and f not in dias_con_carrera and not descanso:
             fila = {'fecha': f, 'dia': DIAS[d.weekday()], 'sesion': p['SESIÓN'],
                     'volumen': p['Volumen'], 'nota_coach': (p.get('Nota del coach') or '').strip()}
             (omitidos if f >= cobertura_desde else sin_datos).append(fila)
