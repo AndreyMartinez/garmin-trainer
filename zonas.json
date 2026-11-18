@@ -21,7 +21,8 @@
       "Validacion externa independiente: para un 5K de 17:49 (su carrera del 20-sep) las tablas de Daniels dan ritmo de umbral ~3:48/km. Medido 3:47/km. Un segundo por km de diferencia: el test no es un numero raro, es exactamente el que le toca.",
       "LT1 = 153 lpm SIGUE SIENDO ESTIMACION. Consistente con 18 km a 4:43/km con FC 149 y 15 km a 4:40/km con FC 150, ambos sin deriva, lo que ocurre POR DEBAJO de LT1. Pero con LT2 ya en 183 la distancia LT1-LT2 es de 30 lpm y Z3 queda de 22 lpm de ancho: demasiado para prescribir fino. Lo arregla el Test B (deriva aerobica) del 17-oct.",
       "FCmax 194 es la MAXIMA OBSERVADA, no medida. Y ahora chirria: LT2/FCmax = 94.3%, cuando el rango normal es 85-90%. O el umbral es excepcional o la FCmax real esta 10-15 lpm mas arriba (183/0.88 = 208). El 1-oct toco 193 en los ultimos 30 s de un esfuerzo de 30 min, que NO es un protocolo de FCmax: casi seguro hay mas. Hasta el Test C, Z6 sale degenerada (190-190) y se prescribe por ritmo, como dice su propia regla.",
-      "El LTHR=186 del bloque anterior estaba a 3 lpm del valor real (183). El error de 25 s/km no estuvo en el ancla de FC: estuvo en la regresion FC<->ritmo, que mapeaba 186 lpm a 3:13/km. Y la regresion estaba mal porque su punto de validacion era la FC OPTICA de la carrera del 20-sep (174 lpm a 3:33/km), que es falsa: en esa grafica la FC cae de 186 a 168 mientras el ritmo sube los ultimos 8 min. Un punto con mucho ritmo y poca FC le acuesta la pendiente a la recta y toda la tabla de ritmos sale rapida. Descartado en zonas.py (FC_DESCARTADA)."
+      "El LTHR=186 del bloque anterior estaba a 3 lpm del valor real (183). El error de 25 s/km no estuvo en el ancla de FC: estuvo en la regresion FC<->ritmo, que mapeaba 186 lpm a 3:13/km. Y la regresion estaba mal porque su punto de validacion era la FC OPTICA de la carrera del 20-sep (174 lpm a 3:33/km), que es falsa: en esa grafica la FC cae de 186 a 168 mientras el ritmo sube los ultimos 8 min. Un punto con mucho ritmo y poca FC le acuesta la pendiente a la recta y toda la tabla de ritmos sale rapida. Descartado en zonas.py (FC_DESCARTADA).",
+      "PARON DE 21 DIAS (28-oct -> 17-nov-2026, vacaciones). Las anclas NO se tocan y la fecha sigue siendo el 1-oct: el umbral como %FCmax es estable y 183 lpm sigue siendo el mejor dato medido. Lo que el paron invalida es el RITMO derivado, no la FC. Tres semanas sin correr cuestan ~6-7% de VO2max, 5-12% de volumen plasmatico en la primera semana y 12-25% de enzimas mitocondriales, asi que a 183 lpm el ritmo real estara cerca de 4:00/km y no en 3:47. Consecuencia practica: todo lo que este bloque prescribe en Z1-Z5 va por FC y los ritmos de la tabla se leen como referencia alta hasta el Test A del 10-dic-2026, que es el primero que mide al atleta y no al paron (23 dias de carrera seguida por delante)."
     ],
     "ritmo_lt2_s": 227.0
   },
@@ -32,7 +33,8 @@
     "n": 25,
     "ajustada": "2026-10-18",
     "validacion": "Anclada en el punto del Test A: pasa por 3:47.0/km @ 183 lpm por construccion. Control en el extremo aerobico, que no esta anclado: 18 km a 4:43/km predice 150 lpm y la FC real fue 149; 15 km a 4:40/km predice 152 y fue 150. Error de 1-2 lpm en los dos extremos. La validacion anterior (carrera del 20-sep, error 1 lpm) estaba hecha contra FC de muneca corrupta: no valia.",
-    "limite": "Valida de ~FC 130 a ~FC 183 (el punto medido). Por encima de 183 la FC se aplana contra FCmax y el ritmo sigue subiendo: Z6 y N se prescriben por RITMO/TIEMPO, nunca por FC. Por debajo de 130 se abre hasta 15 lpm, pero ahi la regla es 'si dudas, mas suave' y no importa."
+    "limite": "Valida de ~FC 130 a ~FC 183 (el punto medido). Por encima de 183 la FC se aplana contra FCmax y el ritmo sigue subiendo: Z6 y N se prescriben por RITMO/TIEMPO, nunca por FC. Por debajo de 130 se abre hasta 15 lpm, pero ahi la regla es 'si dudas, mas suave' y no importa.",
+    "no_reajustar_con": "Datos del 19-27 oct-2026 y cualquier sesion de una re-entrada: son FC inflada para el ritmo (volumen plasmatico bajo) y acuestan la pendiente justo donde se prescribe el umbral, que es el mismo mecanismo de error que costo el bloque anterior. La regresion se re-ajusta despues del Test A del 10-dic-2026, con 3+ semanas de carrera seguida dentro del dato."
   },
   "zonas": [
     {
@@ -297,6 +299,13 @@
       "lt2": 183,
       "fcmax": 194,
       "nota": "Test A: 7805 m en 30 min. Ultimos 20 min: 5291 m a 3:47/km con FC media 183.2 (max 193). Primeros 10 min a 3:59/km con FC 170 — negativo limpio, no salio pasado."
+    },
+    {
+      "fecha": "2026-11-17",
+      "tipo": "paron de 21 dias",
+      "lt1": null,
+      "lt2": null,
+      "nota": "Ultima carrera el 27-oct (10.5 km de sub-umbral a 5:09/km, FC 158). Nada del 28-oct al 17-nov. Carrera objetivo movida de Reforma 24-ene-2027 a un 5K el 21-mar-2027 y bloque replanificado a 18 semanas. No se re-ajusta la regresion ni se mueven las anclas: el retest es el Test A del 10-dic."
     }
   ],
   "garmin": {
